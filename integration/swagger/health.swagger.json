@@ -1,0 +1,708 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "health.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/health/backoffice-balance": {
+      "get": {
+        "operationId": "Health_GetBackofficeBalance",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/health_checkerGetBackofficeBalanceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Health"
+        ]
+      }
+    },
+    "/api/v1/health/oms-balance": {
+      "get": {
+        "operationId": "Health_GetOmsBalance",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/health_checkerGetOmsBalanceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Health"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "GetOmsBalanceResponseData": {
+      "type": "object",
+      "properties": {
+        "balance": {
+          "$ref": "#/definitions/health_checkerBalance"
+        },
+        "positions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/health_checkerPosition"
+          }
+        },
+        "equity": {
+          "$ref": "#/definitions/health_checkerEquity"
+        },
+        "totals": {
+          "$ref": "#/definitions/health_checkerTotal"
+        },
+        "totalBySecurityType": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/health_checkerTotalBySecurityType"
+          }
+        }
+      }
+    },
+    "health_checkerBackofficeBalanceResponse": {
+      "type": "object",
+      "properties": {
+        "accountCode": {
+          "type": "string"
+        },
+        "accruedCharge": {
+          "type": "number",
+          "format": "double"
+        },
+        "assetValue": {
+          "type": "number",
+          "format": "double"
+        },
+        "buyingPower": {
+          "type": "number",
+          "format": "double"
+        },
+        "cashBalance": {
+          "type": "number",
+          "format": "double"
+        },
+        "costValue": {
+          "type": "number",
+          "format": "double"
+        },
+        "currentBalance": {
+          "type": "number",
+          "format": "double"
+        },
+        "deptEquityRatio": {
+          "type": "number",
+          "format": "double"
+        },
+        "equity": {
+          "type": "number",
+          "format": "double"
+        },
+        "equityDebtRatio": {
+          "type": "number",
+          "format": "double"
+        },
+        "immatureBalance": {
+          "type": "number",
+          "format": "double"
+        },
+        "loanRatio": {
+          "type": "number",
+          "format": "double"
+        },
+        "marginEquity": {
+          "type": "number",
+          "format": "double"
+        },
+        "marketValue": {
+          "type": "number",
+          "format": "double"
+        },
+        "totalDeposit": {
+          "type": "number",
+          "format": "double"
+        },
+        "totalWithdrawal": {
+          "type": "number",
+          "format": "double"
+        },
+        "unclearCheque": {
+          "type": "number",
+          "format": "double"
+        },
+        "deposit": {
+          "type": "number",
+          "format": "double",
+          "title": "Added missing fields"
+        },
+        "dividendIncome": {
+          "type": "number",
+          "format": "double"
+        },
+        "dividendReceivable": {
+          "type": "number",
+          "format": "double"
+        },
+        "fundTransIn": {
+          "type": "number",
+          "format": "double"
+        },
+        "fundTransOut": {
+          "type": "number",
+          "format": "double"
+        },
+        "fundWithdrawalRequest": {
+          "type": "number",
+          "format": "double"
+        },
+        "instrumentTransIn": {
+          "type": "number",
+          "format": "double"
+        },
+        "instrumentTransOut": {
+          "type": "number",
+          "format": "double"
+        },
+        "ipoApplication": {
+          "type": "number",
+          "format": "double"
+        },
+        "maxLoan": {
+          "type": "number",
+          "format": "double"
+        },
+        "netDepositWithdraw": {
+          "type": "number",
+          "format": "double"
+        },
+        "netGainLoss": {
+          "type": "number",
+          "format": "double"
+        },
+        "preIpoApplication": {
+          "type": "number",
+          "format": "double"
+        },
+        "preferenceApplication": {
+          "type": "number",
+          "format": "double"
+        },
+        "realiseGainLoss": {
+          "type": "number",
+          "format": "double"
+        },
+        "rightApplication": {
+          "type": "number",
+          "format": "double"
+        },
+        "rightOrder": {
+          "type": "number",
+          "format": "double"
+        },
+        "unrealiseGainLoss": {
+          "type": "number",
+          "format": "double"
+        },
+        "withdrawal": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "health_checkerBalance": {
+      "type": "object",
+      "properties": {
+        "currencySymbol": {
+          "type": "string"
+        },
+        "precision": {
+          "type": "string"
+        },
+        "cashBalance": {
+          "type": "string"
+        },
+        "cashBalanceInLocalCurrency": {
+          "type": "string"
+        },
+        "availableForTrading": {
+          "type": "string"
+        },
+        "availableForTradingLocalCurrency": {
+          "type": "string"
+        },
+        "availableForWithdrawal": {
+          "type": "string"
+        },
+        "availableForWithdrawalLocalCurrency": {
+          "type": "string"
+        },
+        "localCurrencySymbol": {
+          "type": "string"
+        },
+        "reserved": {
+          "type": "string"
+        },
+        "reservedLocalCurrency": {
+          "type": "string"
+        },
+        "currencyDesc": {
+          "type": "string"
+        },
+        "suspendedCurrency": {
+          "type": "string"
+        },
+        "currencyId": {
+          "type": "string"
+        },
+        "portfolioValue": {
+          "type": "string"
+        },
+        "allowMargin": {
+          "type": "string"
+        },
+        "isMinorCurrency": {
+          "type": "string"
+        },
+        "minorToNormalRatio": {
+          "type": "string"
+        },
+        "overdraft": {
+          "type": "string"
+        },
+        "marginExposure": {
+          "type": "string"
+        }
+      }
+    },
+    "health_checkerEquity": {
+      "type": "object",
+      "properties": {
+        "equityValue": {
+          "type": "string"
+        },
+        "marginRatio": {
+          "type": "string"
+        },
+        "currencySymbol": {
+          "type": "string"
+        },
+        "currencyDecimals": {
+          "type": "string"
+        }
+      }
+    },
+    "health_checkerGetBackofficeBalanceResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/health_checkerBackofficeBalanceResponse"
+        },
+        "statusCode": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "health_checkerGetOmsBalanceResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/GetOmsBalanceResponseData"
+        },
+        "statusCode": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "health_checkerPosition": {
+      "type": "object",
+      "properties": {
+        "symbol": {
+          "type": "string"
+        },
+        "marketSymbol": {
+          "type": "string"
+        },
+        "currencySymbol": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "string"
+        },
+        "lastPrice": {
+          "type": "string"
+        },
+        "lastDelta": {
+          "type": "string"
+        },
+        "deltaPercent": {
+          "type": "string"
+        },
+        "totalMarketValue": {
+          "type": "string"
+        },
+        "averageCost": {
+          "type": "string"
+        },
+        "securityType": {
+          "type": "string"
+        },
+        "custodianId": {
+          "type": "string"
+        },
+        "subUserId": {
+          "type": "string"
+        },
+        "priceDecimal": {
+          "type": "string"
+        },
+        "marketId": {
+          "type": "string"
+        },
+        "contractSize": {
+          "type": "string"
+        },
+        "tickerId": {
+          "type": "string"
+        },
+        "reserved": {
+          "type": "string"
+        },
+        "available": {
+          "type": "string"
+        },
+        "custodianName": {
+          "type": "string"
+        },
+        "bep": {
+          "type": "string"
+        },
+        "idcSymbol": {
+          "type": "string"
+        },
+        "feedMarketSymbol": {
+          "type": "string"
+        },
+        "feedSource": {
+          "type": "string"
+        },
+        "isin": {
+          "type": "string"
+        },
+        "symbolId": {
+          "type": "string"
+        },
+        "bloombergSymbol": {
+          "type": "string"
+        },
+        "descriptionEn": {
+          "type": "string"
+        },
+        "descriptionAr": {
+          "type": "string"
+        },
+        "lastBid": {
+          "type": "string"
+        },
+        "lastAsk": {
+          "type": "string"
+        },
+        "lastVolume": {
+          "type": "string"
+        },
+        "marginPaid": {
+          "type": "string"
+        },
+        "totalCost": {
+          "type": "string"
+        },
+        "unrealizedPl": {
+          "type": "string"
+        },
+        "unrealizedPlPercent": {
+          "type": "string"
+        },
+        "avgCostRealizedPlAdjusted": {
+          "type": "string"
+        },
+        "initialMargin": {
+          "type": "string"
+        },
+        "securityTypeId": {
+          "type": "string"
+        },
+        "bondMaturityDate": {
+          "type": "string"
+        },
+        "bondFaceValue": {
+          "type": "string"
+        },
+        "bondDistributionPercent": {
+          "type": "string"
+        },
+        "bondYieldPercent": {
+          "type": "string"
+        },
+        "bondDistributionsPerYear": {
+          "type": "string"
+        },
+        "quantityDecimal": {
+          "type": "string"
+        },
+        "currencyDecimals": {
+          "type": "string"
+        },
+        "pendingQuantity": {
+          "type": "string"
+        },
+        "futuresOptionsExpiryDate": {
+          "type": "string"
+        },
+        "underlyingTickerId": {
+          "type": "string"
+        },
+        "underlyingSymbol": {
+          "type": "string"
+        },
+        "optionType": {
+          "type": "string"
+        },
+        "optionStrikePrice": {
+          "type": "string"
+        },
+        "cryptoSymbolBought": {
+          "type": "string"
+        },
+        "cryptoSymbolSold": {
+          "type": "string"
+        },
+        "dayGainLocal": {
+          "type": "string"
+        },
+        "costLocal": {
+          "type": "string"
+        },
+        "marketValueLocal": {
+          "type": "string"
+        },
+        "realizedGainLocal": {
+          "type": "string"
+        },
+        "accruedInterest": {
+          "type": "string"
+        },
+        "bondRatingStandardAndPoors": {
+          "type": "string"
+        },
+        "accumulatedCoupon": {
+          "type": "string"
+        },
+        "averageCostComm": {
+          "type": "string"
+        },
+        "actualCost": {
+          "type": "string"
+        },
+        "plPercentage": {
+          "type": "string"
+        },
+        "bidYtm": {
+          "type": "string"
+        },
+        "unrealizedGlComm": {
+          "type": "string"
+        },
+        "realizedPl": {
+          "type": "string"
+        },
+        "pendingQuantityBuy": {
+          "type": "string"
+        },
+        "pendingQuantitySell": {
+          "type": "string"
+        },
+        "actualCostLocal": {
+          "type": "string"
+        },
+        "unrealizedPlLocal": {
+          "type": "string"
+        },
+        "symbolAlias": {
+          "type": "string"
+        },
+        "symbolAlias2": {
+          "type": "string"
+        },
+        "dayGain": {
+          "type": "string"
+        },
+        "subUserNameEn": {
+          "type": "string"
+        },
+        "lastPrevPrice": {
+          "type": "string"
+        },
+        "priceCurrencySymbol": {
+          "type": "string"
+        },
+        "unrealizedPlNoPlAdded": {
+          "type": "string"
+        },
+        "unrealizedPlUsd": {
+          "type": "string"
+        },
+        "marketValueUsd": {
+          "type": "string"
+        },
+        "takeProfitAmount": {
+          "type": "string"
+        },
+        "takeProfitStr": {
+          "type": "string"
+        },
+        "takeProfitQty": {
+          "type": "string"
+        },
+        "stopLossAmount": {
+          "type": "string"
+        },
+        "stopLossStr": {
+          "type": "string"
+        },
+        "stopLossQty": {
+          "type": "string"
+        },
+        "hasTrigger": {
+          "type": "string"
+        }
+      }
+    },
+    "health_checkerTotal": {
+      "type": "object",
+      "properties": {
+        "totalCost": {
+          "type": "string"
+        },
+        "totalMarketValue": {
+          "type": "string"
+        },
+        "totalGainLoss": {
+          "type": "string"
+        },
+        "currencySymbol": {
+          "type": "string"
+        },
+        "currencyDecimals": {
+          "type": "string"
+        }
+      }
+    },
+    "health_checkerTotalBySecurityType": {
+      "type": "object",
+      "properties": {
+        "securityType": {
+          "type": "string"
+        },
+        "totalMarketValueLocalCurrency": {
+          "type": "string"
+        },
+        "currencyDecimalLocal": {
+          "type": "string"
+        },
+        "totalMarketValueUsd": {
+          "type": "string"
+        },
+        "unrealizedPlLocal": {
+          "type": "string"
+        },
+        "unrealizedPlUsd": {
+          "type": "string"
+        },
+        "currencyDecimalUsd": {
+          "type": "string"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

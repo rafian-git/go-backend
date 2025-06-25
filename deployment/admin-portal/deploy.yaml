@@ -1,0 +1,47 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-portal
+  namespace: admin-portal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: admin-portal
+  template:
+    metadata:
+      labels:
+        app: admin-portal
+    spec:
+      volumes:
+        - name: gcp
+          secret:
+            secretName: bucket-service-account
+      containers:
+        - name: envoy
+          image: gcr.io/stock-x-342909/envoy:admin-portal-$IMAGE_TAG
+          env:
+            - name: DEV_MODE
+              value: "false"
+
+          ports:
+            - containerPort: 8080
+
+        - name: admin-portal
+          image: gcr.io/stock-x-342909/admin-portal:$IMAGE_TAG
+          volumeMounts:
+            - name: gcp
+              mountPath: /etc/gcp
+          env:
+            - name: DEV_MODE
+              value: "false"
+            - name: "ADMIN_PORTAL_CONSUL_URL"
+              value: "consul-server.consul:8500"
+            - name: "ADMIN_PORTAL_CONSUL_PATH"
+              value: "admin_portal"
+            - name: "GOOGLE_APPLICATION_CREDENTIALS"
+              value: "/etc/gcp/stockx-service-account.json"
+
+          ports:
+            - containerPort: 15072

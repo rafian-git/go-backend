@@ -1,0 +1,695 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "oms-auth.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/oms-auth/create-user": {
+      "post": {
+        "summary": "rpc ValidateOtpAddIdentifier (ValidateOtpAddIdentifierRequest) returns (ValidateOtpAddIdentifierResponse) {\n   option (google.api.http) = {\n     post: \"/api/v1/auth/validate/add-identifier\"\n     body: \"*\"\n   };\n };",
+        "operationId": "OmsAuth_CreateUserCredential",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_authCreateUserCredentialResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_authCreateUserCredentialRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsAuth"
+        ]
+      }
+    },
+    "/api/v1/oms-auth/health-check": {
+      "post": {
+        "summary": "Health check method",
+        "operationId": "OmsAuth_HealthCheck",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_authHealthCheckResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {}
+            }
+          }
+        ],
+        "tags": [
+          "OmsAuth"
+        ]
+      }
+    },
+    "/api/v1/oms-auth/login": {
+      "post": {
+        "operationId": "OmsAuth_Login",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_authLoginResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_authLoginRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsAuth"
+        ]
+      }
+    },
+    "/api/v1/oms-auth/login/otp": {
+      "post": {
+        "operationId": "OmsAuth_ValidateOtpAndGenerateToken",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_authValidateOtpAndGenerateTokenResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_authValidateOtpAndGenerateTokenRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsAuth"
+        ]
+      }
+    },
+    "/api/v1/oms-auth/otp": {
+      "post": {
+        "operationId": "OmsAuth_SendOtp",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_authSendOtpResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_authSendOtpRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsAuth"
+        ]
+      }
+    },
+    "/api/v1/oms-auth/renew-access-token": {
+      "post": {
+        "operationId": "OmsAuth_RenewAccessToken",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_authRenewAccessTokenResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_authRenewAccessTokenRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsAuth"
+        ]
+      }
+    },
+    "/api/v1/oms-auth/update-user": {
+      "post": {
+        "operationId": "OmsAuth_UpdateUserCredential",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_authUpdateUserCredentialResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_authUpdateUserCredentialRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsAuth"
+        ]
+      }
+    },
+    "/api/v1/oms-auth/user": {
+      "post": {
+        "operationId": "OmsAuth_GetUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_authGetUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_authGetUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsAuth"
+        ]
+      }
+    },
+    "/api/v1/oms-auth/user/change-password": {
+      "post": {
+        "operationId": "OmsAuth_ChangePassword",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_authChangePasswordResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_authChangePasswordRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsAuth"
+        ]
+      }
+    },
+    "/api/v1/oms-auth/validate-access-token": {
+      "post": {
+        "operationId": "OmsAuth_ValidateAccessToken",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_authValidateAccessTokenResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_authValidateAccessTokenRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsAuth"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "SendOtpRequestRequestType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "SignUp",
+        "SignIn",
+        "ForgetPassword",
+        "BankAccount",
+        "AddIdentifier",
+        "ChangePassword"
+      ],
+      "default": "UNKNOWN"
+    },
+    "oms_authChangePasswordRequest": {
+      "type": "object",
+      "properties": {
+        "oldPassword": {
+          "type": "string"
+        },
+        "newPassword": {
+          "type": "string"
+        },
+        "access": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_authChangePasswordResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "oms_authCreateUserCredentialRequest": {
+      "type": "object",
+      "properties": {
+        "userMgntId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_authCreateUserCredentialResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_authGetUserRequest": {
+      "type": "object",
+      "properties": {
+        "access": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_authGetUserResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/oms_authGetUserResponseData"
+        }
+      }
+    },
+    "oms_authGetUserResponseData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_authHealthCheckResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "Response for health check"
+    },
+    "oms_authIdentifierType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "phone",
+        "email"
+      ],
+      "default": "UNKNOWN",
+      "title": "Login API"
+    },
+    "oms_authLoginRequest": {
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "identifierType": {
+          "$ref": "#/definitions/oms_authIdentifierType"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_authLoginResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/oms_authLoginResponseData"
+        }
+      }
+    },
+    "oms_authLoginResponseData": {
+      "type": "object",
+      "properties": {
+        "session": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_authRenewAccessTokenRequest": {
+      "type": "object",
+      "properties": {
+        "refresh": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_authRenewAccessTokenResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/oms_authRenewAccessTokenResponseData"
+        }
+      }
+    },
+    "oms_authRenewAccessTokenResponseData": {
+      "type": "object",
+      "properties": {
+        "access": {
+          "type": "string"
+        },
+        "accessExpiredAt": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_authSendOtpRequest": {
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "identifierType": {
+          "$ref": "#/definitions/oms_authIdentifierType"
+        },
+        "password": {
+          "type": "string"
+        },
+        "requestType": {
+          "$ref": "#/definitions/SendOtpRequestRequestType"
+        }
+      }
+    },
+    "oms_authSendOtpResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/oms_authSendOtpResponseData"
+        }
+      }
+    },
+    "oms_authSendOtpResponseData": {
+      "type": "object",
+      "properties": {
+        "session": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_authUpdateUserCredentialRequest": {
+      "type": "object",
+      "properties": {
+        "userMgntId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_authUpdateUserCredentialResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_authValidateAccessTokenRequest": {
+      "type": "object",
+      "properties": {
+        "access": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_authValidateAccessTokenResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "oms_authValidateOtpAndGenerateTokenRequest": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "session": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_authValidateOtpAndGenerateTokenResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/oms_authValidateOtpAndGenerateTokenResponseData"
+        }
+      }
+    },
+    "oms_authValidateOtpAndGenerateTokenResponseData": {
+      "type": "object",
+      "properties": {
+        "refresh": {
+          "type": "string"
+        },
+        "access": {
+          "type": "string"
+        },
+        "accessExpiredAt": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kong
+  namespace: kong
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kong
+  template:
+    metadata:
+      labels:
+        app: kong
+    spec:
+      securityContext:
+        fsGroup: 0
+      volumes:
+        - name: sub-ssl-cert
+          secret:
+            secretName: sub-ssl-cert
+      containers:
+        - name: kong
+          securityContext:
+            capabilities:
+              add: [ "SYS_ADMIN" ]
+            runAsUser: 0
+            runAsGroup: 0
+          image: gcr.io/stock-x-342909/kong:$IMAGE_TAG
+          volumeMounts:
+            - name: sub-ssl-cert
+              mountPath: "/etc/cert"
+              readOnly: true
+          #          resources:
+          #            requests:
+          #              memory: "64Mi"
+          #              cpu: "50m"
+          #            limits:
+          #              memory: "128Mi"
+          #              cpu: "500m"
+          env:
+            - name: KONG_DATABASE
+              value: "off"
+            - name: KONG_NGINX_DAEMON
+              value: "off"
+
+            - name: KONG_DECLARATIVE_CONFIG
+              value: "/tmp/config.yml"
+            - name: KONG_PLUGINS
+              value: "bundled,auth,sms-pusher,ssl-redirect,auth-validation,bazar,portfolio,prometheus,flex-verify,inject-trace-id"
+            - name: KONG_PROXY_LISTEN
+              value: "0.0.0.0:8000, 0.0.0.0:8443 ssl"
+            - name: KONG_PLUGINSERVER_NAMES
+              value: "bundled,auth,sms-pusher,ssl-redirect,auth-validation,bazar,portfolio,flex-verify,inject-trace-id"
+            - name: "KONG_PLUGINSERVER_AUTH_QUERY_CMD"
+              value: "/usr/local/bin/auth -dump"
+            - name: "KONG_PLUGINSERVER_AUTH_VALIDATION_QUERY_CMD"
+              value: "/usr/local/bin/auth-validation -dump"
+            - name: "KONG_PLUGINSERVER_SSL_REDIRECT_QUERY_CMD"
+              value: "/usr/local/bin/ssl-redirect -dump"
+            - name: "KONG_PLUGINSERVER_SMS_PUSHER_QUERY_CMD"
+              value: "/usr/local/bin/sms-pusher -dump"
+            - name: "KONG_PLUGINSERVER_BAZAR_QUERY_CMD"
+              value: "/usr/local/bin/bazar -dump"
+            - name: "KONG_PLUGINSERVER_PORTFOLIO_QUERY_CMD"
+              value: "/usr/local/bin/portfolio -dump"
+            - name: "KONG_PLUGINSERVER_FLEX_VERIFY_QUERY_CMD"
+              value: "/usr/local/bin/flex-verify -dump"
+            - name: "KONG_PLUGINSERVER_INJECT_TRACE_ID_QUERY_CMD"
+              value: "/usr/local/bin/inject-trace-id -dump"
+            - name: "AUTH_TARGET"
+              value: "auth.auth:15071"
+            - name: KONG_SSL
+              value: "on"
+            - name: KONG_SSL_CERT
+              value: "/etc/cert/tls.crt"
+            - name: KONG_SSL_CERT_KEY
+              value: "/etc/cert/tls.key"
+            - name: KONG_NGINX_SERVER_NAME
+              value: "api.dev.techetronventures.com"
+            - name: KONG_NGINX_PROXY_SSL_PROTOCOLS
+              value: "TLSv1 TLSv1.1 TLSv1.2 TLSv1.3"
+            - name: KONG_LOG_LEVEL
+              value: "info"
+
+
+          ports:
+            - containerPort: 15071

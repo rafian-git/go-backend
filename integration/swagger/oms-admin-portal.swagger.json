@@ -1,0 +1,730 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "oms-admin-portal.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/oms-admin-portal/create-price-limit": {
+      "post": {
+        "operationId": "OmsAdminPortal_CreatePriceLimit",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_admin_portalCreatePriceLimitResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_admin_portalCreatePriceLimitRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsAdminPortal"
+        ]
+      }
+    },
+    "/api/v1/oms-admin-portal/create-slab": {
+      "post": {
+        "operationId": "OmsAdminPortal_CreateSlab",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_admin_portalCreateSlabResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_admin_portalCreateSlabRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsAdminPortal"
+        ]
+      }
+    },
+    "/api/v1/oms-admin-portal/delete-price-limit": {
+      "delete": {
+        "operationId": "OmsAdminPortal_DeletePriceLimits",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_admin_portalDeletePriceLimitsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsAdminPortal"
+        ]
+      }
+    },
+    "/api/v1/oms-admin-portal/delete-slab": {
+      "delete": {
+        "operationId": "OmsAdminPortal_DeleteSlabs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_admin_portalDeleteSlabsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsAdminPortal"
+        ]
+      }
+    },
+    "/api/v1/oms-admin-portal/get-price-limit": {
+      "get": {
+        "operationId": "OmsAdminPortal_GetPriceLimit",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_admin_portalGetPriceLimitResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "timeUnix",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "paginationRequest.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationRequest.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "OmsAdminPortal"
+        ]
+      }
+    },
+    "/api/v1/oms-admin-portal/get-slabs": {
+      "get": {
+        "operationId": "OmsAdminPortal_GetSlabs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_admin_portalGetSlabsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "paginationRequest.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationRequest.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "OmsAdminPortal"
+        ]
+      }
+    },
+    "/api/v1/oms-admin-portal/health-check": {
+      "post": {
+        "summary": "Health check method",
+        "operationId": "OmsAdminPortal_HealthCheck",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_admin_portalHealthCheckResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {}
+            }
+          }
+        ],
+        "tags": [
+          "OmsAdminPortal"
+        ]
+      }
+    },
+    "/api/v1/oms-admin-portal/update-price-limit": {
+      "put": {
+        "operationId": "OmsAdminPortal_UpdatePriceLimit",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_admin_portalUpdatePriceLimitResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_admin_portalUpdatePriceLimitRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsAdminPortal"
+        ]
+      }
+    },
+    "/api/v1/oms-admin-portal/update-slab": {
+      "put": {
+        "operationId": "OmsAdminPortal_UpdateSlab",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_admin_portalUpdateSlabResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_admin_portalUpdateSlabRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsAdminPortal"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "GetPriceLimitResponsePriceLimit": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "secCode": {
+          "type": "string"
+        },
+        "orderBook": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "group": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "GetSlabsResponseSlab": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "reference": {
+          "type": "string"
+        },
+        "priceStart": {
+          "type": "number",
+          "format": "double"
+        },
+        "priceUpTo": {
+          "type": "number",
+          "format": "double"
+        },
+        "upward": {
+          "type": "number",
+          "format": "double"
+        },
+        "downward": {
+          "type": "number",
+          "format": "double"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_admin_portalCreatePriceLimitRequest": {
+      "type": "object",
+      "properties": {
+        "secCode": {
+          "type": "string"
+        },
+        "orderBook": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "group": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_admin_portalCreatePriceLimitResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_admin_portalCreateSlabRequest": {
+      "type": "object",
+      "properties": {
+        "reference": {
+          "type": "string"
+        },
+        "priceStart": {
+          "type": "number",
+          "format": "double"
+        },
+        "priceUpTo": {
+          "type": "number",
+          "format": "double"
+        },
+        "upward": {
+          "type": "number",
+          "format": "double"
+        },
+        "downward": {
+          "type": "number",
+          "format": "double"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_admin_portalCreateSlabResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_admin_portalDeletePriceLimitsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_admin_portalDeleteSlabsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_admin_portalGetPriceLimitResponse": {
+      "type": "object",
+      "properties": {
+        "priceLimit": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetPriceLimitResponsePriceLimit"
+          }
+        },
+        "paginationResponse": {
+          "$ref": "#/definitions/oms_admin_portalPaginationInfoResponse"
+        }
+      }
+    },
+    "oms_admin_portalGetSlabsResponse": {
+      "type": "object",
+      "properties": {
+        "slabs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetSlabsResponseSlab"
+          }
+        },
+        "paginationResponse": {
+          "$ref": "#/definitions/oms_admin_portalPaginationInfoResponse"
+        }
+      }
+    },
+    "oms_admin_portalHealthCheckResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "Response for health check"
+    },
+    "oms_admin_portalPaginationInfoRequest": {
+      "type": "object",
+      "properties": {
+        "pageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "oms_admin_portalPaginationInfoResponse": {
+      "type": "object",
+      "properties": {
+        "selfPageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "firstPageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nextPageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "previousPageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalPageCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalRecordCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "oms_admin_portalUpdatePriceLimitRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "secCode": {
+          "type": "string"
+        },
+        "orderBook": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "group": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_admin_portalUpdatePriceLimitResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_admin_portalUpdateSlabRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "reference": {
+          "type": "string"
+        },
+        "priceStart": {
+          "type": "number",
+          "format": "double"
+        },
+        "priceUpTo": {
+          "type": "number",
+          "format": "double"
+        },
+        "upward": {
+          "type": "number",
+          "format": "double"
+        },
+        "downward": {
+          "type": "number",
+          "format": "double"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_admin_portalUpdateSlabResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

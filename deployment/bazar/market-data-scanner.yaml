@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: market-data-scanner
+  namespace: bazar
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: market-data-scanner
+  template:
+    metadata:
+      labels:
+        app: market-data-scanner
+    spec:
+      volumes:
+        - name: service-account
+          secret:
+            secretName: bucket-service-account
+      containers:
+        - name: market-data-scanner
+          image: gcr.io/stock-x-342909/bazar:$IMAGE_TAG
+          volumeMounts:
+            - mountPath: /etc/stockx
+              name: service-account
+          #          resources:
+          #            requests:
+          #              memory: "64Mi"
+          #              cpu: "50m"
+          #            limits:
+          #              memory: "128Mi"
+          #              cpu: "500m"
+          env:
+            - name: DEV_MODE
+              value: "false"
+            - name: "BAZAR_CONSUL_URL"
+              value: "consul-server.consul:8500"
+            - name: "BAZAR_CONSUL_PATH"
+              value: "bazar"
+            - name: "GOOGLE_APPLICATION_CREDENTIALS"
+              value: "/etc/stockx/stockx-service-account.json"
+
+          ports:
+            - containerPort: 15071
+          args: [ "marketDataScanner" ]

@@ -1,0 +1,1 @@
+kc create secret generic bucket-service-account -n me --from-file=stockx-service-account.json=/Users/pathao/Downloads/stock-x-342909-60f6963a9670.json

@@ -1,0 +1,667 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "oms-portfolio.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/oms/portfolio/health-check": {
+      "get": {
+        "summary": "Health check method",
+        "operationId": "OmsPortfolio_HealthCheck",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_portfolioHealthCheckResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "OmsPortfolio"
+        ]
+      }
+    },
+    "/api/v1/oms/portfolio/investors/summaries": {
+      "get": {
+        "summary": "Investor summary list",
+        "operationId": "OmsPortfolio_ListInvestorSummaries",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_portfolioListInvestorSummariesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "dealerId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "searchKey",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ISK_UNSPECIFIED",
+              "ISK_USER_ID",
+              "ISK_DEALER_ID",
+              "ISK_BOID",
+              "ISK_NAME",
+              "ISK_SHORT_NAME",
+              "ISK_TEL"
+            ],
+            "default": "ISK_UNSPECIFIED"
+          },
+          {
+            "name": "searchValue",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pagination.limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "pagination.offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsPortfolio"
+        ]
+      }
+    },
+    "/api/v1/oms/portfolio/positions": {
+      "get": {
+        "summary": "Positions list",
+        "operationId": "OmsPortfolio_ListPositions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_portfolioListPositionsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "secCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pagination.limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "pagination.offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsPortfolio"
+        ]
+      }
+    },
+    "/api/v1/oms/portfolio/settle-daily-portfolio": {
+      "post": {
+        "operationId": "OmsPortfolio_SettleDailyPortfolio",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_portfolioSettlePortfolioResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_portfolioSettlePortfolioRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsPortfolio"
+        ]
+      }
+    },
+    "/api/v1/oms/portfolio/ticker-info": {
+      "post": {
+        "operationId": "OmsPortfolio_TickerInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_portfolioTickerInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_portfolioTickerInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsPortfolio"
+        ]
+      }
+    },
+    "/api/v1/oms/portfolio/ticker-info/status": {
+      "post": {
+        "operationId": "OmsPortfolio_TickerStatus",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_portfolioTickerStatusResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_portfolioTickerStatusRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsPortfolio"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "oms_portfolioHealthCheckResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "Response for health check"
+    },
+    "oms_portfolioInvestorSearchKey": {
+      "type": "string",
+      "enum": [
+        "ISK_UNSPECIFIED",
+        "ISK_USER_ID",
+        "ISK_DEALER_ID",
+        "ISK_BOID",
+        "ISK_NAME",
+        "ISK_SHORT_NAME",
+        "ISK_TEL"
+      ],
+      "default": "ISK_UNSPECIFIED"
+    },
+    "oms_portfolioInvestorSummary": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "dealerId": {
+          "type": "string"
+        },
+        "boid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "tel": {
+          "type": "string"
+        },
+        "icNo": {
+          "type": "string"
+        },
+        "accountType": {
+          "type": "string"
+        },
+        "buySuspended": {
+          "type": "boolean"
+        },
+        "sellSuspended": {
+          "type": "boolean"
+        },
+        "deactivated": {
+          "type": "boolean"
+        },
+        "deactivateReason": {
+          "type": "string"
+        },
+        "suspendedAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "deactivatedAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "cash": {
+          "type": "number",
+          "format": "double"
+        },
+        "netAllowable": {
+          "type": "number",
+          "format": "double"
+        },
+        "blockCommission": {
+          "type": "number",
+          "format": "double"
+        },
+        "blockAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "execCommission": {
+          "type": "number",
+          "format": "double"
+        },
+        "executedAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "t1": {
+          "type": "number",
+          "format": "double"
+        },
+        "t2": {
+          "type": "number",
+          "format": "double"
+        },
+        "t3": {
+          "type": "number",
+          "format": "double"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_portfolioListInvestorSummariesResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/oms_portfolioListInvestorSummariesResponseData"
+        }
+      }
+    },
+    "oms_portfolioListInvestorSummariesResponseData": {
+      "type": "object",
+      "properties": {
+        "investors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/oms_portfolioInvestorSummary"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/oms_portfolioPaginationResponse"
+        }
+      }
+    },
+    "oms_portfolioListPositionsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/oms_portfolioListPositionsResponseData"
+        }
+      }
+    },
+    "oms_portfolioListPositionsResponseData": {
+      "type": "object",
+      "properties": {
+        "positions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/oms_portfolioPosition"
+          }
+        },
+        "positionValuation": {
+          "$ref": "#/definitions/oms_portfolioPositionValuation"
+        },
+        "pagination": {
+          "$ref": "#/definitions/oms_portfolioPaginationResponse"
+        }
+      }
+    },
+    "oms_portfolioPaginationRequest": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "string",
+          "format": "int64"
+        },
+        "offset": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_portfolioPaginationResponse": {
+      "type": "object",
+      "properties": {
+        "totalCount": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_portfolioPosition": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "secCode": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "number",
+          "format": "double"
+        },
+        "cost": {
+          "type": "number",
+          "format": "double"
+        },
+        "avgPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "netAllowableQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "blockQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "executedQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "t1Qty": {
+          "type": "number",
+          "format": "double"
+        },
+        "t1Cost": {
+          "type": "number",
+          "format": "double"
+        },
+        "t2Qty": {
+          "type": "number",
+          "format": "double"
+        },
+        "t2Cost": {
+          "type": "number",
+          "format": "double"
+        },
+        "t3Qty": {
+          "type": "number",
+          "format": "double"
+        },
+        "t3Cost": {
+          "type": "number",
+          "format": "double"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "cPrice": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "oms_portfolioPositionValuation": {
+      "type": "object",
+      "properties": {
+        "totalCost": {
+          "type": "number",
+          "format": "double"
+        },
+        "totalMarketValue": {
+          "type": "number",
+          "format": "double"
+        },
+        "gainLossAmount": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "oms_portfolioSettlePortfolioRequest": {
+      "type": "object",
+      "properties": {
+        "userIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "secCode": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_portfolioSettlePortfolioResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "oms_portfolioTickerInfoRequest": {
+      "type": "object",
+      "properties": {
+        "orderBook": {
+          "type": "string",
+          "format": "int64"
+        },
+        "secCode": {
+          "type": "string"
+        },
+        "group": {
+          "type": "string"
+        },
+        "marketType": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string",
+          "format": "int64"
+        },
+        "listingType": {
+          "type": "string"
+        },
+        "securityName": {
+          "type": "string"
+        },
+        "maturityDate": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_portfolioTickerInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "oms_portfolioTickerStatusRequest": {
+      "type": "object",
+      "properties": {
+        "orderBook": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tradingState": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_portfolioTickerStatusResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

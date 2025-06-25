@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: guest
+  namespace: guest
+
+  # annotations:
+  #   prometheus.io/scrape: "true"
+  #   prometheus.io/path: "/metrics"
+  labels:
+    name: guest
+spec:
+  type: ClusterIP
+  ports:
+    - name: web
+      port: 80
+      targetPort: 8080
+    - name: tcp
+      port: 15071
+      targetPort: 15071
+  selector:
+    app: guest

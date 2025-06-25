@@ -1,0 +1,49 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth
+  namespace: auth
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: auth
+  template:
+    metadata:
+      labels:
+        app: auth
+    spec:
+      volumes:
+        - name: service-account
+          secret:
+            secretName: bucket-service-account
+      containers:
+        - name: envoy
+          image: gcr.io/stock-x-342909/envoy:auth-$IMAGE_TAG
+          env:
+            - name: DEV_MODE
+              value: "false"
+
+          ports:
+            - containerPort: 8080
+
+        - name: auth
+          image: gcr.io/stock-x-342909/auth:$IMAGE_TAG
+          volumeMounts:
+            - mountPath: /etc/stockx
+              name: service-account
+
+          env:
+            - name: DEV_MODE
+              value: "false"
+            - name: "AUTH_CONSUL_URL"
+              value: "consul-server.consul:8500"
+            - name: "AUTH_CONSUL_PATH"
+              value: "auth"
+            - name: "GOOGLE_APPLICATION_CREDENTIALS"
+              value: "/etc/stockx/stockx-service-account.json"
+
+          ports:
+            - containerPort: 15071
+          args: [ "serve" ]

@@ -1,0 +1,42 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-listener
+  namespace: bank
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payment-listener
+  template:
+    metadata:
+      labels:
+        app: payment-listener
+    spec:
+      volumes:
+        - name: service-account
+          secret:
+            secretName: bucket-service-account
+
+      containers:
+        - name: payment-listener
+          image: gcr.io/stock-x-342909/bank:$IMAGE_TAG
+          volumeMounts:
+            - mountPath: /etc/stockx
+              name: service-account
+
+          env:
+            - name: DEV_MODE
+              value: "false"
+            - name: "BANK_CONSUL_URL"
+              value: "consul-server.consul:8500"
+            - name: "BANK_CONSUL_PATH"
+              value: "bank"
+            - name: "GOOGLE_APPLICATION_CREDENTIALS"
+              value: "/etc/stockx/stockx-service-account.json"
+
+          ports:
+            - containerPort: 15072
+          args: [ "payment_listen" ]
+

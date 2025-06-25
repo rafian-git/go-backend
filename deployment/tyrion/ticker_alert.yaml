@@ -1,0 +1,45 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ticker-alert
+  namespace: tyrion
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ticker-alert
+  template:
+    metadata:
+      labels:
+        app: ticker-alert
+    spec:
+      volumes:
+        - name: fcm
+          secret:
+            secretName: fcm-service-account
+        - name: gcp
+          secret:
+            secretName: bucket-service-account
+      containers:
+        - name: ticker-alert
+          image: gcr.io/stock-x-342909/tyrion:$IMAGE_TAG
+          volumeMounts:
+            - name: fcm
+              mountPath: /etc/fcm
+            - name: gcp
+              mountPath: /etc/gcp
+          env:
+            - name: DEV_MODE
+              value: "false"
+            - name: "TYRION_CONSUL_URL"
+              value: "consul-server.consul:8500"
+            - name: "TYRION_CONSUL_PATH"
+              value: "tyrion"
+            - name: "GOOGLE_APPLICATION_CREDENTIALS"
+              value: "/etc/gcp/stockx-service-account.json"
+            - name: "FIREBASE_AUTH_KEY"
+              value: "/etc/fcm/fcm-service-account.json"
+          ports:
+            - containerPort: 15072
+          args: [ "ticker_alert" ]

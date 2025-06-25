@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trek-landing
+  namespace: trek-landing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trek-landing
+  template:
+    metadata:
+      labels:
+        app: trek-landing
+    spec:
+      containers:
+        - name: trek-landing
+          image: gcr.io/stock-x-342909/trek-landing:$IMAGE_TAG
+          env:
+            - name: DEV_MODE
+              value: "false"
+            - name: NODE_OPTIONS
+              value: "--openssl-legacy-provider"
+
+          ports:
+            - containerPort: 3000

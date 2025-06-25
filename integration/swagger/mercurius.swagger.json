@@ -1,0 +1,176 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "mercurius.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/mercurius/health-check": {
+      "post": {
+        "summary": "Health check method",
+        "operationId": "Mercurius_HealthCheck",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/mercuriusHealthCheckResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {}
+            }
+          }
+        ],
+        "tags": [
+          "Mercurius"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "mercuriusHealthCheckResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "Response for health check"
+    },
+    "mercuriusOrderStatusResponse": {
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "order_executorCancelOrderResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "order_executorCreateOrderResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/order_executorCreateOrderResponseData"
+        }
+      }
+    },
+    "order_executorCreateOrderResponseData": {
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "order_executorModifyOrderResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "order_executorOrdType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_ORD_TYPE",
+        "MARKET",
+        "LIMIT",
+        "MARKET_AT_BEST"
+      ],
+      "default": "UNKNOWN_ORD_TYPE"
+    },
+    "order_executorOrderRestrictions": {
+      "type": "string",
+      "enum": [
+        "NULL_ORDER_RESTRICTIONS",
+        "N",
+        "F",
+        "I",
+        "O",
+        "R"
+      ],
+      "default": "NULL_ORDER_RESTRICTIONS"
+    },
+    "order_executorSide": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_SIDE",
+        "BUY",
+        "SELL",
+        "SHORT_SELL"
+      ],
+      "default": "UNKNOWN_SIDE"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

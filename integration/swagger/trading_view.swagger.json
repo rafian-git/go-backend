@@ -1,0 +1,459 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "trading_view.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/bazar/advanced-chart/trading-view/config": {
+      "get": {
+        "operationId": "TradingView_GetTradingViewConfig",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tradingViewGetTradingViewConfigResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "TradingView"
+        ]
+      }
+    },
+    "/api/v1/bazar/advanced-chart/trading-view/history": {
+      "get": {
+        "operationId": "TradingView_GetTradingViewHistory",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tradingViewGetTradingViewHistoryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "resolution",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "countback",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "TradingView"
+        ]
+      }
+    },
+    "/api/v1/bazar/advanced-chart/trading-view/search": {
+      "get": {
+        "operationId": "TradingView_GetTradingViewSearch",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tradingViewGetTradingViewSearchResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "exchange",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "TradingView"
+        ]
+      }
+    },
+    "/api/v1/bazar/advanced-chart/trading-view/symbols": {
+      "get": {
+        "operationId": "TradingView_GetTradingViewSymbols",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tradingViewGetTradingViewSymbolsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "TradingView"
+        ]
+      }
+    },
+    "/api/v1/bazar/advanced-chart/trading-view/time": {
+      "get": {
+        "operationId": "TradingView_GetTradingViewTime",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tradingViewGetTradingViewTimeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "TradingView"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "GetTradingViewConfigResponseExchange": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        }
+      }
+    },
+    "GetTradingViewConfigResponseSymbolType": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "GetTradingViewSearchResponseStockInfo": {
+      "type": "object",
+      "properties": {
+        "symbol": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "exchange": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "logoUrls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "exchangeLogo": {
+          "type": "string"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "tradingViewGetTradingViewConfigResponse": {
+      "type": "object",
+      "properties": {
+        "supportsSearch": {
+          "type": "boolean"
+        },
+        "supportsGroupRequest": {
+          "type": "boolean"
+        },
+        "supportsMarks": {
+          "type": "boolean"
+        },
+        "supportsTimescaleMarks": {
+          "type": "boolean"
+        },
+        "supportsTime": {
+          "type": "boolean"
+        },
+        "exchanges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetTradingViewConfigResponseExchange"
+          }
+        },
+        "symbolsTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetTradingViewConfigResponseSymbolType"
+          }
+        },
+        "supportedResolutions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "tradingViewGetTradingViewHistoryResponse": {
+      "type": "object",
+      "properties": {
+        "t": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "o": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "h": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "l": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "c": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "v": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "s": {
+          "type": "string"
+        }
+      }
+    },
+    "tradingViewGetTradingViewSearchResponse": {
+      "type": "object",
+      "properties": {
+        "stocks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetTradingViewSearchResponseStockInfo"
+          }
+        }
+      }
+    },
+    "tradingViewGetTradingViewSymbolsResponse": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "exchangeTraded": {
+          "type": "string"
+        },
+        "exchangeListed": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "minmov": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "minmov2": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pointvalue": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "session": {
+          "type": "string"
+        },
+        "hasIntraday": {
+          "type": "boolean"
+        },
+        "visiblePlotsSet": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "supportedResolutions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pricescale": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "logoUrls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "exchangeLogo": {
+          "type": "string"
+        }
+      }
+    },
+    "tradingViewGetTradingViewTimeResponse": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string",
+          "format": "int64",
+          "title": "Define a field as a scalar value"
+        }
+      }
+    }
+  }
+}

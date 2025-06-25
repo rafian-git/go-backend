@@ -1,0 +1,6201 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "bazar.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/bazar/about-company-info": {
+      "post": {
+        "operationId": "Bazar_InsertCompanyAboutInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarInsertCompanyAboutInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/advanced-chart": {
+      "get": {
+        "operationId": "Bazar_GetAdvancedChart",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetAdvancedChartResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tickerId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "resolution",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "CR_UNKNOWN",
+              "CR_1Min",
+              "CR_10Min",
+              "CR_1Hr",
+              "CR_1Day",
+              "CR_1Week",
+              "CR_3Min",
+              "CR_5Min",
+              "CR_20Min",
+              "CR_30Min",
+              "CR_40Min",
+              "CR_2Hr",
+              "CR_3Hr",
+              "CR_4Hr",
+              "CR_2Day",
+              "CR_3Day",
+              "CR_2Week"
+            ],
+            "default": "CR_UNKNOWN"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/advanced-chart/trading-view/config": {
+      "get": {
+        "operationId": "TradingView_GetTradingViewConfig",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetTradingViewConfigResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "TradingView"
+        ]
+      }
+    },
+    "/api/v1/bazar/advanced-chart/trading-view/history": {
+      "get": {
+        "operationId": "TradingView_GetTradingViewHistory",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetTradingViewHistoryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "resolution",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "countback",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "TradingView"
+        ]
+      }
+    },
+    "/api/v1/bazar/advanced-chart/trading-view/history/v2": {
+      "get": {
+        "operationId": "TradingView_GetTradingViewHistoryV2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetTradingViewHistoryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "resolution",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "countback",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "TradingView"
+        ]
+      }
+    },
+    "/api/v1/bazar/advanced-chart/trading-view/search": {
+      "get": {
+        "operationId": "TradingView_GetTradingViewSearch",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetTradingViewSearchResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "exchange",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "TradingView"
+        ]
+      }
+    },
+    "/api/v1/bazar/advanced-chart/trading-view/symbols": {
+      "get": {
+        "operationId": "TradingView_GetTradingViewSymbols",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetTradingViewSymbolsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "TradingView"
+        ]
+      }
+    },
+    "/api/v1/bazar/advanced-chart/trading-view/time": {
+      "get": {
+        "operationId": "TradingView_GetTradingViewTime",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetTradingViewTimeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "TradingView"
+        ]
+      }
+    },
+    "/api/v1/bazar/all-company-news": {
+      "get": {
+        "operationId": "Bazar_GetAllCompanyNews",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetAllCompanyNewsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "take",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "NC_UNKNOWN",
+              "NC_GENERAL",
+              "NC_STOCKBASED",
+              "NC_MARKETBASED",
+              "NC_HighPRIORITY",
+              "NC_ANNOUNCEMENT"
+            ],
+            "default": "NC_UNKNOWN"
+          },
+          {
+            "name": "todaysAnnouncement",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/company-analysis": {
+      "post": {
+        "operationId": "Bazar_InsertCompanyAnalysis",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarInsertCompanyAnalysisResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarInsertCompanyAnalysisRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/company-news": {
+      "get": {
+        "operationId": "Bazar_GetCompanyNewsByCompanyId",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetCompanyNewsByCompanyIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "NC_UNKNOWN",
+              "NC_GENERAL",
+              "NC_STOCKBASED",
+              "NC_MARKETBASED",
+              "NC_HighPRIORITY",
+              "NC_ANNOUNCEMENT"
+            ],
+            "default": "NC_UNKNOWN"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "put": {
+        "operationId": "Bazar_UpdateCompanyNews",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarUpdateCompanyNewsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarUpdateCompanyNewsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/company-rating": {
+      "get": {
+        "operationId": "Bazar_GetCompanyRating",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetCompanyRatingResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "post": {
+        "operationId": "Bazar_InsertCompanyRating",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarInsertCompanyRatingResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarInsertCompanyRatingRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "put": {
+        "operationId": "Bazar_UpsertCompanyRating",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetCompanyRatingResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarUpsertCompanyRatingRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/company-ratings": {
+      "get": {
+        "operationId": "Bazar_GetCompanyRatings",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetCompanyRatingsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/daily-mover": {
+      "delete": {
+        "operationId": "Bazar_DeleteDailyMover",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarDeleteDailyMoverResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "post": {
+        "operationId": "Bazar_InsertDailyMover",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarInsertDailyMoverResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarInsertDailyMoverRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "put": {
+        "operationId": "Bazar_UpdateDailyMover",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarUpdateDailyMoverResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarUpdateDailyMoverRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/favourite-companies": {
+      "post": {
+        "operationId": "Bazar_InsertFavouriteCompanies",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarInsertFavouriteCompaniesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarInsertFavouriteCompaniesRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/favourite-company": {
+      "get": {
+        "operationId": "Bazar_GetFavouriteCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetFavouriteCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "delete": {
+        "operationId": "Bazar_DeleteFavouriteCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarDeleteFavouriteCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "post": {
+        "summary": "favourite company",
+        "operationId": "Bazar_InsertFavouriteCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarInsertFavouriteCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarInsertFavouriteCompanyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "put": {
+        "operationId": "Bazar_UpdateFavouriteCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarUpdateFavouriteCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarUpdateFavouriteCompanyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/generate-chart": {
+      "get": {
+        "operationId": "Bazar_GenerateChart",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGenerateChartResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tickerIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "marketStart",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "afterMarketEnd",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "chartType",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "TR_UNKNOWN",
+              "TR_1D",
+              "TR_1W",
+              "TR_1M",
+              "TR_3M",
+              "TR_1Y",
+              "TR_5Y",
+              "TR_ALL"
+            ],
+            "default": "TR_UNKNOWN"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/health": {
+      "get": {
+        "summary": "health check endpoint",
+        "operationId": "Bazar_Health",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/history": {
+      "get": {
+        "operationId": "Bazar_GetHistoricalData",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetHistoricalDataResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tickerId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "timeRange",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "TR_UNKNOWN",
+              "TR_1D",
+              "TR_1W",
+              "TR_1M",
+              "TR_3M",
+              "TR_1Y",
+              "TR_5Y",
+              "TR_ALL"
+            ],
+            "default": "TR_UNKNOWN"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/list": {
+      "get": {
+        "operationId": "Bazar_GetLists",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetListsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "boAccNo",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "delete": {
+        "operationId": "Bazar_DeleteList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarDeleteListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "post": {
+        "operationId": "Bazar_InsertList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarInsertListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarInsertListRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "put": {
+        "operationId": "Bazar_UpdateList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarUpdateListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarUpdateListRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/list-company": {
+      "get": {
+        "operationId": "Bazar_GetListCompanies",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetListCompaniesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "listId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "isChartRequired",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "delete": {
+        "operationId": "Bazar_DeleteListCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarDeleteListCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "post": {
+        "operationId": "Bazar_InsertListCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarInsertListCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarInsertListCompanyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "put": {
+        "operationId": "Bazar_UpdateListCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarUpdateListCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarUpdateListCompanyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/list-icons": {
+      "get": {
+        "operationId": "Bazar_GetListIcons",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetListIconsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/list/signup": {
+      "post": {
+        "operationId": "Bazar_InsertListAndListCompaniesOnSignup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarInsertListAndListCompaniesOnSignupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarInsertListAndListCompaniesOnSignupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/mdf/index/DSE": {
+      "get": {
+        "operationId": "Bazar_GetDseIndex",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetDseIndexResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/news": {
+      "post": {
+        "operationId": "Bazar_InsertCompanyNews",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarInsertCompanyNewsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarInsertCompanyNewsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/news-company": {
+      "delete": {
+        "operationId": "Bazar_DeleteCompanyNews",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarDeleteCompanyNewsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/oms/market-info": {
+      "get": {
+        "operationId": "Bazar_GetMarketInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetMarketInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "market",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/oms/market-time": {
+      "get": {
+        "operationId": "Bazar_GetMarketTime",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetMarketTimeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "marketId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/people-also-own": {
+      "get": {
+        "operationId": "Bazar_GetPeopleAlsoOwn",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetPeopleAlsoOwnResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/sectors": {
+      "get": {
+        "operationId": "Bazar_GetSectors",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetSectorsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/sectors/invested-companies-sectors": {
+      "get": {
+        "operationId": "Bazar_GetSectorsFromInvestedCompanies",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetSectorsFromInvestedCompaniesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/tag": {
+      "get": {
+        "operationId": "Bazar_GetTags",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetTagsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "delete": {
+        "operationId": "Bazar_DeleteTag",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarDeleteTagResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "post": {
+        "operationId": "Bazar_InsertTag",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarInsertTagResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarInsertTagRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "put": {
+        "operationId": "Bazar_UpdateTagAndTagCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarUpdateTagAndTagCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarUpdateTagAndTagCompanyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/tag-1st-purchase": {
+      "get": {
+        "operationId": "Bazar_GetTags1stPurchase",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetTags1stPurchaseResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "delete": {
+        "operationId": "Bazar_DeleteTag1stPurchase",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarDeleteTag1stPurchaseResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "post": {
+        "operationId": "Bazar_InsertTag1stPurchase",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarInsertTag1stPurchaseResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarInsertTag1stPurchaseRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "put": {
+        "operationId": "Bazar_UpdateTags1stPurchase",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarUpdateTags1stPurchaseResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarUpdateTags1stPurchaseRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/tag-company": {
+      "delete": {
+        "operationId": "Bazar_DeleteTagCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarDeleteTagCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "post": {
+        "operationId": "Bazar_InsertTagAndTagCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarInsertTagAndTagCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarInsertTagAndTagCompanyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "put": {
+        "operationId": "Bazar_UpdateTagUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarUpdateTagUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarUpdateTagUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/tag-user": {
+      "delete": {
+        "operationId": "Bazar_DeleteTagUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarDeleteTagUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tagId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "post": {
+        "operationId": "Bazar_InsertTagUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarInsertTagUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarInsertTagUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/tag/ticker-company": {
+      "get": {
+        "operationId": "Bazar_GetTagsFromCompanyId",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetTagsFromCompanyIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/tag/trending-list": {
+      "get": {
+        "operationId": "Bazar_GetTrendingListTags",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetTrendingListTagsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/tag/user": {
+      "get": {
+        "operationId": "Bazar_GetTagsFromUserId",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetTagsFromUserIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/ticker-companies": {
+      "get": {
+        "operationId": "Bazar_GetTickerCompanies",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetTickerCompaniesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/ticker-companies/ids": {
+      "get": {
+        "operationId": "Bazar_GetTickerCompaniesByIds",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetTickerCompaniesByIdsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "companyIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "isChartRequired",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/ticker-companies/paginate": {
+      "get": {
+        "operationId": "Bazar_GetTickerCompaniesPaginate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetTickerCompaniesPaginateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "take",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/ticker-companies/research": {
+      "get": {
+        "operationId": "Bazar_GetTickerCompaniesResearch",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetTickerCompaniesResearchResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "take",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/ticker-companies/search": {
+      "get": {
+        "operationId": "Bazar_SearchTicker",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarSearchTickerResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "searchQuery",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "take",
+            "description": "string tagName = 2; // not required if tagID is provided - case insensitive\n int64 tagId = 3; // not required if tagName is provided - if both are provided, tagID will be used.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "boAccNo",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "marketSymbol",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/ticker-companies/tag": {
+      "get": {
+        "summary": "Sector ID or Tag ID both will work",
+        "operationId": "Bazar_GetCompaniesFromTagId",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetCompaniesFromTagIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tagId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/ticker-companies/tag/paginate": {
+      "get": {
+        "summary": "Sector ID or Tag ID both will work",
+        "operationId": "Bazar_GetCompaniesFromTagIdWithPagination",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetCompaniesFromTagIdWithPaginationResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tagId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "isChartRequired",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/ticker-company": {
+      "get": {
+        "operationId": "Bazar_GetTickerCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetTickerCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "requestType",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "TC_UNKNOWN",
+              "TC_CompanyInfo",
+              "TC_Stats",
+              "TC_Chart",
+              "TC_News",
+              "TC_Feeds",
+              "TC_Analysis",
+              "TC_Company",
+              "TC_Tags",
+              "TC_MarketDepth",
+              "TC_Watchlist"
+            ],
+            "default": "TC_UNKNOWN"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "boAccNo",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "timeRange",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "TR_UNKNOWN",
+              "TR_1D",
+              "TR_1W",
+              "TR_1M",
+              "TR_3M",
+              "TR_1Y",
+              "TR_5Y",
+              "TR_ALL"
+            ],
+            "default": "TR_UNKNOWN"
+          },
+          {
+            "name": "symbol",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "delete": {
+        "operationId": "Bazar_DeleteTickerCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarDeleteTickerCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "post": {
+        "operationId": "Bazar_InsertTickerCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarInsertTickerCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarInsertTickerCompanyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      },
+      "put": {
+        "operationId": "Bazar_UpdateTickerCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarUpdateTickerCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarUpdateTickerCompanyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/time-table": {
+      "get": {
+        "operationId": "Bazar_GetTimeTable",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetTimeTableResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "timePeriod",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "TP_Unknown",
+              "TP_Daily",
+              "TP_weekly",
+              "TP_Monthly"
+            ],
+            "default": "TP_Unknown"
+          },
+          {
+            "name": "tickerId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/trading-history": {
+      "get": {
+        "operationId": "Bazar_GetTradingHistory",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetTradingHistoryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tickerId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/bazar/upsert-list-company": {
+      "post": {
+        "operationId": "Bazar_UpsertListCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarUpsertListCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bazarUpsertListCompanyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/public/bazar/mdf/all-ticker-status": {
+      "get": {
+        "operationId": "Bazar_GetAllTickerStatus",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetAllTickerStatusResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "Bazar"
+        ]
+      }
+    },
+    "/api/v1/public/bazar/tag/daily-mover": {
+      "get": {
+        "operationId": "Bazar_GetCompaniesFromDailyMoverTag",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bazarGetCompaniesFromDailyMoverTagResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "DS_UNKNOWN",
+              "DS_TOPTRADE",
+              "DS_TOPGAINERS",
+              "DS_TOPLOSERS"
+            ],
+            "default": "DS_UNKNOWN"
+          },
+          {
+            "name": "isChartRequired",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "Bazar"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "GetDayEndPriceResponseTicker": {
+      "type": "object",
+      "properties": {
+        "tickerId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tickerSymbol": {
+          "type": "string"
+        },
+        "currentPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "previousPrice": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "GetPeopleAlsoOwnResponseTickerForPeopleAlsoOwn": {
+      "type": "object",
+      "properties": {
+        "companyId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "cPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "percent": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "GetTickerCompanyResponseInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "cPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "change": {
+          "type": "number",
+          "format": "double"
+        },
+        "percent": {
+          "type": "number",
+          "format": "double"
+        },
+        "logo": {
+          "type": "string"
+        },
+        "logo400px": {
+          "type": "string"
+        },
+        "logo90px": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "marketId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "marketSymbol": {
+          "type": "string"
+        },
+        "underlyerTickerId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "GetTradingViewConfigResponseExchange": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        }
+      }
+    },
+    "GetTradingViewConfigResponseSymbolType": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "GetTradingViewSearchResponseStockInfo": {
+      "type": "object",
+      "properties": {
+        "symbol": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "exchange": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "logoUrls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "exchangeLogo": {
+          "type": "string"
+        }
+      }
+    },
+    "bazarAdvancedChart": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string",
+          "format": "int64"
+        },
+        "open": {
+          "type": "number",
+          "format": "double"
+        },
+        "high": {
+          "type": "number",
+          "format": "double"
+        },
+        "low": {
+          "type": "number",
+          "format": "double"
+        },
+        "close": {
+          "type": "number",
+          "format": "double"
+        },
+        "volume": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarAnalysis": {
+      "type": "object",
+      "properties": {
+        "financial": {
+          "$ref": "#/definitions/bazarFinancial"
+        },
+        "fyWisePerformance": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarFYWisePerformance"
+          }
+        },
+        "quarterlyEarnings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarQuarterlyEarnings"
+          }
+        },
+        "expectedOn": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarChart": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string",
+          "format": "int64"
+        },
+        "close": {
+          "type": "number",
+          "format": "double"
+        },
+        "pClose": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "bazarChartResolution": {
+      "type": "string",
+      "enum": [
+        "CR_UNKNOWN",
+        "CR_1Min",
+        "CR_10Min",
+        "CR_1Hr",
+        "CR_1Day",
+        "CR_1Week",
+        "CR_3Min",
+        "CR_5Min",
+        "CR_20Min",
+        "CR_30Min",
+        "CR_40Min",
+        "CR_2Hr",
+        "CR_3Hr",
+        "CR_4Hr",
+        "CR_2Day",
+        "CR_3Day",
+        "CR_2Week"
+      ],
+      "default": "CR_UNKNOWN"
+    },
+    "bazarCompanyNews": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "source": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "int64"
+        },
+        "headline": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "thumbnail": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "serial": {
+          "type": "string",
+          "format": "int64"
+        },
+        "associatedStocks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarNewsAssociatedStock"
+          }
+        }
+      }
+    },
+    "bazarCompanyRating": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "companyId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "stars": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarDailyMoverDb": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "serial": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarDailyMoverSort": {
+      "type": "string",
+      "enum": [
+        "DS_UNKNOWN",
+        "DS_TOPTRADE",
+        "DS_TOPGAINERS",
+        "DS_TOPLOSERS"
+      ],
+      "default": "DS_UNKNOWN"
+    },
+    "bazarDeleteCompanyNewsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarDeleteDailyMoverResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarDeleteFavouriteCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarDeleteListCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarDeleteListResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarDeleteTag1stPurchaseResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarDeleteTagCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarDeleteTagResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarDeleteTagUserResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarDeleteTickerCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarFYWisePerformance": {
+      "type": "object",
+      "properties": {
+        "cashDividend": {
+          "type": "number",
+          "format": "double"
+        },
+        "stockDividend": {
+          "type": "number",
+          "format": "double"
+        },
+        "eps": {
+          "type": "number",
+          "format": "double"
+        },
+        "dividendYield": {
+          "type": "number",
+          "format": "double"
+        },
+        "profitLoss": {
+          "type": "number",
+          "format": "double"
+        },
+        "year": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarFavouriteCompany": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "companyId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "serial": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarFeed": {
+      "type": "object",
+      "properties": {
+        "publicOpinion": {
+          "$ref": "#/definitions/bazarPublicOpinion"
+        },
+        "marketDepth": {
+          "$ref": "#/definitions/bazarMarketDepth"
+        }
+      }
+    },
+    "bazarFinancial": {
+      "type": "object",
+      "properties": {
+        "currentPEAudited": {
+          "type": "number",
+          "format": "double"
+        },
+        "currentPEUnAudited": {
+          "type": "number",
+          "format": "double"
+        },
+        "navAudited": {
+          "type": "number",
+          "format": "double"
+        },
+        "yearEnd": {
+          "type": "string",
+          "format": "int64"
+        },
+        "reverseAndSurplusWithoutOCI": {
+          "type": "number",
+          "format": "double"
+        },
+        "otherComprehensiveIncome": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "bazarGenerateChartResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarGetAdvancedChartResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetAdvancedChartResponseData"
+        }
+      }
+    },
+    "bazarGetAdvancedChartResponseData": {
+      "type": "object",
+      "properties": {
+        "chart": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarAdvancedChart"
+          }
+        }
+      }
+    },
+    "bazarGetAllCompanyNewsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetAllCompanyNewsResponseData"
+        }
+      }
+    },
+    "bazarGetAllCompanyNewsResponseData": {
+      "type": "object",
+      "properties": {
+        "news": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarCompanyNews"
+          }
+        },
+        "take": {
+          "type": "string",
+          "format": "int64"
+        },
+        "page": {
+          "type": "string",
+          "format": "int64"
+        },
+        "total": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarGetAllTickerStatusResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetAllTickerStatusResponseData"
+        }
+      }
+    },
+    "bazarGetAllTickerStatusResponseData": {
+      "type": "object",
+      "properties": {
+        "allTickerStatus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarMDFTickerStatus"
+          }
+        }
+      }
+    },
+    "bazarGetCompaniesFromDailyMoverTagResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetCompaniesFromDailyMoverTagResponseData"
+        }
+      }
+    },
+    "bazarGetCompaniesFromDailyMoverTagResponseData": {
+      "type": "object",
+      "properties": {
+        "tagInfo": {
+          "$ref": "#/definitions/bazarTagInfo"
+        },
+        "companies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTickerCompanyForGet"
+          }
+        }
+      }
+    },
+    "bazarGetCompaniesFromTagIdResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetCompaniesFromTagIdResponseData"
+        }
+      }
+    },
+    "bazarGetCompaniesFromTagIdResponseData": {
+      "type": "object",
+      "properties": {
+        "tagInfo": {
+          "$ref": "#/definitions/bazarTagInfo"
+        },
+        "companies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTickerCompanyForGet"
+          }
+        }
+      }
+    },
+    "bazarGetCompaniesFromTagIdWithPaginationResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetCompaniesFromTagIdWithPaginationResponseData"
+        }
+      }
+    },
+    "bazarGetCompaniesFromTagIdWithPaginationResponseData": {
+      "type": "object",
+      "properties": {
+        "tagInfo": {
+          "$ref": "#/definitions/bazarTagInfo"
+        },
+        "companies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTickerCompanyForGet"
+          }
+        },
+        "take": {
+          "type": "string",
+          "format": "int64"
+        },
+        "page": {
+          "type": "string",
+          "format": "int64"
+        },
+        "total": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarGetCompanyNewsByCompanyIdResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetCompanyNewsByCompanyIdResponseData"
+        }
+      }
+    },
+    "bazarGetCompanyNewsByCompanyIdResponseData": {
+      "type": "object",
+      "properties": {
+        "news": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarCompanyNews"
+          }
+        }
+      }
+    },
+    "bazarGetCompanyRatingResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetCompanyRatingResponseData"
+        }
+      }
+    },
+    "bazarGetCompanyRatingResponseData": {
+      "type": "object",
+      "properties": {
+        "avgRating": {
+          "type": "number",
+          "format": "double"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "userRating": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarGetCompanyRatingsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetCompanyRatingsResponseData"
+        }
+      }
+    },
+    "bazarGetCompanyRatingsResponseData": {
+      "type": "object",
+      "properties": {
+        "ratings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarCompanyRating"
+          }
+        }
+      }
+    },
+    "bazarGetDayEndPriceResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetDayEndPriceResponseTicker"
+          }
+        }
+      }
+    },
+    "bazarGetDseIndexResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetDseIndexResponseData"
+        }
+      },
+      "title": "type indexInfo struct {\nMarket string `json:\"market\"`\n   Info   *Index `json:\"info\"`\n   }"
+    },
+    "bazarGetDseIndexResponseData": {
+      "type": "object",
+      "properties": {
+        "MDFMarketIndexInfo": {
+          "$ref": "#/definitions/bazarMDFMarketIndexInfo"
+        }
+      }
+    },
+    "bazarGetFavouriteCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetFavouriteCompanyResponseData"
+        }
+      }
+    },
+    "bazarGetFavouriteCompanyResponseData": {
+      "type": "object",
+      "properties": {
+        "companies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarFavouriteCompany"
+          }
+        }
+      }
+    },
+    "bazarGetHistoricalDataResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetHistoricalDataResponseData"
+        }
+      }
+    },
+    "bazarGetHistoricalDataResponseData": {
+      "type": "object",
+      "properties": {
+        "chart": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarChart"
+          }
+        }
+      }
+    },
+    "bazarGetListCompaniesResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetListCompaniesResponseData"
+        }
+      }
+    },
+    "bazarGetListCompaniesResponseData": {
+      "type": "object",
+      "properties": {
+        "listCompany": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarListCompanyForGet"
+          }
+        }
+      }
+    },
+    "bazarGetListIconsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetListIconsResponseData"
+        }
+      }
+    },
+    "bazarGetListIconsResponseData": {
+      "type": "object",
+      "properties": {
+        "listIcons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarListIcons"
+          }
+        }
+      }
+    },
+    "bazarGetListsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetListsResponseData"
+        }
+      }
+    },
+    "bazarGetListsResponseData": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarList"
+          }
+        }
+      }
+    },
+    "bazarGetMarketInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarGetMarketInfoResponseData"
+          }
+        }
+      }
+    },
+    "bazarGetMarketInfoResponseData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "flagPath": {
+          "type": "string"
+        },
+        "indexSymbol": {
+          "type": "string"
+        },
+        "currencyId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "decimalPrecision": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "integrated": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "indexPrice": {
+          "type": "string"
+        },
+        "indexDirection": {
+          "type": "string"
+        },
+        "indexDelta": {
+          "type": "string"
+        },
+        "marketOpen": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "indexTickerId": {
+          "type": "string"
+        },
+        "allowManualFill": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "arabicName": {
+          "type": "string"
+        },
+        "enableOrderSuspension": {
+          "type": "string"
+        },
+        "technicalinsight": {
+          "type": "string"
+        },
+        "financialInfoSource": {
+          "type": "string"
+        },
+        "valueAnalyzer": {
+          "type": "string"
+        },
+        "businessDays": {
+          "type": "string"
+        },
+        "isMarginAccountRequired": {
+          "type": "string"
+        },
+        "defaultTickerId": {
+          "type": "string"
+        },
+        "defaultTickerSymbol": {
+          "type": "string"
+        }
+      }
+    },
+    "bazarGetMarketTimeResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarGetMarketTimeResponseData"
+          }
+        }
+      }
+    },
+    "bazarGetMarketTimeResponseData": {
+      "type": "object",
+      "properties": {
+        "dayOfWeek": {
+          "type": "string"
+        },
+        "isOpen": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "timeOpen": {
+          "type": "string"
+        },
+        "timeClose": {
+          "type": "string"
+        },
+        "breakTimeStart": {
+          "type": "string"
+        },
+        "breakTimeEnd": {
+          "type": "string"
+        },
+        "preOpenTimeStart": {
+          "type": "string"
+        },
+        "preOpenTimeEnd": {
+          "type": "string"
+        },
+        "afterMarketTimeStart": {
+          "type": "string"
+        },
+        "afterMarketTimeEnd": {
+          "type": "string"
+        }
+      }
+    },
+    "bazarGetPeopleAlsoOwnResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetPeopleAlsoOwnResponseData"
+        }
+      }
+    },
+    "bazarGetPeopleAlsoOwnResponseData": {
+      "type": "object",
+      "properties": {
+        "tickers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetPeopleAlsoOwnResponseTickerForPeopleAlsoOwn"
+          }
+        }
+      }
+    },
+    "bazarGetSectorsFromInvestedCompaniesResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetSectorsFromInvestedCompaniesResponseData"
+        }
+      }
+    },
+    "bazarGetSectorsFromInvestedCompaniesResponseData": {
+      "type": "object",
+      "properties": {
+        "sectors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTag"
+          }
+        }
+      }
+    },
+    "bazarGetSectorsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetSectorsResponseData"
+        }
+      }
+    },
+    "bazarGetSectorsResponseData": {
+      "type": "object",
+      "properties": {
+        "sectors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTag"
+          }
+        }
+      }
+    },
+    "bazarGetTags1stPurchaseResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetTags1stPurchaseResponseData"
+        }
+      }
+    },
+    "bazarGetTags1stPurchaseResponseData": {
+      "type": "object",
+      "properties": {
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTag"
+          }
+        }
+      }
+    },
+    "bazarGetTagsFromCompanyIdResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetTagsFromCompanyIdResponseData"
+        }
+      }
+    },
+    "bazarGetTagsFromCompanyIdResponseData": {
+      "type": "object",
+      "properties": {
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTag"
+          }
+        }
+      }
+    },
+    "bazarGetTagsFromUserIdResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetTagsFromUserIdResponseData"
+        }
+      }
+    },
+    "bazarGetTagsFromUserIdResponseData": {
+      "type": "object",
+      "properties": {
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTag"
+          }
+        }
+      }
+    },
+    "bazarGetTagsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetTagsResponseData"
+        }
+      }
+    },
+    "bazarGetTagsResponseData": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTag"
+          }
+        }
+      }
+    },
+    "bazarGetTickerCompaniesByIdsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetTickerCompaniesByIdsResponseData"
+        }
+      }
+    },
+    "bazarGetTickerCompaniesByIdsResponseData": {
+      "type": "object",
+      "properties": {
+        "tickerCompany": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTickerCompanyForGet"
+          }
+        }
+      }
+    },
+    "bazarGetTickerCompaniesPaginateResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetTickerCompaniesPaginateResponseData"
+        }
+      }
+    },
+    "bazarGetTickerCompaniesPaginateResponseData": {
+      "type": "object",
+      "properties": {
+        "tickerCompany": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTickerCompany"
+          }
+        },
+        "take": {
+          "type": "string",
+          "format": "int64"
+        },
+        "page": {
+          "type": "string",
+          "format": "int64"
+        },
+        "total": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarGetTickerCompaniesResearchResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetTickerCompaniesResearchResponseData"
+        }
+      }
+    },
+    "bazarGetTickerCompaniesResearchResponseData": {
+      "type": "object",
+      "properties": {
+        "tickers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTickerCompanyForResearch"
+          }
+        },
+        "take": {
+          "type": "string",
+          "format": "int64"
+        },
+        "page": {
+          "type": "string",
+          "format": "int64"
+        },
+        "total": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarGetTickerCompaniesResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetTickerCompaniesResponseData"
+        }
+      }
+    },
+    "bazarGetTickerCompaniesResponseData": {
+      "type": "object",
+      "properties": {
+        "tickerCompany": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTickerCompany"
+          }
+        }
+      }
+    },
+    "bazarGetTickerCompanyRequestType": {
+      "type": "string",
+      "enum": [
+        "TC_UNKNOWN",
+        "TC_CompanyInfo",
+        "TC_Stats",
+        "TC_Chart",
+        "TC_News",
+        "TC_Feeds",
+        "TC_Analysis",
+        "TC_Company",
+        "TC_Tags",
+        "TC_MarketDepth",
+        "TC_Watchlist"
+      ],
+      "default": "TC_UNKNOWN"
+    },
+    "bazarGetTickerCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetTickerCompanyResponseData"
+        }
+      }
+    },
+    "bazarGetTickerCompanyResponseData": {
+      "type": "object",
+      "properties": {
+        "requestType": {
+          "$ref": "#/definitions/bazarGetTickerCompanyRequestType"
+        },
+        "info": {
+          "$ref": "#/definitions/GetTickerCompanyResponseInfo"
+        },
+        "chart": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarChart"
+          }
+        },
+        "news": {
+          "$ref": "#/definitions/bazarNews"
+        },
+        "feeds": {
+          "$ref": "#/definitions/bazarFeed"
+        },
+        "companyDetails": {
+          "$ref": "#/definitions/bazarStockDetailsCompany"
+        },
+        "marketDepth": {
+          "$ref": "#/definitions/bazarMarketDepth"
+        },
+        "stats": {
+          "$ref": "#/definitions/bazarStats"
+        },
+        "analysis": {
+          "$ref": "#/definitions/bazarAnalysis"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTag"
+          }
+        },
+        "watchlist": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        }
+      }
+    },
+    "bazarGetTimeTable": {
+      "type": "object",
+      "properties": {
+        "startDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "openPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "closePrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "changesPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "changesPercentage": {
+          "type": "number",
+          "format": "double"
+        },
+        "volume": {
+          "type": "number",
+          "format": "double"
+        },
+        "value": {
+          "type": "number",
+          "format": "double"
+        },
+        "trade": {
+          "type": "number",
+          "format": "double"
+        },
+        "highPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "lowPrice": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "bazarGetTimeTableResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetTimeTableResponseData"
+        }
+      }
+    },
+    "bazarGetTimeTableResponseData": {
+      "type": "object",
+      "properties": {
+        "GetTimeTable": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarGetTimeTable"
+          }
+        }
+      }
+    },
+    "bazarGetTradingHistoryResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetTradingHistoryResponseData"
+        }
+      }
+    },
+    "bazarGetTradingHistoryResponseData": {
+      "type": "object",
+      "properties": {
+        "tradingHistory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTradingHistory"
+          }
+        },
+        "totalBuy": {
+          "type": "string",
+          "format": "int64"
+        },
+        "totalSell": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarGetTradingViewConfigResponse": {
+      "type": "object",
+      "properties": {
+        "supportsSearch": {
+          "type": "boolean"
+        },
+        "supportsGroupRequest": {
+          "type": "boolean"
+        },
+        "supportsMarks": {
+          "type": "boolean"
+        },
+        "supportsTimescaleMarks": {
+          "type": "boolean"
+        },
+        "supportsTime": {
+          "type": "boolean"
+        },
+        "exchanges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetTradingViewConfigResponseExchange"
+          }
+        },
+        "symbolsTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetTradingViewConfigResponseSymbolType"
+          }
+        },
+        "supportedResolutions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "bazarGetTradingViewHistoryResponse": {
+      "type": "object",
+      "properties": {
+        "t": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "o": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "h": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "l": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "c": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "v": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "s": {
+          "type": "string"
+        }
+      }
+    },
+    "bazarGetTradingViewSearchResponse": {
+      "type": "object",
+      "properties": {
+        "stocks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetTradingViewSearchResponseStockInfo"
+          }
+        }
+      }
+    },
+    "bazarGetTradingViewSymbolsResponse": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "exchangeTraded": {
+          "type": "string"
+        },
+        "exchangeListed": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "minmov": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "minmov2": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pointvalue": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "session": {
+          "type": "string"
+        },
+        "hasIntraday": {
+          "type": "boolean"
+        },
+        "visiblePlotsSet": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "supportedResolutions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pricescale": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "logoUrls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "exchangeLogo": {
+          "type": "string"
+        },
+        "hasSeconds": {
+          "type": "boolean"
+        },
+        "hasDaily": {
+          "type": "boolean"
+        },
+        "hasWeeklyAndMonthly": {
+          "type": "boolean"
+        },
+        "intradayMultipliers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dailyMultipliers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "weeklyMultipliers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "monthlyMultipliers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "bazarGetTradingViewTimeResponse": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string",
+          "format": "int64",
+          "title": "Define a field as a scalar value"
+        }
+      }
+    },
+    "bazarGetTrendingListTagsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarGetTrendingListTagsResponseData"
+        }
+      }
+    },
+    "bazarGetTrendingListTagsResponseData": {
+      "type": "object",
+      "properties": {
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTag"
+          }
+        }
+      }
+    },
+    "bazarIndex": {
+      "type": "object",
+      "properties": {
+        "index": {
+          "type": "number",
+          "format": "double"
+        },
+        "percentageChange": {
+          "type": "number",
+          "format": "double"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarIndexInfo": {
+      "type": "object",
+      "properties": {
+        "market": {
+          "type": "string"
+        },
+        "index": {
+          "$ref": "#/definitions/bazarIndex"
+        }
+      }
+    },
+    "bazarInsertCompanyAboutInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarInsertCompanyAnalysisRequest": {
+      "type": "object",
+      "properties": {
+        "companyId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "analysis": {
+          "$ref": "#/definitions/bazarAnalysis"
+        }
+      }
+    },
+    "bazarInsertCompanyAnalysisResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarInsertCompanyNewsRequest": {
+      "type": "object",
+      "properties": {
+        "companyIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "source": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "int64"
+        },
+        "headline": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "thumbnailBase64": {
+          "type": "string"
+        },
+        "category": {
+          "$ref": "#/definitions/bazarNewsCategory"
+        }
+      }
+    },
+    "bazarInsertCompanyNewsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarInsertCompanyRatingRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "companyId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientId": {
+          "type": "string"
+        },
+        "stars": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarInsertCompanyRatingResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarInsertDailyMoverRequest": {
+      "type": "object",
+      "properties": {
+        "tickers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "bazarInsertDailyMoverResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarInsertFavouriteCompaniesRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "companyIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        }
+      }
+    },
+    "bazarInsertFavouriteCompaniesResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarInsertFavouriteCompanyRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "companyId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarInsertFavouriteCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarInsertListAndListCompaniesOnSignupRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "boAccNo": {
+          "type": "string",
+          "format": "int64"
+        },
+        "companyIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        }
+      }
+    },
+    "bazarInsertListAndListCompaniesOnSignupResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarInsertListCompanyRequest": {
+      "type": "object",
+      "properties": {
+        "listCompanies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarListCompany"
+          }
+        },
+        "boAccNo": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarInsertListCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarInsertListCompanyResponseData"
+        }
+      }
+    },
+    "bazarInsertListCompanyResponseData": {
+      "type": "object",
+      "properties": {
+        "listCompany": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarListCompanyInsertUpdateResponse"
+          }
+        }
+      }
+    },
+    "bazarInsertListRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "boAccNo": {
+          "type": "string",
+          "format": "int64"
+        },
+        "iconId": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "The request message containing the list name and user_id"
+    },
+    "bazarInsertListResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarInsertListResponseData"
+        }
+      },
+      "title": "The response message containing the success code"
+    },
+    "bazarInsertListResponseData": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "$ref": "#/definitions/bazarList"
+        }
+      }
+    },
+    "bazarInsertTag1stPurchaseRequest": {
+      "type": "object",
+      "properties": {
+        "tagIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        }
+      }
+    },
+    "bazarInsertTag1stPurchaseResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarInsertTagAndTagCompanyRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "iconBase64": {
+          "type": "string"
+        },
+        "imageBase64": {
+          "type": "string"
+        },
+        "colorCode": {
+          "type": "string"
+        },
+        "isSector": {
+          "type": "boolean"
+        },
+        "companyIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        }
+      }
+    },
+    "bazarInsertTagAndTagCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarInsertTagCompanyRequest": {
+      "type": "object",
+      "properties": {
+        "companyIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "tagId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarInsertTagCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarInsertTagCompanyResponseData"
+        }
+      }
+    },
+    "bazarInsertTagCompanyResponseData": {
+      "type": "object",
+      "properties": {
+        "tagCompany": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTagCompanyInsertResponse"
+          }
+        }
+      }
+    },
+    "bazarInsertTagRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "iconBase64": {
+          "type": "string"
+        },
+        "imageBase64": {
+          "type": "string"
+        },
+        "colorCode": {
+          "type": "string"
+        },
+        "isSector": {
+          "type": "boolean"
+        }
+      }
+    },
+    "bazarInsertTagResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "The response message containing the success code"
+    },
+    "bazarInsertTagUserRequest": {
+      "type": "object",
+      "properties": {
+        "tagIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarInsertTagUserResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarInsertTickerCompanyRequest": {
+      "type": "object",
+      "properties": {
+        "tickerCompany": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTickerCompany"
+          }
+        }
+      }
+    },
+    "bazarInsertTickerCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarList": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "boAccNo": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "serial": {
+          "type": "string",
+          "format": "int64"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "reserved": {
+          "type": "boolean"
+        },
+        "iconId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "iconName": {
+          "type": "string"
+        },
+        "iconUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "bazarListCompany": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "companyId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "listId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "serial": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarListCompanyForGet": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "listCompanyId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "listId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "serial": {
+          "type": "string",
+          "format": "int64"
+        },
+        "chart": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarChart"
+          }
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "cPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "percent": {
+          "type": "number",
+          "format": "double"
+        },
+        "logo": {
+          "type": "string"
+        },
+        "logo400px": {
+          "type": "string"
+        },
+        "logo90px": {
+          "type": "string"
+        }
+      }
+    },
+    "bazarListCompanyInsertUpdateResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "listCompanyId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "listId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "serial": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarListIcons": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "bazarMDFMarketIndexInfo": {
+      "type": "object",
+      "properties": {
+        "indexInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarIndexInfo"
+          }
+        }
+      }
+    },
+    "bazarMDFTickerStatus": {
+      "type": "object",
+      "properties": {
+        "symbol": {
+          "type": "string"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "high52": {
+          "type": "number",
+          "format": "double"
+        },
+        "low52": {
+          "type": "number",
+          "format": "double"
+        },
+        "pClose": {
+          "type": "number",
+          "format": "double"
+        },
+        "high": {
+          "type": "number",
+          "format": "double"
+        },
+        "low": {
+          "type": "number",
+          "format": "double"
+        },
+        "cPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "trades": {
+          "type": "number",
+          "format": "double"
+        },
+        "percent": {
+          "type": "number",
+          "format": "double"
+        },
+        "mVolume": {
+          "type": "number",
+          "format": "double"
+        },
+        "mValue": {
+          "type": "number",
+          "format": "double"
+        },
+        "tickerID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "open": {
+          "type": "number",
+          "format": "double"
+        },
+        "maxPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "minPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "marketSymbol": {
+          "type": "string"
+        }
+      }
+    },
+    "bazarMarketDepth": {
+      "type": "object",
+      "properties": {
+        "buy": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarVolumePrice"
+          }
+        },
+        "totalBuyQuantity": {
+          "type": "number",
+          "format": "double"
+        },
+        "sell": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarVolumePrice"
+          }
+        },
+        "totalSellQuantity": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "bazarNews": {
+      "type": "object",
+      "properties": {
+        "publicOpinion": {
+          "$ref": "#/definitions/bazarPublicOpinion"
+        },
+        "newsCards": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarCompanyNews"
+          }
+        }
+      }
+    },
+    "bazarNewsAssociatedStock": {
+      "type": "object",
+      "properties": {
+        "companyId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "serial": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarNewsCategory": {
+      "type": "string",
+      "enum": [
+        "NC_UNKNOWN",
+        "NC_GENERAL",
+        "NC_STOCKBASED",
+        "NC_MARKETBASED",
+        "NC_HighPRIORITY",
+        "NC_ANNOUNCEMENT"
+      ],
+      "default": "NC_UNKNOWN"
+    },
+    "bazarPublicOpinion": {
+      "type": "object",
+      "properties": {
+        "bullishPercentage": {
+          "type": "number",
+          "format": "double"
+        },
+        "bearishPercentage": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "bazarQuarterlyEarnings": {
+      "type": "object",
+      "properties": {
+        "year": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "quarter": {
+          "type": "string"
+        },
+        "eps": {
+          "type": "number",
+          "format": "double"
+        },
+        "previousYrEps": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "bazarSearchTickerResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarSearchTickerResponseData"
+        }
+      }
+    },
+    "bazarSearchTickerResponseData": {
+      "type": "object",
+      "properties": {
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTagNameIcon"
+          }
+        },
+        "tickerCompany": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTickerCompanyWithFollowing"
+          }
+        },
+        "take": {
+          "type": "string",
+          "format": "int64"
+        },
+        "page": {
+          "type": "string",
+          "format": "int64"
+        },
+        "total": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarStats": {
+      "type": "object",
+      "properties": {
+        "open": {
+          "type": "number",
+          "format": "double"
+        },
+        "high": {
+          "type": "number",
+          "format": "double"
+        },
+        "low": {
+          "type": "number",
+          "format": "double"
+        },
+        "high52": {
+          "type": "number",
+          "format": "double"
+        },
+        "low52": {
+          "type": "number",
+          "format": "double"
+        },
+        "mVolume": {
+          "type": "number",
+          "format": "double"
+        },
+        "avgVolume": {
+          "type": "number",
+          "format": "double"
+        },
+        "minPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "maxPrice": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "bazarStockDetailsCompany": {
+      "type": "object",
+      "properties": {
+        "ticker": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "logo": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "ceo": {
+          "type": "string"
+        },
+        "founded": {
+          "type": "string"
+        },
+        "employees": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "headquarters": {
+          "type": "string"
+        },
+        "latestMarketPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "todaysHigh": {
+          "type": "number",
+          "format": "double"
+        },
+        "todaysLow": {
+          "type": "number",
+          "format": "double"
+        },
+        "todaysValue": {
+          "type": "number",
+          "format": "double"
+        },
+        "todaysVolume": {
+          "type": "number",
+          "format": "double"
+        },
+        "todaysTrade": {
+          "type": "number",
+          "format": "double"
+        },
+        "high52week": {
+          "type": "number",
+          "format": "double"
+        },
+        "low52week": {
+          "type": "number",
+          "format": "double"
+        },
+        "change": {
+          "type": "number",
+          "format": "double"
+        },
+        "percent": {
+          "type": "number",
+          "format": "double"
+        },
+        "openingPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "adjustedOpeningPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "yesterdaysClosingPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "marketCapitalization": {
+          "type": "number",
+          "format": "double"
+        },
+        "authorizedCapital": {
+          "type": "number",
+          "format": "double"
+        },
+        "paidUpCapital": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "bazarTag": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "cvrImage": {
+          "type": "string"
+        },
+        "colorCode": {
+          "type": "string"
+        },
+        "serial": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isFollowing": {
+          "type": "boolean"
+        }
+      }
+    },
+    "bazarTagCompany": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tagId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "companyId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "serial": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarTagCompanyInsertResponse": {
+      "type": "object",
+      "properties": {
+        "tagCompanyId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tagId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "serial": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarTagForResearch": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "bazarTagInfo": {
+      "type": "object",
+      "properties": {
+        "tagId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "cvrImage": {
+          "type": "string"
+        },
+        "colorCode": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isFollowing": {
+          "type": "boolean"
+        }
+      }
+    },
+    "bazarTagNameIcon": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        }
+      }
+    },
+    "bazarTagUser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tagId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "serial": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarTags1stPurchase": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tagId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "serial": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarTickerCompany": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        }
+      }
+    },
+    "bazarTickerCompanyForGet": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "underlyingTickerId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "category": {
+          "type": "string"
+        },
+        "marketId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "marketSymbol": {
+          "type": "string"
+        },
+        "chart": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarChart"
+          }
+        },
+        "cPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "percent": {
+          "type": "number",
+          "format": "double"
+        },
+        "logo": {
+          "type": "string"
+        },
+        "logo400px": {
+          "type": "string"
+        },
+        "logo90px": {
+          "type": "string"
+        }
+      }
+    },
+    "bazarTickerCompanyForResearch": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tickerSymbol": {
+          "type": "string"
+        },
+        "tickerId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "sectors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTagForResearch"
+          }
+        }
+      }
+    },
+    "bazarTickerCompanyWithFollowing": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "marketId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "marketSymbol": {
+          "type": "string"
+        },
+        "isFollowing": {
+          "type": "boolean"
+        }
+      }
+    },
+    "bazarTimePeriod": {
+      "type": "string",
+      "enum": [
+        "TP_Unknown",
+        "TP_Daily",
+        "TP_weekly",
+        "TP_Monthly"
+      ],
+      "default": "TP_Unknown"
+    },
+    "bazarTimeRange": {
+      "type": "string",
+      "enum": [
+        "TR_UNKNOWN",
+        "TR_1D",
+        "TR_1W",
+        "TR_1M",
+        "TR_3M",
+        "TR_1Y",
+        "TR_5Y",
+        "TR_ALL"
+      ],
+      "default": "TR_UNKNOWN"
+    },
+    "bazarTradeIndicator": {
+      "type": "string",
+      "enum": [
+        "TI_UNKNOWN",
+        "TI_INCREASE",
+        "TI_DECREASE",
+        "TI_NEUTRAL"
+      ],
+      "default": "TI_UNKNOWN"
+    },
+    "bazarTradeType": {
+      "type": "string",
+      "enum": [
+        "TT_UNKNOWN",
+        "TT_BUY",
+        "TT_SELL"
+      ],
+      "default": "TT_UNKNOWN"
+    },
+    "bazarTradingHistory": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string",
+          "format": "int64"
+        },
+        "type": {
+          "$ref": "#/definitions/bazarTradeType"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "volume": {
+          "type": "string",
+          "format": "int64"
+        },
+        "trade": {
+          "type": "string",
+          "format": "int64"
+        },
+        "value": {
+          "type": "number",
+          "format": "double"
+        },
+        "indicator": {
+          "$ref": "#/definitions/bazarTradeIndicator"
+        }
+      }
+    },
+    "bazarUpdateCompanyNewsRequest": {
+      "type": "object",
+      "properties": {
+        "newsId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "companyIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "source": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "int64"
+        },
+        "headline": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "thumbnailBase64": {
+          "type": "string"
+        },
+        "category": {
+          "$ref": "#/definitions/bazarNewsCategory"
+        }
+      }
+    },
+    "bazarUpdateCompanyNewsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarUpdateDailyMoverRequest": {
+      "type": "object",
+      "properties": {
+        "dailyMoverdb": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarDailyMoverDb"
+          }
+        }
+      }
+    },
+    "bazarUpdateDailyMoverResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarUpdateFavouriteCompanyRequest": {
+      "type": "object",
+      "properties": {
+        "companies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarFavouriteCompany"
+          }
+        }
+      }
+    },
+    "bazarUpdateFavouriteCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarUpdateListCompanyRequest": {
+      "type": "object",
+      "properties": {
+        "listCompany": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarListCompanyInsertUpdateResponse"
+          }
+        }
+      }
+    },
+    "bazarUpdateListCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarUpdateListRequest": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarList"
+          }
+        }
+      }
+    },
+    "bazarUpdateListResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarUpdateTagAndTagCompanyRequest": {
+      "type": "object",
+      "properties": {
+        "tagId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "iconBase64": {
+          "type": "string"
+        },
+        "imageBase64": {
+          "type": "string"
+        },
+        "colorCode": {
+          "type": "string"
+        },
+        "companyIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        }
+      }
+    },
+    "bazarUpdateTagAndTagCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarUpdateTagCompanyRequest": {
+      "type": "object",
+      "properties": {
+        "tagCompany": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTagCompany"
+          }
+        }
+      }
+    },
+    "bazarUpdateTagCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarUpdateTagRequest": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTag"
+          }
+        }
+      }
+    },
+    "bazarUpdateTagResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarUpdateTagUserRequest": {
+      "type": "object",
+      "properties": {
+        "tagUser": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTagUser"
+          }
+        }
+      }
+    },
+    "bazarUpdateTagUserResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarUpdateTags1stPurchaseRequest": {
+      "type": "object",
+      "properties": {
+        "tags1stPurchase": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarTags1stPurchase"
+          }
+        }
+      }
+    },
+    "bazarUpdateTags1stPurchaseResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarUpdateTickerCompanyRequest": {
+      "type": "object",
+      "properties": {
+        "tickerCompany": {
+          "$ref": "#/definitions/bazarTickerCompany"
+        }
+      }
+    },
+    "bazarUpdateTickerCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarUpsertCompanyRatingRequest": {
+      "type": "object",
+      "properties": {
+        "companyId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientId": {
+          "type": "string"
+        },
+        "stars": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bazarUpsertListCompanyRequest": {
+      "type": "object",
+      "properties": {
+        "listIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "companyId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "boAccNo": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bazarUpsertListCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bazarUpsertListCompanyResponseData"
+        }
+      }
+    },
+    "bazarUpsertListCompanyResponseData": {
+      "type": "object",
+      "properties": {
+        "listCompanies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bazarListCompanyInsertUpdateResponse"
+          }
+        }
+      }
+    },
+    "bazarVolumePrice": {
+      "type": "object",
+      "properties": {
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "volume": {
+          "type": "number",
+          "format": "double"
+        },
+        "orderCount": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

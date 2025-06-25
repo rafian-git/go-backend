@@ -1,0 +1,20 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    release: prometheus
+  name: metrics
+  namespace: bazar
+
+spec:
+  endpoints:
+    - path: /stats/prometheus
+      port: envoy-metrics
+    - path: /metrics
+      port: prom
+  namespaceSelector:
+    matchNames:
+      - bazar
+  selector:
+    matchLabels:
+      name: bazar

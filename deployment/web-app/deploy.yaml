@@ -1,0 +1,49 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-app
+  namespace: web-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-app
+  template:
+    metadata:
+      labels:
+        app: web-app
+    spec:
+      # volumes:
+      #   - name: envoy-config
+      #     configMap:
+      #       name: envoy-config
+      #   - name: tls-cert
+      #     secret:
+      #       secretName: tls-cert
+      containers:
+        #- name: envoy
+        #image: gcr.io/stock-x-342909/envoy-web-app:0.0.3
+        # volumeMounts:
+        #   - mountPath: "/etc/cert"
+        #     name: tls-cert
+        #   - mountPath: "/etc/envoy/"
+        #     name: envoy-config
+
+        # env:
+        #   - name: DEV_MODE
+        #     value: "false"
+
+        # ports:
+        #   - containerPort: 8080
+
+        - name: web-app
+          image: gcr.io/stock-x-342909/web-app:$IMAGE_TAG
+          env:
+            - name: DEV_MODE
+              value: "false"
+            - name: NODE_OPTIONS
+              value: "--openssl-legacy-provider"
+
+          ports:
+            - containerPort: 3000

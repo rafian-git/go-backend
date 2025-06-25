@@ -1,0 +1,484 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "sms-pusher.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/sms_pusher/email/send": {
+      "post": {
+        "summary": "Sends a email",
+        "operationId": "SMSPusher_SendEmail",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sms_pusherSendEmailResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/sms_pusherSendEmailRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SMSPusher"
+        ]
+      }
+    },
+    "/api/v1/sms_pusher/health": {
+      "get": {
+        "summary": "health check endpoint",
+        "operationId": "SMSPusher_Health",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "SMSPusher"
+        ]
+      }
+    },
+    "/api/v1/sms_pusher/setting": {
+      "get": {
+        "operationId": "SMSPusher_GetSetting",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sms_pusherGetSettingResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "SMSPusher"
+        ]
+      },
+      "post": {
+        "operationId": "SMSPusher_AddSetting",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sms_pusherResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/sms_pusherSettingRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SMSPusher"
+        ]
+      },
+      "put": {
+        "operationId": "SMSPusher_UpdateSetting",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sms_pusherResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/sms_pusherSettingRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SMSPusher"
+        ]
+      }
+    },
+    "/api/v1/sms_pusher/sms/send": {
+      "post": {
+        "operationId": "SMSPusher_Send",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sms_pusherResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/sms_pusherSendRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SMSPusher"
+        ]
+      }
+    },
+    "/api/v1/sms_pusher/template": {
+      "post": {
+        "operationId": "SMSPusher_AddOrUpdateTemplate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sms_pusherResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/sms_pusherAddOrUpdateTemplateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SMSPusher"
+        ]
+      }
+    },
+    "/api/v1/sms_pusher/templates": {
+      "get": {
+        "operationId": "SMSPusher_GetTemplates",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sms_pusherGetTemplateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "SMSPusher"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "GetSettingResponseData": {
+      "type": "object",
+      "properties": {
+        "setting": {
+          "$ref": "#/definitions/sms_pusherSetting"
+        }
+      }
+    },
+    "GetTemplateResponseTemplate": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Content": {
+          "type": "string"
+        },
+        "Properties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "sms_pusherAddOrUpdateTemplateRequest": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/sms_pusherSMSType"
+        },
+        "TemplateContent": {
+          "type": "string"
+        },
+        "Properties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "sms_pusherGetSettingResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/GetSettingResponseData"
+        }
+      }
+    },
+    "sms_pusherGetTemplateResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "templates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetTemplateResponseTemplate"
+          }
+        }
+      }
+    },
+    "sms_pusherNotification_Type": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_NOTIFICATION_TYPE",
+        "BANK_ACTIVITY",
+        "STOCK_PRICE_MOVEMENT_HOLDING",
+        "ORDER_STATUS",
+        "IPO_ALERT"
+      ],
+      "default": "UNKNOWN_NOTIFICATION_TYPE"
+    },
+    "sms_pusherResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "sms_pusherSMSType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_SMS_TYPE",
+        "OTP",
+        "NEW_DEVICE_LOGIN",
+        "BO_APPROVED",
+        "BO_REJECTED",
+        "ORDER_FILLED",
+        "ORDER_REJECTED",
+        "DEPOSIT_INSTANT",
+        "DEPOSIT_MANUAL",
+        "WITHDRAW_APPROVED",
+        "WITHDRAW_REJECTED"
+      ],
+      "default": "UNKNOWN_SMS_TYPE"
+    },
+    "sms_pusherSendEmailRequest": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "otpCode": {
+          "type": "string"
+        }
+      },
+      "title": "The request message containing the user's name"
+    },
+    "sms_pusherSendEmailResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "The request message containing the user's name"
+    },
+    "sms_pusherSendRequest": {
+      "type": "object",
+      "properties": {
+        "phone": {
+          "type": "string"
+        },
+        "smsType": {
+          "$ref": "#/definitions/sms_pusherSMSType"
+        },
+        "notificationType": {
+          "$ref": "#/definitions/sms_pusherNotification_Type"
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "sms_pusherSendSMSResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "The response message containing the greetings"
+    },
+    "sms_pusherSendSMSWithCodeResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "sms_pusherSetting": {
+      "type": "object",
+      "properties": {
+        "enabledBankActivity": {
+          "type": "boolean"
+        },
+        "enabledStockPriceMovementHolding": {
+          "type": "boolean"
+        },
+        "enableOrderStatus": {
+          "type": "boolean"
+        },
+        "enabledIpoAlert": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "sms_pusherSettingRequest": {
+      "type": "object",
+      "properties": {
+        "enabledBankActivity": {
+          "type": "boolean"
+        },
+        "enabledStockPriceMovementHolding": {
+          "type": "boolean"
+        },
+        "enableOrderStatus": {
+          "type": "boolean"
+        },
+        "enabledIpoAlert": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

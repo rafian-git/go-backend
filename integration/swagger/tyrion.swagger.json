@@ -1,0 +1,989 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "tyrion.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/public/tyrion/signature": {
+      "post": {
+        "operationId": "Tyrion_AddSignature",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tyrionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tyrionSignature"
+            }
+          }
+        ],
+        "tags": [
+          "Tyrion"
+        ]
+      }
+    },
+    "/api/v1/tyrion/general-ticker-alert": {
+      "post": {
+        "operationId": "Tyrion_AddGeneralTickerAlert",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tyrionAddGeneralTickerAlertResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tyrionAddGeneralTickerAlertRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Tyrion"
+        ]
+      }
+    },
+    "/api/v1/tyrion/general-ticker-alerts": {
+      "get": {
+        "operationId": "Tyrion_ListGeneralTickerAlert",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tyrionListGeneralTickerAlertResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tickerSymbol",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Tyrion"
+        ]
+      }
+    },
+    "/api/v1/tyrion/health": {
+      "get": {
+        "operationId": "Tyrion_Health",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tyrionHealthResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "Tyrion"
+        ]
+      }
+    },
+    "/api/v1/tyrion/send-push-notification": {
+      "post": {
+        "operationId": "Tyrion_SendNotification",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tyrionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tyrionSendNotificationRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Tyrion"
+        ]
+      }
+    },
+    "/api/v1/tyrion/send-to-devices": {
+      "post": {
+        "operationId": "Tyrion_SendToDevice",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tyrionSendToDeviceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tyrionSendToDevicesRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Tyrion"
+        ]
+      }
+    },
+    "/api/v1/tyrion/send-to-users": {
+      "post": {
+        "operationId": "Tyrion_SendToUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tyrionSendToUsersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tyrionSendToUsersRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Tyrion"
+        ]
+      }
+    },
+    "/api/v1/tyrion/setting": {
+      "get": {
+        "operationId": "Tyrion_GetSetting",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tyrionGetSettingResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "Tyrion"
+        ]
+      },
+      "post": {
+        "operationId": "Tyrion_AddSetting",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tyrionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tyrionSettingRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Tyrion"
+        ]
+      },
+      "put": {
+        "operationId": "Tyrion_UpdateSetting",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tyrionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tyrionSettingRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Tyrion"
+        ]
+      }
+    },
+    "/api/v1/tyrion/template": {
+      "post": {
+        "operationId": "Tyrion_AddOrUpdateTemplate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tyrionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tyrionTemplate"
+            }
+          }
+        ],
+        "tags": [
+          "Tyrion"
+        ]
+      }
+    },
+    "/api/v1/tyrion/templates": {
+      "get": {
+        "operationId": "Tyrion_ListTemplate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tyrionListTemplateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "Tyrion"
+        ]
+      }
+    },
+    "/api/v1/tyrion/ticker-alert": {
+      "delete": {
+        "operationId": "Tyrion_DeleteTickerAlert",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tyrionDeleteTickerAlertResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Tyrion"
+        ]
+      },
+      "post": {
+        "operationId": "Tyrion_AddTickerAlert",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tyrionAddTickerAlertResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tyrionAddTickerAlertRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Tyrion"
+        ]
+      }
+    },
+    "/api/v1/tyrion/ticker-alerts": {
+      "get": {
+        "operationId": "Tyrion_ListTickerAlert",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tyrionListTickerAlertResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tickerSymbol",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pivotTimeUnix",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "direction",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SD_UNKNOWN",
+              "SD_DOWN",
+              "SD_UP"
+            ],
+            "default": "SD_UNKNOWN"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Tyrion"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "ListGeneralTickerAlertResponseAlert": {
+      "type": "object",
+      "properties": {
+        "tickerSymbol": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/tyrionGeneral_Ticker_Alert_Type"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ListTickerAlertResponseTickerAlert": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "type": {
+          "$ref": "#/definitions/tyrionTickerAlertType"
+        },
+        "tickerSymbol": {
+          "type": "string"
+        },
+        "unixTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "frequency": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "tyrionAction_Type": {
+      "type": "string",
+      "enum": [
+        "AT_UNKNOWN",
+        "AT_DEPOSIT",
+        "AT_HOME",
+        "AT_TICKER"
+      ],
+      "default": "AT_UNKNOWN"
+    },
+    "tyrionAddGeneralTickerAlertRequest": {
+      "type": "object",
+      "properties": {
+        "tickerSymbol": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/tyrionGeneral_Ticker_Alert_Type"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "tyrionAddGeneralTickerAlertResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "tyrionAddTickerAlertRequest": {
+      "type": "object",
+      "properties": {
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "type": {
+          "$ref": "#/definitions/tyrionTickerAlertType"
+        },
+        "tickerSymbol": {
+          "type": "string"
+        },
+        "frequency": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "tyrionAddTickerAlertResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "tyrionDeleteTickerAlertResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "tyrionFCMRequest": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "tyrionGeneral_Ticker_Alert_Type": {
+      "type": "string",
+      "enum": [
+        "GTA_UNKNOWN",
+        "GTA_52WK_HIGH",
+        "GTA_52WK_LOW"
+      ],
+      "default": "GTA_UNKNOWN"
+    },
+    "tyrionGetSettingResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/tyrionGetSettingResponseData"
+        }
+      }
+    },
+    "tyrionGetSettingResponseData": {
+      "type": "object",
+      "properties": {
+        "setting": {
+          "$ref": "#/definitions/tyrionSetting"
+        }
+      }
+    },
+    "tyrionHealthResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "string"
+        }
+      }
+    },
+    "tyrionListGeneralTickerAlertResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/tyrionListGeneralTickerAlertResponseData"
+        }
+      }
+    },
+    "tyrionListGeneralTickerAlertResponseData": {
+      "type": "object",
+      "properties": {
+        "alerts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ListGeneralTickerAlertResponseAlert"
+          }
+        }
+      }
+    },
+    "tyrionListTemplateResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/tyrionTemplate"
+          }
+        }
+      }
+    },
+    "tyrionListTickerAlertResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/tyrionListTickerAlertResponseData"
+        }
+      }
+    },
+    "tyrionListTickerAlertResponseData": {
+      "type": "object",
+      "properties": {
+        "tickerAlerts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ListTickerAlertResponseTickerAlert"
+          }
+        },
+        "count": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "tyrionNotification_Type": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_NOTIFICATION_TYPE",
+        "BANK_ACTIVITY",
+        "STOCK_PRICE_MOVEMENT_HOLDING",
+        "STOCK_PRICE_MOVEMENT_WATCHLIST",
+        "ORDER_STATUS",
+        "IPO_ALERT",
+        "OTHER"
+      ],
+      "default": "UNKNOWN_NOTIFICATION_TYPE"
+    },
+    "tyrionResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "tyrionScroll_Direction": {
+      "type": "string",
+      "enum": [
+        "SD_UNKNOWN",
+        "SD_DOWN",
+        "SD_UP"
+      ],
+      "default": "SD_UNKNOWN"
+    },
+    "tyrionSendNotificationRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "type": {
+          "$ref": "#/definitions/tyrionNotification_Type"
+        },
+        "templateType": {
+          "$ref": "#/definitions/tyrionTemplate_Type"
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "notification": {
+          "$ref": "#/definitions/tyrionFCMRequest"
+        }
+      }
+    },
+    "tyrionSendToDeviceResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "tyrionSendToDevicesRequest": {
+      "type": "object",
+      "properties": {
+        "deviceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "templateType": {
+          "$ref": "#/definitions/tyrionTemplate_Type"
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "notification": {
+          "$ref": "#/definitions/tyrionFCMRequest"
+        },
+        "type": {
+          "$ref": "#/definitions/tyrionNotification_Type"
+        }
+      }
+    },
+    "tyrionSendToUsersRequest": {
+      "type": "object",
+      "properties": {
+        "userIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "templateType": {
+          "$ref": "#/definitions/tyrionTemplate_Type"
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "notification": {
+          "$ref": "#/definitions/tyrionFCMRequest"
+        },
+        "type": {
+          "$ref": "#/definitions/tyrionNotification_Type"
+        }
+      }
+    },
+    "tyrionSendToUsersResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "tyrionSetting": {
+      "type": "object",
+      "properties": {
+        "enabledBankActivity": {
+          "type": "boolean"
+        },
+        "enabledStockPriceMovementHolding": {
+          "type": "boolean"
+        },
+        "enabledStockPriceMovementWatchlist": {
+          "type": "boolean"
+        },
+        "enableOrderStatus": {
+          "type": "boolean"
+        },
+        "enabledIpoAlert": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "tyrionSettingRequest": {
+      "type": "object",
+      "properties": {
+        "enabledBankActivity": {
+          "type": "boolean"
+        },
+        "enabledStockPriceMovementHolding": {
+          "type": "boolean"
+        },
+        "enabledStockPriceMovementWatchlist": {
+          "type": "boolean"
+        },
+        "enableOrderStatus": {
+          "type": "boolean"
+        },
+        "enabledIpoAlert": {
+          "type": "boolean"
+        }
+      }
+    },
+    "tyrionSignature": {
+      "type": "object",
+      "properties": {
+        "deviceId": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "tyrionTemplate": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/tyrionTemplate_Type"
+        },
+        "content": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "action": {
+          "$ref": "#/definitions/tyrionAction_Type"
+        },
+        "Properties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "tyrionTemplate_Type": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_TEMPLATE_TYPE",
+        "BO_REGISTERED",
+        "BO_REJECTED",
+        "NEW_DEVICE_LOGIN",
+        "TT_TICKER_ALERT",
+        "DEPOSIT_INSTANT_APPROVED",
+        "DEPOSIT_MANUAL_REQUESTED",
+        "DEPOSIT_MANUAL_APPROVED",
+        "DEPOSIT_MANUAL_REJECTED",
+        "WITHDRAW_REQUESTED",
+        "WITHDRAW_APPROVED",
+        "WITHDRAW_REJECTED",
+        "DEPOSIT_BO_PAYMENT",
+        "ORDER_PLACED",
+        "ORDER_FILLED",
+        "ORDER_REJECTED",
+        "ORDER_EXPIRED",
+        "ORDER_CANCELLED",
+        "ORDER_PARTIALLY_CANCELLED",
+        "ORDER_PARTIALLY_EXPIRED",
+        "ORDER_PARTIALLY_FILLED",
+        "TT_EXISTING_NBL_SL_BO_REGISTER"
+      ],
+      "default": "UNKNOWN_TEMPLATE_TYPE"
+    },
+    "tyrionTickerAlertType": {
+      "type": "string",
+      "enum": [
+        "TA_UNKNOWN",
+        "TA_UPWARD",
+        "TA_DOWNWARD"
+      ],
+      "default": "TA_UNKNOWN"
+    }
+  }
+}

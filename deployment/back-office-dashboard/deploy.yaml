@@ -1,0 +1,53 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: back-office-dashboard
+  namespace: back-office-dashboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: back-office-dashboard
+  template:
+    metadata:
+      labels:
+        app: back-office-dashboard
+    spec:
+
+      # volumes:
+      #   - name: envoy-config
+      #     configMap:
+      #       name: envoy-config
+      #   - name: tls-cert
+      #     secret:
+      #       secretName: tls-cert
+      containers:
+        #- name: envoy
+          #image: gcr.io/stock-x-342909/envoy-back-office-dashboard:0.0.3
+          # volumeMounts:
+          #   - mountPath: "/etc/cert"
+          #     name: tls-cert
+          #   - mountPath: "/etc/envoy/"
+          #     name: envoy-config
+
+          # env:
+          #   - name: DEV_MODE
+          #     value: "false"
+
+          # ports:
+          #   - containerPort: 8080
+
+        - name: back-office-dashboard
+          image: gcr.io/stock-x-342909/back-office-dashboard:$IMAGE_TAG
+          env:
+            - name: DEV_MODE
+              value: "false"
+            - name: NODE_OPTIONS
+              value: "--openssl-legacy-provider"
+            - name: BASE_URL
+              value: "https://api-dev.techetronventures.com/"
+
+
+          ports:
+            - containerPort: 3000

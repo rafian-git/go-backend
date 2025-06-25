@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: landing-page
+  namespace: landing-page
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: landing-page
+  template:
+    metadata:
+      labels:
+        app: landing-page
+    spec:
+      volumes:
+#        - name: envoy-config
+#          configMap:
+#            name: envoy-config
+#        - name: tls-cert
+#          secret:
+#            secretName: tls-cert
+      containers:
+        - name: landing-page
+          image: gcr.io/stock-x-342909/landing-page:$IMAGE_TAG
+          env:
+            - name: DEV_MODE
+              value: "false"
+            - name: NODE_OPTIONS
+              value: "--openssl-legacy-provider"
+
+
+          ports:
+            - containerPort: 3000

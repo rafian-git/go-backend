@@ -1,0 +1,4 @@
+FROM swaggerapi/swagger-ui
+
+RUN mkdir /usr/share/nginx/html/api
+COPY integration/swagger/  /usr/share/nginx/html/api/

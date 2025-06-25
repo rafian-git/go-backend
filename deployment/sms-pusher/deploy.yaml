@@ -1,0 +1,47 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sms-pusher
+  namespace: sms-pusher
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sms-pusher
+  template:
+    metadata:
+      labels:
+        app: sms-pusher
+    spec:
+      volumes:
+        - name: service-account
+          secret:
+            secretName: bucket-service-account
+      containers:
+        - name: envoy
+          image: gcr.io/stock-x-342909/envoy:sms-pusher-$IMAGE_TAG
+          env:
+            - name: DEV_MODE
+              value: "false"
+
+          ports:
+            - containerPort: 8080
+
+        - name: sms-pusher
+          image: gcr.io/stock-x-342909/sms-pusher:$IMAGE_TAG
+          volumeMounts:
+            - mountPath: /etc/stockx
+              name: service-account
+          env:
+            - name: DEV_MODE
+              value: "false"
+            - name: "SMS_PUSHER_CONSUL_URL"
+              value: "consul-server.consul:8500"
+            - name: "SMS_PUSHER_CONSUL_PATH"
+              value: "sms_pusher"
+            - name: "GOOGLE_APPLICATION_CREDENTIALS"
+              value: "/etc/stockx/stockx-service-account.json"
+          ports:
+            - containerPort: 15070
+

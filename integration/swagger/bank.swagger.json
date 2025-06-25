@@ -1,0 +1,2116 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "bank.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/bank/balance": {
+      "get": {
+        "operationId": "Bank_GetAccountBalance",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankGetAccountBalanceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "phone",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "accountNo",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "countryCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/bank/customer_login_interface": {
+      "get": {
+        "operationId": "Bank_CustomerLoginInterface",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankCustomerLoginInterfaceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/bank/deposit-bank-info": {
+      "get": {
+        "operationId": "Bank_GetBankInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankBankInformationResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/bank/deposit-proof": {
+      "get": {
+        "operationId": "Bank_GetDepositProof",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankGetDepositProofResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "metaId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "fundingId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bank"
+        ]
+      },
+      "post": {
+        "operationId": "Bank_SubmitDepositProof",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankSubmitDepositProofResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bankSubmitDepositProofRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/bank/file": {
+      "post": {
+        "operationId": "Bank_SubmitFile",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankSubmitFileInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bankSubmitFileInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/bank/funding/bo-payment/history": {
+      "get": {
+        "operationId": "Bank_GetBoPaymentHistory",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankBoPaymentHistoryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "metaId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/bank/funding/history": {
+      "get": {
+        "operationId": "Bank_GetFundingHistory",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankGetFundingHistoryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "clientCodes",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ALL_FUNDING",
+              "PENDING",
+              "UNATTEMPTED",
+              "CANCELLED",
+              "PROCESSING",
+              "FAILED",
+              "APPROVED",
+              "REJECTED",
+              "EXPIRED",
+              "COMPLETED",
+              "UNKNOWN_FUNDING_STATUS"
+            ],
+            "default": "ALL_FUNDING"
+          },
+          {
+            "name": "fundingType",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN_FUNDING_TYPE",
+              "DEPOSIT",
+              "WITHDRAW"
+            ],
+            "default": "UNKNOWN_FUNDING_TYPE"
+          },
+          {
+            "name": "filterAmount",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "filterDirection",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN_FILTER_DIRECTION",
+              "ABOVE",
+              "BELOW"
+            ],
+            "default": "UNKNOWN_FILTER_DIRECTION"
+          },
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "metaIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fundingMedium",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN_FUNDING_MEDIUM",
+              "NBL_IPOWER",
+              "SSL_COMMERZ",
+              "OTHERS_BANK"
+            ],
+            "default": "UNKNOWN_FUNDING_MEDIUM"
+          },
+          {
+            "name": "sortingOrder",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN_SortingOrder",
+              "ASC",
+              "DESC"
+            ],
+            "default": "UNKNOWN_SortingOrder"
+          }
+        ],
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/bank/funding/in-process": {
+      "get": {
+        "operationId": "Bank_GetFundingInProcess",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankFundingInProcessResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "clientCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/bank/health": {
+      "get": {
+        "operationId": "Bank_Health",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankHealthResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/bank/initiate-withdraw": {
+      "post": {
+        "operationId": "Bank_InitiateWithdraw",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankInitiateWithdrawResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bankInitiateWithdrawRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/bank/initiate_pay": {
+      "post": {
+        "summary": "NBL IPower",
+        "operationId": "Bank_InitiatePayment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankInitiatePaymentResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bankInitiatePaymentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/bank/is_exist": {
+      "get": {
+        "operationId": "Bank_CheckAccountExist",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankCheckAccountResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/bank/link-nbl-account": {
+      "post": {
+        "operationId": "Bank_LinkNblAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankLinkNblAccountResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bankLinkNblAccountRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/bank/payment/ipn": {
+      "post": {
+        "operationId": "Bank_IPNCallback",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankIPNCallbackResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bankIPNCallbackRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/bank/payment/ssl": {
+      "post": {
+        "summary": "SSL commerce",
+        "operationId": "Bank_CreateSSLCommerceSession",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankCreateSSLCommerceSessionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bankCreateSSLCommerceSessionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/bank/payment/ssl/cancel": {
+      "post": {
+        "operationId": "Bank_CancelSSLCallback",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankCancelSSLCallbackResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bankCancelSSLCallbackRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/bank/payment/ssl/fail": {
+      "post": {
+        "operationId": "Bank_FailSSLCallback",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankFailSSLCallbackResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bankFailSSLCallbackRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/bank/payment/ssl/success": {
+      "post": {
+        "operationId": "Bank_SuccessSSLCallback",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankSuccessSSLCallbackResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bankSuccessSSLCallbackRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/bank/statement": {
+      "get": {
+        "operationId": "Bank_GetAccountStatement",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankGetAccountStatementResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "phone",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "accountNo",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "countryCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/public/bank/payment/confirm": {
+      "post": {
+        "operationId": "Bank_ConfirmPaymentURL",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankConfirmPaymentURLResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bankConfirmPaymentURLRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/public/bank/payment/ssl": {
+      "post": {
+        "operationId": "Bank_CreatePublicSSLCommerceSession",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankCreatePublicSSLCommerceSessionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bankCreatePublicSSLCommerceSessionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/public/bank/payment/ssl-public/ipn": {
+      "post": {
+        "operationId": "Bank_SSLPublicIPNCallback",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankSSLIPNCallbackResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bankSSLIPNCallbackRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bank"
+        ]
+      }
+    },
+    "/api/v1/public/bank/payment/ssl/ipn": {
+      "post": {
+        "operationId": "Bank_SSLIPNCallback",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bankSSLIPNCallbackResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bankSSLIPNCallbackRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bank"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "GetSummaryResponseSummaries": {
+      "type": "object",
+      "properties": {
+        "transactions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetSummaryResponseTransaction"
+          }
+        },
+        "count": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "GetSummaryResponseTransaction": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/bankFundingStatus"
+        },
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "count": {
+          "type": "string",
+          "format": "int64"
+        },
+        "storeAmount": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "bankAccountExistResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bankBackOfficeWithdrawResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bankBankInfo": {
+      "type": "object",
+      "properties": {
+        "bankName": {
+          "type": "string"
+        },
+        "branch": {
+          "type": "string"
+        },
+        "accNo": {
+          "type": "string"
+        },
+        "routingNo": {
+          "type": "string"
+        },
+        "accName": {
+          "type": "string"
+        },
+        "districtName": {
+          "type": "string"
+        }
+      }
+    },
+    "bankBankInformationResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bankBankInfo"
+          }
+        }
+      }
+    },
+    "bankBoPaymentHistoryResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bankFundingInfo"
+          }
+        }
+      }
+    },
+    "bankCancelSSLCallbackRequest": {
+      "type": "object"
+    },
+    "bankCancelSSLCallbackResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bankCheckAccountResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bankCheckAccountResponseData"
+        }
+      }
+    },
+    "bankCheckAccountResponseData": {
+      "type": "object",
+      "properties": {
+        "isAdded": {
+          "type": "boolean"
+        },
+        "accountNo": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        }
+      }
+    },
+    "bankCompleteDepositResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bankConfirmPaymentURLRequest": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "string"
+        },
+        "SessionId": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string",
+          "title": "string ref_id = 3;"
+        },
+        "RefId": {
+          "type": "string"
+        }
+      }
+    },
+    "bankConfirmPaymentURLResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bankCountFundingInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bankCountFundingInfoResponseData"
+        }
+      }
+    },
+    "bankCountFundingInfoResponseData": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bankCreatePublicSSLCommerceSessionRequest": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "phoneNo": {
+          "type": "string"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "accHolderName": {
+          "type": "string"
+        },
+        "boId": {
+          "type": "string"
+        }
+      }
+    },
+    "bankCreatePublicSSLCommerceSessionResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bankCreatePublicSSLCommerceSessionResponseData"
+        }
+      }
+    },
+    "bankCreatePublicSSLCommerceSessionResponseData": {
+      "type": "object",
+      "properties": {
+        "redirectUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "bankCreateSSLCommerceSessionRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "accHolderName": {
+          "type": "string"
+        },
+        "depositPurpose": {
+          "$ref": "#/definitions/bankFundingPurpose"
+        }
+      }
+    },
+    "bankCreateSSLCommerceSessionResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bankCreateSSLCommerceSessionResponseData"
+        }
+      }
+    },
+    "bankCreateSSLCommerceSessionResponseData": {
+      "type": "object",
+      "properties": {
+        "redirectUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "bankCustomerLoginInterfaceResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "$ref": "#/definitions/bankCustomerLoginInterfaceResponseData"
+        }
+      }
+    },
+    "bankCustomerLoginInterfaceResponseData": {
+      "type": "object",
+      "properties": {
+        "redirectUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "bankFailSSLCallbackRequest": {
+      "type": "object"
+    },
+    "bankFailSSLCallbackResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bankFileType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_FILE_TYPE",
+        "DEPOSIT_PROOF"
+      ],
+      "default": "UNKNOWN_FILE_TYPE"
+    },
+    "bankFilter": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/bankFundingType"
+        },
+        "purpose": {
+          "$ref": "#/definitions/bankFundingPurpose"
+        },
+        "txnIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "depositedBankAcc": {
+          "type": "string"
+        },
+        "accNo": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/bankFundingStatus"
+        },
+        "medium": {
+          "$ref": "#/definitions/bankFundingMedium"
+        },
+        "fundingIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        }
+      }
+    },
+    "bankFilterDirection": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_FILTER_DIRECTION",
+        "ABOVE",
+        "BELOW"
+      ],
+      "default": "UNKNOWN_FILTER_DIRECTION"
+    },
+    "bankFinalizeWithdrawResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bankFirstDepositInfoResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bankFirstDepositInfoResponseDepositInfo"
+          }
+        }
+      }
+    },
+    "bankFirstDepositInfoResponseDepositInfo": {
+      "type": "object",
+      "properties": {
+        "clientCode": {
+          "type": "string"
+        },
+        "didDeposit": {
+          "type": "boolean"
+        }
+      }
+    },
+    "bankFundingInProcess": {
+      "type": "object",
+      "properties": {
+        "depositInProcess": {
+          "type": "number",
+          "format": "double"
+        },
+        "withdrawInProcess": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "bankFundingInProcessResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bankFundingInProcess"
+        }
+      }
+    },
+    "bankFundingInfo": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "accHolderName": {
+          "type": "string"
+        },
+        "txnId": {
+          "type": "string"
+        },
+        "medium": {
+          "$ref": "#/definitions/bankFundingMedium"
+        },
+        "dateTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "status": {
+          "$ref": "#/definitions/bankFundingStatus"
+        },
+        "fundingId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "fundingType": {
+          "$ref": "#/definitions/bankFundingType"
+        },
+        "chequeFileId": {
+          "type": "string"
+        },
+        "syncedBoffice": {
+          "type": "boolean"
+        },
+        "syncedOms": {
+          "type": "boolean"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "storeAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "cardBrand": {
+          "type": "string"
+        },
+        "cardIssuer": {
+          "type": "string"
+        },
+        "cardNo": {
+          "type": "string"
+        },
+        "cardType": {
+          "type": "string"
+        },
+        "accNo": {
+          "type": "string"
+        },
+        "routingNo": {
+          "type": "string"
+        }
+      }
+    },
+    "bankFundingMedium": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_FUNDING_MEDIUM",
+        "NBL_IPOWER",
+        "SSL_COMMERZ",
+        "OTHERS_BANK"
+      ],
+      "default": "UNKNOWN_FUNDING_MEDIUM"
+    },
+    "bankFundingPurpose": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_FUNDING_PURPOSE",
+        "BO_PAYMENT",
+        "SUBSCRIPTION",
+        "OTHERS"
+      ],
+      "default": "UNKNOWN_FUNDING_PURPOSE"
+    },
+    "bankFundingStatus": {
+      "type": "string",
+      "enum": [
+        "ALL_FUNDING",
+        "PENDING",
+        "UNATTEMPTED",
+        "CANCELLED",
+        "PROCESSING",
+        "FAILED",
+        "APPROVED",
+        "REJECTED",
+        "EXPIRED",
+        "COMPLETED",
+        "UNKNOWN_FUNDING_STATUS"
+      ],
+      "default": "ALL_FUNDING"
+    },
+    "bankFundingType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_FUNDING_TYPE",
+        "DEPOSIT",
+        "WITHDRAW"
+      ],
+      "default": "UNKNOWN_FUNDING_TYPE"
+    },
+    "bankGetAccountBalanceResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "$ref": "#/definitions/bankGetAccountBalanceResponseData"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bankGetAccountBalanceResponseData": {
+      "type": "object",
+      "properties": {
+        "accountNo": {
+          "type": "string"
+        },
+        "balance": {
+          "type": "string"
+        }
+      }
+    },
+    "bankGetAccountStatementResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bankGetAccountStatementResponseData"
+          }
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bankGetAccountStatementResponseData": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "trnType": {
+          "type": "string"
+        },
+        "narration": {
+          "type": "string"
+        },
+        "chequeNo": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "drcr": {
+          "type": "string"
+        }
+      }
+    },
+    "bankGetDepositProofResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bankGetDepositProofResponseData"
+        }
+      }
+    },
+    "bankGetDepositProofResponseData": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "fileId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "depositedAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "depositDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "bankName": {
+          "type": "string"
+        },
+        "accHolderName": {
+          "type": "string"
+        },
+        "depositPurpose": {
+          "$ref": "#/definitions/bankFundingPurpose"
+        },
+        "fundingId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "chequeImageUrl": {
+          "type": "string"
+        },
+        "transactionId": {
+          "type": "string"
+        },
+        "depositedBankAcc": {
+          "type": "string"
+        },
+        "accNo": {
+          "type": "string"
+        },
+        "routingNo": {
+          "type": "string"
+        }
+      }
+    },
+    "bankGetFundingHistoryResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bankFundingInfo"
+          }
+        },
+        "paginationInfo": {
+          "$ref": "#/definitions/bankPaginationInfoResponse"
+        }
+      }
+    },
+    "bankGetSummaryResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bankGetSummaryResponseData"
+        }
+      }
+    },
+    "bankGetSummaryResponseData": {
+      "type": "object",
+      "properties": {
+        "withdraws": {
+          "$ref": "#/definitions/GetSummaryResponseSummaries"
+        },
+        "deposits": {
+          "$ref": "#/definitions/GetSummaryResponseSummaries"
+        }
+      }
+    },
+    "bankHealthResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "string"
+        }
+      }
+    },
+    "bankIPNCallbackRequest": {
+      "type": "object"
+    },
+    "bankIPNCallbackResponse": {
+      "type": "object"
+    },
+    "bankInitiatePaymentRequest": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "accHolderName": {
+          "type": "string"
+        },
+        "clientCode": {
+          "type": "string"
+        }
+      }
+    },
+    "bankInitiatePaymentResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "success": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/bankInitiatePaymentResponseData"
+        }
+      }
+    },
+    "bankInitiatePaymentResponseData": {
+      "type": "object",
+      "properties": {
+        "sessionId": {
+          "type": "string"
+        }
+      }
+    },
+    "bankInitiateWithdrawRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "accHolderName": {
+          "type": "string"
+        }
+      }
+    },
+    "bankInitiateWithdrawResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bankInitiateWithdrawResponseFundingInfo"
+        }
+      }
+    },
+    "bankInitiateWithdrawResponseFundingInfo": {
+      "type": "object",
+      "properties": {
+        "fundingId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bankInsertBankInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/bankBankInfo"
+        }
+      }
+    },
+    "bankLinkNblAccountRequest": {
+      "type": "object",
+      "properties": {
+        "phone": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "accountNo": {
+          "type": "string"
+        }
+      }
+    },
+    "bankLinkNblAccountResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bankPaginationInfoRequest": {
+      "type": "object",
+      "properties": {
+        "pageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bankPaginationInfoResponse": {
+      "type": "object",
+      "properties": {
+        "selfPageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "firstPageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nextPageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "previousPageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalPageCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalRecordCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bankSSLIPNCallbackRequest": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "bankTranId": {
+          "type": "string"
+        },
+        "cardBrand": {
+          "type": "string"
+        },
+        "cardIssuer": {
+          "type": "string"
+        },
+        "cardIssuerCountry": {
+          "type": "string"
+        },
+        "cardIssuerCountryCode": {
+          "type": "string"
+        },
+        "cardNo": {
+          "type": "string"
+        },
+        "cardType": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/bankSSLPaymentStatus"
+        },
+        "storeAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "storeId": {
+          "type": "string"
+        },
+        "tranDate": {
+          "type": "string"
+        },
+        "tranId": {
+          "type": "string"
+        },
+        "valId": {
+          "type": "string"
+        },
+        "verifySign": {
+          "type": "string"
+        },
+        "verifyKey": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "valueA": {
+          "type": "string"
+        },
+        "valueB": {
+          "type": "string"
+        }
+      }
+    },
+    "bankSSLIPNCallbackResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bankSSLPaymentStatus": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_SSL_PAYMENT_STATUS",
+        "SSL_VALID",
+        "SSL_FAILED",
+        "SSL_CANCELLED",
+        "SSL_UNATTEMPTED",
+        "SSL_EXPIRED"
+      ],
+      "default": "UNKNOWN_SSL_PAYMENT_STATUS"
+    },
+    "bankSortingOrder": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_SortingOrder",
+        "ASC",
+        "DESC"
+      ],
+      "default": "UNKNOWN_SortingOrder"
+    },
+    "bankSubmitDepositProofRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "fileId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "depositedAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "depositDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "bankName": {
+          "type": "string"
+        },
+        "accHolderName": {
+          "type": "string"
+        },
+        "depositPurpose": {
+          "$ref": "#/definitions/bankFundingPurpose"
+        },
+        "depositedBankAcc": {
+          "type": "string"
+        },
+        "accNo": {
+          "type": "string"
+        },
+        "routingNo": {
+          "type": "string"
+        }
+      }
+    },
+    "bankSubmitDepositProofResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bankSubmitDepositProofResponseFundingInfo"
+        }
+      }
+    },
+    "bankSubmitDepositProofResponseFundingInfo": {
+      "type": "object",
+      "properties": {
+        "fundingId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bankSubmitFileInfoRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "fileType": {
+          "$ref": "#/definitions/bankFileType"
+        },
+        "fileBase64": {
+          "type": "string"
+        },
+        "txnId": {
+          "type": "string"
+        }
+      }
+    },
+    "bankSubmitFileInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/bankSubmitFileInfoResponseFileInfo"
+        }
+      }
+    },
+    "bankSubmitFileInfoResponseFileInfo": {
+      "type": "object",
+      "properties": {
+        "fileId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "bankSuccessSSLCallbackRequest": {
+      "type": "object"
+    },
+    "bankSuccessSSLCallbackResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "bankUpdate": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/bankFundingType"
+        },
+        "status": {
+          "$ref": "#/definitions/bankFundingStatus"
+        },
+        "purpose": {
+          "$ref": "#/definitions/bankFundingPurpose"
+        },
+        "medium": {
+          "$ref": "#/definitions/bankFundingMedium"
+        },
+        "depositedBankAcc": {
+          "type": "string"
+        },
+        "accNo": {
+          "type": "string"
+        },
+        "routingNo": {
+          "type": "string"
+        },
+        "backOfficeDepositTranCode": {
+          "type": "string"
+        },
+        "backOfficeDepositStatus": {
+          "type": "string"
+        }
+      }
+    },
+    "bankUpdateBatchFundingStatusResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

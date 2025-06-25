@@ -1,0 +1,1 @@
+kc create secret generic bucket-service-account -n sms-pusher --from-file=stockx-service-account.json=$HOME/Documents/credential.json

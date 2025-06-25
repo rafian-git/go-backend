@@ -1,0 +1,1 @@
+kubectl create secret generic bucket-service-account -n health --from-file=stockx-service-account.json=$HOME/Documents/techetron-service-acc.json

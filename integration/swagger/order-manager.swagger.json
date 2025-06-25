@@ -1,0 +1,435 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "order-manager.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/order-manager/cancel-order": {
+      "post": {
+        "operationId": "OrderManager_CancelOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/order_executorCancelOrderResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/order_executorCancelOrderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OrderManager"
+        ]
+      }
+    },
+    "/api/v1/order-manager/create-order": {
+      "post": {
+        "operationId": "OrderManager_CreateOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/order_executorCreateOrderResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/order_executorCreateOrderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OrderManager"
+        ]
+      }
+    },
+    "/api/v1/order-manager/health-check": {
+      "post": {
+        "summary": "Health check method",
+        "operationId": "OrderManager_HealthCheck",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/order_managerHealthCheckResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {}
+            }
+          }
+        ],
+        "tags": [
+          "OrderManager"
+        ]
+      }
+    },
+    "/api/v1/order-manager/modify-order": {
+      "post": {
+        "operationId": "OrderManager_ModifyOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/order_executorModifyOrderResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/order_executorModifyOrderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OrderManager"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "order_executorCancelOrderRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "account": {
+          "type": "string"
+        },
+        "clOrdId": {
+          "type": "string"
+        },
+        "origOrdId": {
+          "type": "string"
+        },
+        "origClOrdId": {
+          "type": "string"
+        },
+        "orderQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "side": {
+          "$ref": "#/definitions/order_executorSide"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "transactTime": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "order_executorCancelOrderResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "order_executorCreateOrderRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clOrdId": {
+          "type": "string"
+        },
+        "account": {
+          "type": "string"
+        },
+        "orderRestrictions": {
+          "$ref": "#/definitions/order_executorOrderRestrictions"
+        },
+        "orderQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "ordType": {
+          "$ref": "#/definitions/order_executorOrdType"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "side": {
+          "$ref": "#/definitions/order_executorSide"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "symbolId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "transactTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "minQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "yieldPercentage": {
+          "type": "number",
+          "format": "double"
+        },
+        "timeInForce": {
+          "type": "string"
+        },
+        "expireDate": {
+          "type": "string"
+        },
+        "expireTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "displayQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    },
+    "order_executorCreateOrderResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/order_executorCreateOrderResponseData"
+        }
+      }
+    },
+    "order_executorCreateOrderResponseData": {
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "order_executorModifyOrderRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "account": {
+          "type": "string"
+        },
+        "clOrdId": {
+          "type": "string"
+        },
+        "origClOrdId": {
+          "type": "string"
+        },
+        "origOrdId": {
+          "type": "string"
+        },
+        "orderQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "ordType": {
+          "$ref": "#/definitions/order_executorOrdType"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "side": {
+          "$ref": "#/definitions/order_executorSide"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "symbolId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "transactTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "minQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "yieldPercentage": {
+          "type": "number",
+          "format": "double"
+        },
+        "timeInForce": {
+          "type": "string"
+        },
+        "expireDate": {
+          "type": "string"
+        },
+        "expireTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "displayQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    },
+    "order_executorModifyOrderResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "order_executorOrdType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_ORD_TYPE",
+        "MARKET",
+        "LIMIT",
+        "MARKET_AT_BEST"
+      ],
+      "default": "UNKNOWN_ORD_TYPE"
+    },
+    "order_executorOrderRestrictions": {
+      "type": "string",
+      "enum": [
+        "NULL_ORDER_RESTRICTIONS",
+        "N",
+        "F",
+        "I",
+        "O",
+        "R"
+      ],
+      "default": "NULL_ORDER_RESTRICTIONS"
+    },
+    "order_executorSide": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_SIDE",
+        "BUY",
+        "SELL",
+        "SHORT_SELL"
+      ],
+      "default": "UNKNOWN_SIDE"
+    },
+    "order_managerHealthCheckResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "Response for health check"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

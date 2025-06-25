@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-tracker-scheduler
+  namespace: portfolio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-tracker-scheduler
+  template:
+    metadata:
+      labels:
+        app: order-tracker-scheduler
+    spec:
+      containers:
+        - name: order-tracker-scheduler
+          image: gcr.io/stock-x-342909/portfolio:$IMAGE_TAG
+
+          env:
+            - name: DEV_MODE
+              value: "false"
+            - name: "PORTFOLIO_CONSUL_URL"
+              value: "consul-server.consul:8500"
+            - name: "PORTFOLIO_CONSUL_PATH"
+              value: "portfolio"
+
+          ports:
+            - containerPort: 15070
+          args: [ "order_tracker_schedule" ]
+

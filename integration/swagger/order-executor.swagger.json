@@ -1,0 +1,811 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "order-executor.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/order-executor/get-order-details": {
+      "get": {
+        "operationId": "OrderExecutor_GetOrderDetails",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/order_executorGetOrderDetailsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "account",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "symbol",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "securitySubType",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "side",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN_SIDE",
+              "BUY",
+              "SELL",
+              "SHORT_SELL"
+            ],
+            "default": "UNKNOWN_SIDE"
+          },
+          {
+            "name": "ordStatus",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "UNKNOWN_ORD_STATUS",
+                "ORD_STATUS_NEW_ORDER",
+                "ORD_STATUS_PARTIALLY_FILLED",
+                "ORD_STATUS_FILLED",
+                "ORD_STATUS_CANCELED",
+                "ORD_STATUS_REPLACED",
+                "ORD_STATUS_REJECTED",
+                "ORD_STATUS_EXPIRED"
+              ]
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "OrderExecutor"
+        ]
+      }
+    },
+    "/api/v1/order-executor/get-order-history": {
+      "get": {
+        "operationId": "OrderExecutor_GetOrderHistory",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/order_executorGetOrderHistoryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "orderId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "symbol",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "side",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN_SIDE",
+              "BUY",
+              "SELL",
+              "SHORT_SELL"
+            ],
+            "default": "UNKNOWN_SIDE"
+          },
+          {
+            "name": "ordStatus",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN_ORD_STATUS",
+              "ORD_STATUS_NEW_ORDER",
+              "ORD_STATUS_PARTIALLY_FILLED",
+              "ORD_STATUS_FILLED",
+              "ORD_STATUS_CANCELED",
+              "ORD_STATUS_REPLACED",
+              "ORD_STATUS_REJECTED",
+              "ORD_STATUS_EXPIRED"
+            ],
+            "default": "UNKNOWN_ORD_STATUS"
+          },
+          {
+            "name": "fromTime",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "toTime",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "OrderExecutor"
+        ]
+      }
+    },
+    "/api/v1/order-executor/health-check": {
+      "post": {
+        "summary": "Health check method",
+        "operationId": "OrderExecutor_HealthCheck",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/order_executorHealthCheckResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {}
+            }
+          }
+        ],
+        "tags": [
+          "OrderExecutor"
+        ]
+      }
+    },
+    "/api/v1/order-executor/list-execution-reports": {
+      "get": {
+        "operationId": "OrderExecutor_ListExecutionReports",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/order_executorListExecutionReportsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "orderId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ordStatus",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN_ORD_STATUS",
+              "ORD_STATUS_NEW_ORDER",
+              "ORD_STATUS_PARTIALLY_FILLED",
+              "ORD_STATUS_FILLED",
+              "ORD_STATUS_CANCELED",
+              "ORD_STATUS_REPLACED",
+              "ORD_STATUS_REJECTED",
+              "ORD_STATUS_EXPIRED"
+            ],
+            "default": "UNKNOWN_ORD_STATUS"
+          },
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "OrderExecutor"
+        ]
+      }
+    },
+    "/api/v1/order-executor/open-order-details": {
+      "get": {
+        "operationId": "OrderExecutor_OpenOrdersDetails",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/order_executorOpenOrdersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "side",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN_SIDE",
+              "BUY",
+              "SELL",
+              "SHORT_SELL"
+            ],
+            "default": "UNKNOWN_SIDE"
+          },
+          {
+            "name": "ordStatus",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN_ORD_STATUS",
+              "ORD_STATUS_NEW_ORDER",
+              "ORD_STATUS_PARTIALLY_FILLED",
+              "ORD_STATUS_FILLED",
+              "ORD_STATUS_CANCELED",
+              "ORD_STATUS_REPLACED",
+              "ORD_STATUS_REJECTED",
+              "ORD_STATUS_EXPIRED"
+            ],
+            "default": "UNKNOWN_ORD_STATUS"
+          }
+        ],
+        "tags": [
+          "OrderExecutor"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "order_executorCancelOrderResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "order_executorCancelRejectResponse": {
+      "type": "object"
+    },
+    "order_executorCreateOrderResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/order_executorCreateOrderResponseData"
+        }
+      }
+    },
+    "order_executorCreateOrderResponseData": {
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "order_executorCxlRejReason": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_CXL_REJ_REASON",
+        "UNKNOWN_ORDER",
+        "DUPLICATE_ORDER",
+        "OTHER"
+      ],
+      "default": "UNKNOWN_CXL_REJ_REASON"
+    },
+    "order_executorCxlRejResponseTo": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_CXL",
+        "ORDER_CANCEL_REQUEST",
+        "ORDER_CANCEL_REPLACE_REQUEST"
+      ],
+      "default": "UNKNOWN_CXL"
+    },
+    "order_executorExecType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_EXEC_TYPE",
+        "EXEC_TYPE_NEW",
+        "EXEC_TYPE_Done_FOR_DAY",
+        "EXEC_TYPE_CANCELED",
+        "EXEC_TYPE_REPLACED",
+        "EXEC_TYPE_PENDING_CANCEL",
+        "EXEC_TYPE_STOPPED",
+        "EXEC_TYPE_REJECTED",
+        "EXEC_TYPE_EXPIRED",
+        "EXEC_TYPE_TRADE",
+        "EXEC_TYPE_Trade_Cancel",
+        "EXEC_TYPE_ORDER_STATUS"
+      ],
+      "default": "UNKNOWN_EXEC_TYPE"
+    },
+    "order_executorExecutionReportResponse": {
+      "type": "object"
+    },
+    "order_executorExecutions": {
+      "type": "object",
+      "properties": {
+        "clOrdId": {
+          "type": "string"
+        },
+        "execId": {
+          "type": "string"
+        },
+        "execInst": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "origClOrdId": {
+          "type": "string"
+        },
+        "execType": {
+          "$ref": "#/definitions/order_executorExecType"
+        },
+        "ordStatus": {
+          "$ref": "#/definitions/order_executorOrdStatus"
+        },
+        "orderStatusReqId": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "securitySubType": {
+          "type": "string"
+        },
+        "account": {
+          "type": "string"
+        },
+        "orderRestrictions": {
+          "type": "string"
+        },
+        "avgPx": {
+          "type": "number",
+          "format": "double"
+        },
+        "cumQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "lastPx": {
+          "type": "number",
+          "format": "double"
+        },
+        "lastQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "orderQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "minQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "orderStatus": {
+          "type": "string"
+        },
+        "ordType": {
+          "$ref": "#/definitions/order_executorOrdType"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "side": {
+          "$ref": "#/definitions/order_executorSide"
+        },
+        "timeInForce": {
+          "type": "string"
+        },
+        "transactTime": {
+          "type": "string"
+        },
+        "tradeDate": {
+          "type": "string"
+        },
+        "expireDate": {
+          "type": "string"
+        },
+        "expireTime": {
+          "type": "string"
+        },
+        "settleDate": {
+          "type": "string"
+        },
+        "matchType": {
+          "type": "string"
+        },
+        "orderRejectedReason": {
+          "type": "string",
+          "format": "int64"
+        },
+        "leavesQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "yield": {
+          "type": "number",
+          "format": "double"
+        },
+        "grossTradeAmt": {
+          "type": "number",
+          "format": "double"
+        },
+        "tradeMatchId": {
+          "type": "string"
+        },
+        "aggressorIndicator": {
+          "type": "boolean"
+        },
+        "displayQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "text": {
+          "type": "string"
+        },
+        "copyMsgIndicator": {
+          "type": "boolean"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "excOrdId": {
+          "type": "string"
+        },
+        "cxlRejResponseTo": {
+          "$ref": "#/definitions/order_executorCxlRejResponseTo"
+        },
+        "cxlRejReason": {
+          "$ref": "#/definitions/order_executorCxlRejReason"
+        }
+      }
+    },
+    "order_executorGetOrderDetailsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/order_executorGetOrderDetailsResponseData"
+        }
+      }
+    },
+    "order_executorGetOrderDetailsResponseData": {
+      "type": "object",
+      "properties": {
+        "executions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/order_executorExecutions"
+          }
+        }
+      }
+    },
+    "order_executorGetOrderHistoryResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/order_executorGetOrderHistoryResponseData"
+        }
+      }
+    },
+    "order_executorGetOrderHistoryResponseData": {
+      "type": "object",
+      "properties": {
+        "executions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/order_executorExecutions"
+          }
+        }
+      }
+    },
+    "order_executorHealthCheckResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "Response for health check"
+    },
+    "order_executorListExecutionReportsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/order_executorListExecutionReportsResponseData"
+        }
+      }
+    },
+    "order_executorListExecutionReportsResponseData": {
+      "type": "object",
+      "properties": {
+        "executions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/order_executorExecutions"
+          }
+        }
+      }
+    },
+    "order_executorModifyOrderResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "order_executorOpenOrdersResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/order_executorOpenOrdersResponseData"
+        }
+      }
+    },
+    "order_executorOpenOrdersResponseData": {
+      "type": "object",
+      "properties": {
+        "executions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/order_executorExecutions"
+          }
+        }
+      }
+    },
+    "order_executorOrdStatus": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_ORD_STATUS",
+        "ORD_STATUS_NEW_ORDER",
+        "ORD_STATUS_PARTIALLY_FILLED",
+        "ORD_STATUS_FILLED",
+        "ORD_STATUS_CANCELED",
+        "ORD_STATUS_REPLACED",
+        "ORD_STATUS_REJECTED",
+        "ORD_STATUS_EXPIRED"
+      ],
+      "default": "UNKNOWN_ORD_STATUS"
+    },
+    "order_executorOrdType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_ORD_TYPE",
+        "MARKET",
+        "LIMIT",
+        "MARKET_AT_BEST"
+      ],
+      "default": "UNKNOWN_ORD_TYPE"
+    },
+    "order_executorOrderRestrictions": {
+      "type": "string",
+      "enum": [
+        "NULL_ORDER_RESTRICTIONS",
+        "N",
+        "F",
+        "I",
+        "O",
+        "R"
+      ],
+      "default": "NULL_ORDER_RESTRICTIONS"
+    },
+    "order_executorPaginationInfo": {
+      "type": "object",
+      "properties": {
+        "pageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "order_executorSide": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_SIDE",
+        "BUY",
+        "SELL",
+        "SHORT_SELL"
+      ],
+      "default": "UNKNOWN_SIDE"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

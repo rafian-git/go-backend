@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ea
+  namespace: early-access
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: early-access
+  template:
+    metadata:
+      labels:
+        app: early-access
+    spec:
+      volumes:
+        - name: service-account
+          secret:
+            secretName: bucket-service-account
+      containers:
+        - env:
+            - name: DEV_MODE
+              value: "false"
+            - name: EARLY_ACCESS_CONSUL_URL
+              value: consul-server.consul:8500
+            - name: EARLY_ACCESS_CONSUL_PATH
+              value: early_access
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /etc/stockx/stockx-service-account.json"
+          image: gcr.io/stock-x-342909/early-access:v1.0.3-rc5
+          imagePullPolicy: IfNotPresent
+          name: early-access
+          volumeMounts:
+            - mountPath: /etc/stockx
+              name: service-account
+          ports:
+            - containerPort: 15070
+              protocol: TCP

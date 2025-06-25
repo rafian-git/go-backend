@@ -1,0 +1,1 @@
+kubectl create configmap envoy-config -n landing-page --from-file=envoy.yaml=./integration/etc/envoy/envoy.landing-page.yaml

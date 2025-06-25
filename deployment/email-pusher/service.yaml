@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: email-pusher
+  namespace: email-pusher
+
+  # annotations:
+  #   prometheus.io/scrape: "true"
+  #   prometheus.io/path: "/metrics"
+  labels:
+    name: email-pusher
+spec:
+  type: ClusterIP
+  ports:
+    - name: web
+      port: 80
+      targetPort: 8080
+    - name: tcp
+      port: 15070
+      targetPort: 15070
+    - name: envoy-metrics  #only in prod
+      port: 9901
+      protocol: TCP
+      targetPort: 9901
+    - name: prom   #only in prod
+      port: 9092
+      protocol: TCP
+      targetPort: 9092
+
+  selector:
+    app: email-pusher

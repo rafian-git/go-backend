@@ -1,0 +1,35 @@
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: market-data-scraper
+  namespace: market-data-scraper
+spec:
+  schedule: "* * * * *"
+  selector:
+    matchLabels:
+      app: market-data-scraper
+  jobTemplate:
+    metadata:
+      labels:
+        app: market-data-scraper
+    spec:
+      containers:
+        - name: data_scrapper
+          image: gcr.io/stock-x-342909/market-data-scrapper:1.0.6
+          env:
+            - name: DEV_MODE
+              value: "false"
+            - name: DB_HOST
+              value: "10.26.96.6"
+            - name: DB_DATABASE
+              value: "market_data_scrapper"
+            - name: DB_USER
+              value: "postgres"
+            - name: DB_PASSWORD
+              value: "aMAbcA83tqaIgIrG"
+            - name: DB_MULTIPLESTATEMENTS
+              value: "true"
+
+          ports:
+            - containerPort: 8080

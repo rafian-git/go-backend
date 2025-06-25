@@ -1,0 +1,2 @@
+kubectl create secret generic bucket-service-account -n tyrion --from-file=stockx-service-account.json=/Users/nafiul/Documents/techetron-service-acc.json
+kubectl create secret generic fcm-service-account -n tyrion --from-file=fcm-service-account.json=/Users/nafiul/Downloads/trek-bangladesh-firebase-adminsdk-qy4ca-4dca1641ea.json

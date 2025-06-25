@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pubsub
+  namespace: pubsub
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pubsub
+  template:
+    metadata:
+      labels:
+        app: pubsub
+    spec:
+      containers:
+        - name: zookeeper
+          image: gcr.io/stock-x-342909/zookeeper:0.1.1-rc1
+          ports:
+            - containerPort: 2181
+
+        - name: pubsub
+          image: gcr.io/stock-x-342909/kafka:0.1.1-rc1
+          env:
+            - name: "KAFKA_ADVERTISED_HOST_NAME"
+              value: "pubsub.pubsub"
+            - name: "KAFKA_ZOOKEEPER_CONNECT"
+              value: "127.0.0.1:2181"
+            - name: "KAFKA_AUTO_CREATE_TOPICS_ENABLE"
+              value: "true"
+
+          ports:
+            - containerPort: 9092

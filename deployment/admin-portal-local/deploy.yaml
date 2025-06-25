@@ -1,0 +1,45 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-portal
+  namespace: admin-portal-local
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: admin-portal
+  template:
+    metadata:
+      labels:
+        app: admin-portal
+    spec:
+      containers:
+        - name: envoy
+          image: gcr.io/stock-x-342909/envoy:admin-portal-$IMAGE_TAG
+          env:
+            - name: DEV_MODE
+              value: "false"
+
+          ports:
+            - containerPort: 8080
+
+        - name: admin-portal
+          image: gcr.io/stock-x-342909/admin-portal:$IMAGE_TAG
+          #          resources:
+          #            requests:
+          #              memory: "64Mi"
+          #              cpu: "50m"
+          #            limits:
+          #              memory: "128Mi"
+          #              cpu: "500m"
+          env:
+            - name: DEV_MODE
+              value: "false"
+            - name: "ADMIN_PORTAL_CONSUL_URL"
+              value: "consul-server.consul:8500"
+            - name: "ADMIN_PORTAL_CONSUL_PATH"
+              value: "admin_portal_local"
+
+          ports:
+            - containerPort: 15072

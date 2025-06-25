@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proxy
+  namespace: centrifugo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: proxy
+  template:
+    metadata:
+      labels:
+        app: proxy
+    spec:
+      containers:
+
+        - name: proxy
+          image: gcr.io/stock-x-342909/centrifugo-proxy:$IMAGE_TAG
+          #          resources:
+          #            requests:
+          #              memory: "64Mi"
+          #              cpu: "50m"
+          #            limits:
+          #              memory: "128Mi"
+          #              cpu: "500m"
+          env:
+            - name: DEV_MODE
+              value: "false"
+            - name: "CENTRIFUGO_PROXY_CONSUL_URL"
+              value: "consul-server.consul:8500"
+            - name: "CENTRIFUGO_PROXY_CONSUL_PATH"
+              value: "centrifugo_proxy"
+
+          ports:
+            - containerPort: 15071

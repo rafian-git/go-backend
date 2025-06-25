@@ -1,0 +1,47 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: account-listener
+  namespace: me
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: account-listener
+  template:
+    metadata:
+      labels:
+        app: account-listener
+    spec:
+      volumes:
+        - name: service-account
+          secret:
+            secretName: bucket-service-account
+      containers:
+
+        - name: account-listener
+          image: gcr.io/stock-x-342909/me:$IMAGE_TAG
+          volumeMounts:
+            - mountPath: /etc/stockx
+              name: service-account
+          #          resources:
+          #            requests:
+          #              memory: "64Mi"
+          #              cpu: "50m"
+          #            limits:
+          #              memory: "128Mi"
+          #              cpu: "500m"
+          env:
+            - name: DEV_MODE
+              value: "false"
+            - name: "ME_CONSUL_URL"
+              value: "consul-server.consul:8500"
+            - name: "ME_CONSUL_PATH"
+              value: "me"
+            - name: "GOOGLE_APPLICATION_CREDENTIALS"
+              value: "/etc/stockx/stockx-service-account.json"
+
+          ports:
+            - containerPort: 15070
+          args: [ "listen_account_creation" ]

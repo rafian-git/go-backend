@@ -1,0 +1,20 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    release: prometheus
+  name: metrics
+  namespace: admin-portal
+
+spec:
+  endpoints:
+    - path: /stats/prometheus
+      port: envoy-metrics
+    - path: /metrics
+      port: prom
+  namespaceSelector:
+    matchNames:
+      - admin-portal
+  selector:
+    matchLabels:
+      name: admin-portal

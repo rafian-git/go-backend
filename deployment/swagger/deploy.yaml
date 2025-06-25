@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swagger
+  namespace: swagger
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: swagger
+  template:
+    metadata:
+      labels:
+        app: swagger
+    spec:
+      containers:
+        - name: swagger
+          image: gcr.io/stock-x-342909/swagger:$IMAGE_TAG
+          #          resources:
+          #            requests:
+          #              memory: "64Mi"
+          #              cpu: "50m"
+          #            limits:
+          #              memory: "128Mi"
+          #              cpu: "500m"
+          env:
+            - name: API_HOST
+              value: "api-dev.techetronventures.com"
+            - name: URLS
+              value: "[
+              { url: \"./api/auth.swagger.json\", name: \"Auth\" },
+              { url: \"./api/me.swagger.json\", name: \"Me\" },
+              { url: \"./api/sms-pusher.swagger.json\", name: \"SmsPusher\" },
+              { url: \"./api/bazar.swagger.json\", name: \"Bazar\" },
+              { url: \"./api/bank-info.swagger.json\", name: \"BankInfo\" },
+              { url: \"./api/admin-portal.swagger.json\", name: \"AdminPortal\" },
+              { url: \"./api/portfolio.swagger.json\", name: \"Portfolio\" },
+              { url: \"./api/guest.swagger.json\", name: \"Guest\" },
+              { url: \"./api/bank.swagger.json\", name: \"Bank\" },
+              { url: \"./api/varys.swagger.json\", name: \"Varys\" },
+              { url: \"./api/sms-pusher.swagger.json\", name: \"SMS-Pusher\" },
+              { url: \"./api/email-pusher.swagger.json\", name: \"Email-Pusher\" },
+              { url: \"./api/tyrion.swagger.json\", name: \"Tyrion\" },
+              { url: \"./api/app_settings.swagger.json\", name: \"AppSettings\" },
+              { url: \"./api/ipo.swagger.json\", name: \"IPO\" },
+              { url: \"./api/bazar_clients.swagger.json\", name: \"BazarClients\" },
+                       ]"
+          ports:
+            - containerPort: 15071

@@ -1,0 +1,172 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "backtrade.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/oms/backtrade/health-check": {
+      "get": {
+        "summary": "Health check method",
+        "operationId": "Backtrade_HealthCheck",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/backtradeHealthCheckResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "Backtrade"
+        ]
+      }
+    },
+    "/api/v1/oms/backtrade/signed-url": {
+      "get": {
+        "operationId": "Backtrade_GetSignedUrl",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/backtradeGetSignedUrlResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "fileType",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SUF_UNKNOWN",
+              "SUF_CLIENT",
+              "SUF_POSITION",
+              "SUF_TRADE"
+            ],
+            "default": "SUF_UNKNOWN"
+          },
+          {
+            "name": "fileName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Backtrade"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "GetSignedUrlResponseData": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/backtradeSignedUrlFileStatus"
+        },
+        "expireAt": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "backtradeGetSignedUrlResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/GetSignedUrlResponseData"
+        }
+      }
+    },
+    "backtradeHealthCheckResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "Response for health check"
+    },
+    "backtradeSignedUrlFile": {
+      "type": "string",
+      "enum": [
+        "SUF_UNKNOWN",
+        "SUF_CLIENT",
+        "SUF_POSITION",
+        "SUF_TRADE"
+      ],
+      "default": "SUF_UNKNOWN"
+    },
+    "backtradeSignedUrlFileStatus": {
+      "type": "string",
+      "enum": [
+        "SUFS_UNKNOWN",
+        "SUFS_PENDING",
+        "SUFS_PROCESSING",
+        "SUFS_COMPLETED"
+      ],
+      "default": "SUFS_UNKNOWN"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

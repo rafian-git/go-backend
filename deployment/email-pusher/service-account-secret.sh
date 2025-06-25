@@ -1,0 +1,1 @@
+kc create secret generic bucket-service-account -n email-pusher --from-file=stockx-service-account.json=$HOME/Documents/techetron-service-acc.json

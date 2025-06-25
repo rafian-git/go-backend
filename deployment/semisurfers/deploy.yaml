@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: semisurfers
+  namespace: semisurfers
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: semisurfers
+  template:
+    metadata:
+      labels:
+        app: semisurfers
+    spec:
+      containers:
+      - image: gcr.io/stock-x-342909/semisurfers:$IMAGE_TAG
+        imagePullPolicy: Always
+        name: semisurfers
+        ports:
+        - containerPort: 80
+          protocol: TCP

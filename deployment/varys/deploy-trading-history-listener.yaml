@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: varys-trading-history-listener
+  namespace: varys
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: varys-trading-history-listener
+  template:
+    metadata:
+      labels:
+        app: varys-trading-history-listener
+    spec:
+      volumes:
+        - name: gcp
+          secret:
+            secretName: bucket-service-account
+      containers:
+
+        - name: varys-trading-history-listener
+          image: gcr.io/stock-x-342909/varys:$IMAGE_TAG
+          volumeMounts:
+            - name: gcp
+              mountPath: /etc/gcp
+          env:
+            - name: DEV_MODE
+              value: "false"
+            - name: "VARYS_CONSUL_URL"
+              value: "consul-server.consul:8500"
+            - name: "VARYS_CONSUL_PATH"
+              value: "varys"
+            - name: "GOOGLE_APPLICATION_CREDENTIALS"
+              value: "/etc/gcp/stockx-service-account.json"
+
+          ports:
+            - containerPort: 15070
+          args: [ "trading_history_listen" ]

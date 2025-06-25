@@ -1,0 +1,41 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oms-admin-portal
+  namespace: oms-admin-portal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: oms-admin-portal
+  template:
+    metadata:
+      labels:
+        app: oms-admin-portal
+    spec:
+      containers:
+        - name: envoy
+          image: gcr.io/stock-x-342909/envoy:oms-admin-portal-$IMAGE_TAG
+
+          env:
+            - name: DEV_MODE
+              value: "false"
+
+          ports:
+            - containerPort: 8080
+
+        - name: oms-admin-portal
+          image: gcr.io/stock-x-342909/oms-admin-portal:$IMAGE_TAG
+
+          env:
+            - name: DEV_MODE
+              value: "false"
+            - name: "OMS_ADMIN_PORTAL_CONSUL_URL"
+              value: "consul-server.consul:8500"
+            - name: "OMS_ADMIN_PORTAL_CONSUL_PATH"
+              value: "oms-admin-portal"
+
+          ports:
+            - containerPort: 15071
+          args: [ "serve" ]

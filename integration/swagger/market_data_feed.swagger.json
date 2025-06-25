@@ -1,0 +1,4102 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "market_data_feed.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/market-data-feed/active-ticker-info": {
+      "get": {
+        "summary": "RPC method for Market Active Ticker Info",
+        "operationId": "MarketDataFeed_GetMarketActiveTickerInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetMarketActiveTickerInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "orderBooks",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "instrument",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "INSTRUMENT_UNSPECIFIED",
+              "CORPDBT",
+              "CB",
+              "IN",
+              "EQ",
+              "MF",
+              "DB",
+              "TB",
+              "GOVDBT"
+            ],
+            "default": "INSTRUMENT_UNSPECIFIED"
+          },
+          {
+            "name": "group",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "GROUP_UNSPECIFIED",
+              "BUYDBT",
+              "SPUBLIC",
+              "BUYIN",
+              "SBUYIN",
+              "ATBPUB",
+              "SBLOCK",
+              "ATBDEBT",
+              "INDEX",
+              "BLOCK",
+              "YIELDDBT",
+              "PUBLIC",
+              "ATBBUYIN",
+              "ATBX",
+              "DEBT",
+              "SCPX",
+              "SDEBT",
+              "ALTDBT"
+            ],
+            "default": "GROUP_UNSPECIFIED"
+          },
+          {
+            "name": "sector",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "SECTOR_UNSPECIFIED",
+              "SERV_REAL_EST",
+              "PAPER_PRINT",
+              "TELECOM",
+              "CEMENT",
+              "FOOD_ALLIED",
+              "MUT_FUND",
+              "JUTE",
+              "CERAMIC",
+              "ENGINEERING",
+              "IT",
+              "TEXTILE",
+              "BANK",
+              "PHARMA_CHEM",
+              "FINANCIAL_IN",
+              "MISC",
+              "FUEL_POWER",
+              "CORP_BOND",
+              "TRAVEL_LEISURE",
+              "TANNERY",
+              "INSURANCE",
+              "DEBENTURE",
+              "T_BOND"
+            ],
+            "default": "SECTOR_UNSPECIFIED"
+          },
+          {
+            "name": "searchKey",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ATSK_UNSPECIFIED",
+              "ATSK_SEC_CODE",
+              "ATSK_SECURITY_NAME"
+            ],
+            "default": "ATSK_UNSPECIFIED"
+          },
+          {
+            "name": "searchValue",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/advanced-chart/trading-view/config": {
+      "get": {
+        "operationId": "TradingView_GetTradingViewConfig",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTradingViewConfigResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "TradingView"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/advanced-chart/trading-view/history": {
+      "get": {
+        "operationId": "TradingView_GetTradingViewHistory",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTradingViewHistoryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "resolution",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "countback",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "TradingView"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/advanced-chart/trading-view/history/v2": {
+      "get": {
+        "operationId": "TradingView_GetTradingViewHistoryV2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTradingViewHistoryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "resolution",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "countback",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "TradingView"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/advanced-chart/trading-view/search": {
+      "get": {
+        "operationId": "TradingView_GetTradingViewSearch",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTradingViewSearchResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "exchange",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "TradingView"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/advanced-chart/trading-view/symbols": {
+      "get": {
+        "operationId": "TradingView_GetTradingViewSymbols",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTradingViewSymbolsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "TradingView"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/advanced-chart/trading-view/time": {
+      "get": {
+        "operationId": "TradingView_GetTradingViewTime",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTradingViewTimeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "TradingView"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/all-ticker-prices": {
+      "get": {
+        "summary": "RPC method for all ticker prices",
+        "operationId": "MarketDataFeed_GetAllTickerPrices",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetAllTickerPricesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/daily-movers": {
+      "get": {
+        "summary": "RPC method for Daily Movers",
+        "operationId": "MarketDataFeed_GetDailyMovers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetDailyMoversResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "DM_UNKNOWN",
+              "DM_TOP_GAINERS",
+              "DM_TOP_LOSERS",
+              "DM_TOP_TRADES",
+              "DM_TOP_VOLUMES",
+              "DM_TOP_VALUES"
+            ],
+            "default": "DM_UNKNOWN"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/health": {
+      "get": {
+        "operationId": "MarketDataFeed_Health",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedHealthResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/index-info": {
+      "get": {
+        "summary": "RPC method for Market Active Ticker Info",
+        "operationId": "MarketDataFeed_GetIndexInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetIndexInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "orderBooks",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "symbol",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/list": {
+      "get": {
+        "operationId": "MarketDataFeed_GetLists",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetListsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "MarketDataFeed"
+        ]
+      },
+      "delete": {
+        "operationId": "MarketDataFeed_DeleteList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedDeleteListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "listId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      },
+      "post": {
+        "operationId": "MarketDataFeed_InsertList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedInsertListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/market_data_feedInsertListRequest"
+            }
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      },
+      "put": {
+        "operationId": "MarketDataFeed_UpdateList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedUpdateListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/market_data_feedUpdateListRequest"
+            }
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/list-all-tickers": {
+      "get": {
+        "summary": "RPC method for Searching and listing all tickers - if no keywords are provided, returns all tickers",
+        "operationId": "MarketDataFeed_ListAllTickers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedListAllTickersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "searchKeyword",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/list-company": {
+      "get": {
+        "operationId": "MarketDataFeed_GetListCompanies",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetListCompaniesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "listId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "searchKeyword",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      },
+      "delete": {
+        "operationId": "MarketDataFeed_DeleteListCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedDeleteListCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "listId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "orderBook",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      },
+      "post": {
+        "operationId": "MarketDataFeed_InsertListCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedInsertListCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/market_data_feedInsertListCompanyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      },
+      "put": {
+        "operationId": "MarketDataFeed_UpdateListCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedUpdateListCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/market_data_feedUpdateListCompanyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/list-icons": {
+      "get": {
+        "operationId": "MarketDataFeed_GetListIcons",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetListIconsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/market-depth": {
+      "get": {
+        "summary": "RPC method for MarketDepth",
+        "operationId": "MarketDataFeed_GetMarketDepth",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetMarketDepthResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "orderBook",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "MDT_UNKNOWN",
+              "MDT_BY_PRICE",
+              "MDT_BY_ORDER"
+            ],
+            "default": "MDT_UNKNOWN"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/market-insights": {
+      "get": {
+        "summary": "RPC method for Market Insights",
+        "operationId": "MarketDataFeed_GetMarketInsights",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetMarketInsightsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/time-n-sales": {
+      "get": {
+        "summary": "RPC method for getting Time N Sales",
+        "operationId": "MarketDataFeed_GetTimeNSales",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTimeNSalesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "orderBook",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/type-a": {
+      "get": {
+        "summary": "RPC method for TypeA",
+        "operationId": "MarketDataFeed_GetTypeA",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTypeAResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/type-b": {
+      "get": {
+        "summary": "RPC method for TypeB",
+        "operationId": "MarketDataFeed_GetTypeB",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTypeBResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/type-c": {
+      "get": {
+        "summary": "RPC method for TypeC",
+        "operationId": "MarketDataFeed_GetTypeC",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTypeCResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/type-d": {
+      "get": {
+        "summary": "RPC method for TypeD",
+        "operationId": "MarketDataFeed_GetTypeD",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTypeDResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/type-e": {
+      "get": {
+        "summary": "RPC method for TypeE",
+        "operationId": "MarketDataFeed_GetTypeE",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTypeEResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/type-h": {
+      "get": {
+        "summary": "RPC method for TypeH",
+        "operationId": "MarketDataFeed_GetTypeH",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTypeHResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/type-i": {
+      "get": {
+        "summary": "RPC method for TypeI",
+        "operationId": "MarketDataFeed_GetTypeI",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTypeIResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/type-l": {
+      "get": {
+        "summary": "RPC method for TypeL",
+        "operationId": "MarketDataFeed_GetTypeL",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTypeLResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/type-m": {
+      "get": {
+        "summary": "RPC method for TypeM",
+        "operationId": "MarketDataFeed_GetTypeM",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTypeMResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/type-n": {
+      "get": {
+        "summary": "RPC method for TypeN",
+        "operationId": "MarketDataFeed_GetTypeN",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTypeNResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/type-p": {
+      "get": {
+        "summary": "RPC method for TypeP",
+        "operationId": "MarketDataFeed_GetTypeP",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTypePResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/type-q": {
+      "get": {
+        "summary": "RPC method for TypeQ",
+        "operationId": "MarketDataFeed_GetTypeQ",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTypeQResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/type-r": {
+      "get": {
+        "summary": "RPC method for TypeR",
+        "operationId": "MarketDataFeed_GetTypeR",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTypeRResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/type-s": {
+      "get": {
+        "summary": "RPC method for TypeS",
+        "operationId": "MarketDataFeed_GetTypeS",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTypeSResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/type-t": {
+      "get": {
+        "summary": "RPC method for TypeT",
+        "operationId": "MarketDataFeed_GetTypeT",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTypeTResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/type-u": {
+      "get": {
+        "summary": "RPC method for TypeU",
+        "operationId": "MarketDataFeed_GetTypeU",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedGetTypeUResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    },
+    "/api/v1/market-data-feed/upsert-list-company": {
+      "post": {
+        "operationId": "MarketDataFeed_UpsertListCompany",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/market_data_feedUpsertListCompanyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/market_data_feedUpsertListCompanyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "MarketDataFeed"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "GetMarketInsightsResponseInsights": {
+      "type": "object",
+      "properties": {
+        "totalDeclined": {
+          "type": "string",
+          "format": "int64"
+        },
+        "totalAdvanced": {
+          "type": "string",
+          "format": "int64"
+        },
+        "totalUnchanged": {
+          "type": "string",
+          "format": "int64"
+        },
+        "totalTraded": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "GetTradingViewConfigResponseExchange": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        }
+      }
+    },
+    "GetTradingViewConfigResponseSymbolType": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "GetTradingViewSearchResponseStockInfo": {
+      "type": "object",
+      "properties": {
+        "symbol": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "exchange": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "logoUrls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "exchangeLogo": {
+          "type": "string"
+        }
+      }
+    },
+    "ListAllTickersResponseTicker": {
+      "type": "object",
+      "properties": {
+        "orderBook": {
+          "type": "string",
+          "format": "int64"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "group": {
+          "type": "string"
+        },
+        "isFavourite": {
+          "type": "boolean"
+        }
+      }
+    },
+    "UpdateListRequestListUpdate": {
+      "type": "object",
+      "properties": {
+        "listId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "serial": {
+          "type": "string",
+          "format": "int64"
+        },
+        "iconId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "UpsertListCompanyResponseListCompanyUpsert": {
+      "type": "object",
+      "properties": {
+        "orderBook": {
+          "type": "string",
+          "format": "int64"
+        },
+        "serial": {
+          "type": "string",
+          "format": "int64"
+        },
+        "listId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "market_data_feedACTIVE_TICKER_SEARCH_KEY": {
+      "type": "string",
+      "enum": [
+        "ATSK_UNSPECIFIED",
+        "ATSK_SEC_CODE",
+        "ATSK_SECURITY_NAME"
+      ],
+      "default": "ATSK_UNSPECIFIED"
+    },
+    "market_data_feedActiveTickerInfo": {
+      "type": "object",
+      "properties": {
+        "orderBook": {
+          "type": "string",
+          "format": "int64"
+        },
+        "group": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string",
+          "format": "int64"
+        },
+        "priceType": {
+          "type": "string"
+        },
+        "secCode": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "minimumQuantity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "quantityTickSizeTableId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "priceTickSizeTableId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "priceTickSize": {
+          "type": "string",
+          "format": "int64"
+        },
+        "priceStart": {
+          "type": "string",
+          "format": "int64"
+        },
+        "quantityTickSize": {
+          "type": "string",
+          "format": "int64"
+        },
+        "quantityStart": {
+          "type": "string",
+          "format": "int64"
+        },
+        "priceDecimals": {
+          "type": "string",
+          "format": "int64"
+        },
+        "delistingDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "marketType": {
+          "type": "string"
+        },
+        "high52": {
+          "type": "number",
+          "format": "double"
+        },
+        "low52": {
+          "type": "number",
+          "format": "double"
+        },
+        "high": {
+          "type": "number",
+          "format": "double"
+        },
+        "low": {
+          "type": "number",
+          "format": "double"
+        },
+        "open": {
+          "type": "number",
+          "format": "double"
+        },
+        "close": {
+          "type": "number",
+          "format": "double"
+        },
+        "cPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "change": {
+          "type": "number",
+          "format": "double"
+        },
+        "changePercent": {
+          "type": "number",
+          "format": "double"
+        },
+        "ycp": {
+          "type": "number",
+          "format": "double"
+        },
+        "trades": {
+          "type": "string",
+          "format": "int64"
+        },
+        "volume": {
+          "type": "string",
+          "format": "int64"
+        },
+        "value": {
+          "type": "number",
+          "format": "double"
+        },
+        "circuitHigh": {
+          "type": "number",
+          "format": "double"
+        },
+        "circuitLow": {
+          "type": "number",
+          "format": "double"
+        },
+        "noPriceLimit": {
+          "type": "boolean"
+        },
+        "bid": {
+          "type": "number",
+          "format": "double"
+        },
+        "bidQuantity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ask": {
+          "type": "number",
+          "format": "double"
+        },
+        "askQuantity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "listingType": {
+          "type": "string"
+        },
+        "instr": {
+          "type": "string"
+        },
+        "sector": {
+          "type": "string"
+        },
+        "isin": {
+          "type": "string"
+        },
+        "volumeWeightedAveragePrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "totalBidQuantity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "totalAskQuantity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "lastTradeQuantity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "lastTradeDay": {
+          "type": "string"
+        },
+        "lastTradeTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isFavourite": {
+          "type": "boolean"
+        }
+      }
+    },
+    "market_data_feedChartResolution": {
+      "type": "string",
+      "enum": [
+        "CR_UNKNOWN",
+        "CR_1S",
+        "CR_5S",
+        "CR_10S",
+        "CR_15S",
+        "CR_30S",
+        "CR_45S",
+        "CR_1Min",
+        "CR_3Min",
+        "CR_5Min",
+        "CR_10Min",
+        "CR_20Min",
+        "CR_30Min",
+        "CR_40Min",
+        "CR_1Hr",
+        "CR_2Hr",
+        "CR_3Hr",
+        "CR_4Hr",
+        "CR_1Day",
+        "CR_2Day",
+        "CR_3Day",
+        "CR_1Week",
+        "CR_2Week",
+        "CR_1Mon",
+        "CR_3Mon"
+      ],
+      "default": "CR_UNKNOWN",
+      "title": "Charting"
+    },
+    "market_data_feedDailyMoverInfo": {
+      "type": "object",
+      "properties": {
+        "orderBook": {
+          "type": "string",
+          "format": "int64"
+        },
+        "group": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "open": {
+          "type": "number",
+          "format": "double"
+        },
+        "close": {
+          "type": "number",
+          "format": "double"
+        },
+        "cPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "change": {
+          "type": "number",
+          "format": "double"
+        },
+        "changePercent": {
+          "type": "number",
+          "format": "double"
+        },
+        "ycp": {
+          "type": "number",
+          "format": "double"
+        },
+        "trades": {
+          "type": "string",
+          "format": "int64"
+        },
+        "volume": {
+          "type": "string",
+          "format": "int64"
+        },
+        "value": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "market_data_feedDailyMoversType": {
+      "type": "string",
+      "enum": [
+        "DM_UNKNOWN",
+        "DM_TOP_GAINERS",
+        "DM_TOP_LOSERS",
+        "DM_TOP_TRADES",
+        "DM_TOP_VOLUMES",
+        "DM_TOP_VALUES"
+      ],
+      "default": "DM_UNKNOWN"
+    },
+    "market_data_feedDeleteListCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "market_data_feedDeleteListResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "market_data_feedGROUP": {
+      "type": "string",
+      "enum": [
+        "GROUP_UNSPECIFIED",
+        "BUYDBT",
+        "SPUBLIC",
+        "BUYIN",
+        "SBUYIN",
+        "ATBPUB",
+        "SBLOCK",
+        "ATBDEBT",
+        "INDEX",
+        "BLOCK",
+        "YIELDDBT",
+        "PUBLIC",
+        "ATBBUYIN",
+        "ATBX",
+        "DEBT",
+        "SCPX",
+        "SDEBT",
+        "ALTDBT"
+      ],
+      "default": "GROUP_UNSPECIFIED"
+    },
+    "market_data_feedGenerateChartDataResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "market_data_feedGetAllTickerPricesResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetAllTickerPricesResponseData"
+        }
+      }
+    },
+    "market_data_feedGetAllTickerPricesResponseData": {
+      "type": "object",
+      "properties": {
+        "allTickerPrices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedTickerPrice"
+          }
+        }
+      }
+    },
+    "market_data_feedGetDailyMoversResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetDailyMoversResponseData"
+        }
+      }
+    },
+    "market_data_feedGetDailyMoversResponseData": {
+      "type": "object",
+      "properties": {
+        "dailyMovers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedDailyMoverInfo"
+          }
+        }
+      }
+    },
+    "market_data_feedGetIndexInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetIndexInfoResponseData"
+        }
+      }
+    },
+    "market_data_feedGetIndexInfoResponseData": {
+      "type": "object",
+      "properties": {
+        "allIndexInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedActiveTickerInfo"
+          }
+        }
+      }
+    },
+    "market_data_feedGetListCompaniesResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetListCompaniesResponseData"
+        }
+      }
+    },
+    "market_data_feedGetListCompaniesResponseData": {
+      "type": "object",
+      "properties": {
+        "listCompany": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedListCompany"
+          }
+        }
+      }
+    },
+    "market_data_feedGetListIconsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetListIconsResponseData"
+        }
+      }
+    },
+    "market_data_feedGetListIconsResponseData": {
+      "type": "object",
+      "properties": {
+        "listIcons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedListIcons"
+          }
+        }
+      }
+    },
+    "market_data_feedGetListsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetListsResponseData"
+        }
+      }
+    },
+    "market_data_feedGetListsResponseData": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedList"
+          }
+        }
+      }
+    },
+    "market_data_feedGetMarketActiveTickerInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetMarketActiveTickerInfoResponseData"
+        },
+        "paginationInfo": {
+          "$ref": "#/definitions/market_data_feedPaginationInfoRes"
+        }
+      }
+    },
+    "market_data_feedGetMarketActiveTickerInfoResponseData": {
+      "type": "object",
+      "properties": {
+        "allActiveTickerInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedActiveTickerInfo"
+          }
+        }
+      }
+    },
+    "market_data_feedGetMarketDepthResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetMarketDepthResponseData"
+        }
+      }
+    },
+    "market_data_feedGetMarketDepthResponseData": {
+      "type": "object",
+      "properties": {
+        "marketDepth": {
+          "$ref": "#/definitions/market_data_feedMarketDepth"
+        }
+      }
+    },
+    "market_data_feedGetMarketInsightsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetMarketInsightsResponseData"
+        }
+      }
+    },
+    "market_data_feedGetMarketInsightsResponseData": {
+      "type": "object",
+      "properties": {
+        "totalMarket": {
+          "$ref": "#/definitions/GetMarketInsightsResponseInsights"
+        },
+        "aCategory": {
+          "$ref": "#/definitions/GetMarketInsightsResponseInsights"
+        },
+        "bCategory": {
+          "$ref": "#/definitions/GetMarketInsightsResponseInsights"
+        },
+        "nCategory": {
+          "$ref": "#/definitions/GetMarketInsightsResponseInsights"
+        },
+        "zCategory": {
+          "$ref": "#/definitions/GetMarketInsightsResponseInsights"
+        }
+      }
+    },
+    "market_data_feedGetTimeNSalesResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetTimeNSalesResponseData"
+        }
+      }
+    },
+    "market_data_feedGetTimeNSalesResponseData": {
+      "type": "object",
+      "properties": {
+        "timeNSales": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedTimeNSales"
+          }
+        },
+        "totalBuy": {
+          "type": "string",
+          "format": "int64"
+        },
+        "totalSell": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "market_data_feedGetTradingViewConfigResponse": {
+      "type": "object",
+      "properties": {
+        "supportsSearch": {
+          "type": "boolean"
+        },
+        "supportsGroupRequest": {
+          "type": "boolean"
+        },
+        "supportsMarks": {
+          "type": "boolean"
+        },
+        "supportsTimescaleMarks": {
+          "type": "boolean"
+        },
+        "supportsTime": {
+          "type": "boolean"
+        },
+        "exchanges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetTradingViewConfigResponseExchange"
+          }
+        },
+        "symbolsTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetTradingViewConfigResponseSymbolType"
+          }
+        },
+        "supportedResolutions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "Trading view"
+    },
+    "market_data_feedGetTradingViewHistoryResponse": {
+      "type": "object",
+      "properties": {
+        "t": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "o": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "h": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "l": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "c": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "v": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "s": {
+          "type": "string"
+        }
+      }
+    },
+    "market_data_feedGetTradingViewSearchResponse": {
+      "type": "object",
+      "properties": {
+        "stocks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetTradingViewSearchResponseStockInfo"
+          }
+        }
+      }
+    },
+    "market_data_feedGetTradingViewSymbolsResponse": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "exchangeTraded": {
+          "type": "string"
+        },
+        "exchangeListed": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "minmov": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "minmov2": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pointvalue": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "session": {
+          "type": "string"
+        },
+        "hasIntraday": {
+          "type": "boolean"
+        },
+        "visiblePlotsSet": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "supportedResolutions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pricescale": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "logoUrls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "exchangeLogo": {
+          "type": "string"
+        },
+        "hasSeconds": {
+          "type": "boolean"
+        },
+        "hasDaily": {
+          "type": "boolean"
+        },
+        "hasWeeklyAndMonthly": {
+          "type": "boolean"
+        },
+        "intradayMultipliers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dailyMultipliers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "weeklyMultipliers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "monthlyMultipliers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "market_data_feedGetTradingViewTimeResponse": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string",
+          "format": "int64",
+          "title": "Define a field as a scalar value"
+        }
+      }
+    },
+    "market_data_feedGetTypeAResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetTypeAResponseData"
+        }
+      }
+    },
+    "market_data_feedGetTypeAResponseData": {
+      "type": "object",
+      "properties": {
+        "typeA": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedTypeA"
+          }
+        }
+      }
+    },
+    "market_data_feedGetTypeBResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetTypeBResponseData"
+        }
+      }
+    },
+    "market_data_feedGetTypeBResponseData": {
+      "type": "object",
+      "properties": {
+        "typeB": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedTypeB"
+          }
+        }
+      }
+    },
+    "market_data_feedGetTypeCResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetTypeCResponseData"
+        }
+      }
+    },
+    "market_data_feedGetTypeCResponseData": {
+      "type": "object",
+      "properties": {
+        "typeC": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedTypeC"
+          }
+        }
+      }
+    },
+    "market_data_feedGetTypeDResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetTypeDResponseData"
+        }
+      }
+    },
+    "market_data_feedGetTypeDResponseData": {
+      "type": "object",
+      "properties": {
+        "typeD": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedTypeD"
+          }
+        }
+      }
+    },
+    "market_data_feedGetTypeEResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetTypeEResponseData"
+        }
+      }
+    },
+    "market_data_feedGetTypeEResponseData": {
+      "type": "object",
+      "properties": {
+        "typeE": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedTypeE"
+          }
+        }
+      }
+    },
+    "market_data_feedGetTypeHResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetTypeHResponseData"
+        }
+      }
+    },
+    "market_data_feedGetTypeHResponseData": {
+      "type": "object",
+      "properties": {
+        "typeH": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedTypeH"
+          }
+        }
+      }
+    },
+    "market_data_feedGetTypeIResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetTypeIResponseData"
+        }
+      }
+    },
+    "market_data_feedGetTypeIResponseData": {
+      "type": "object",
+      "properties": {
+        "typeI": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedTypeI"
+          }
+        }
+      }
+    },
+    "market_data_feedGetTypeLResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetTypeLResponseData"
+        }
+      }
+    },
+    "market_data_feedGetTypeLResponseData": {
+      "type": "object",
+      "properties": {
+        "typeL": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedTypeL"
+          }
+        }
+      }
+    },
+    "market_data_feedGetTypeMResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetTypeMResponseData"
+        }
+      }
+    },
+    "market_data_feedGetTypeMResponseData": {
+      "type": "object",
+      "properties": {
+        "typeM": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedTypeM"
+          }
+        }
+      }
+    },
+    "market_data_feedGetTypeNResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetTypeNResponseData"
+        }
+      }
+    },
+    "market_data_feedGetTypeNResponseData": {
+      "type": "object",
+      "properties": {
+        "typeN": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedTypeN"
+          }
+        }
+      }
+    },
+    "market_data_feedGetTypePResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetTypePResponseData"
+        }
+      }
+    },
+    "market_data_feedGetTypePResponseData": {
+      "type": "object",
+      "properties": {
+        "typeP": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedTypeP"
+          }
+        }
+      }
+    },
+    "market_data_feedGetTypeQResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetTypeQResponseData"
+        }
+      }
+    },
+    "market_data_feedGetTypeQResponseData": {
+      "type": "object",
+      "properties": {
+        "typeQ": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedTypeQ"
+          }
+        }
+      }
+    },
+    "market_data_feedGetTypeRResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetTypeRResponseData"
+        }
+      }
+    },
+    "market_data_feedGetTypeRResponseData": {
+      "type": "object",
+      "properties": {
+        "typeR": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedTypeR"
+          }
+        }
+      }
+    },
+    "market_data_feedGetTypeSResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetTypeSResponseData"
+        }
+      }
+    },
+    "market_data_feedGetTypeSResponseData": {
+      "type": "object",
+      "properties": {
+        "typeS": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedTypeS"
+          }
+        }
+      }
+    },
+    "market_data_feedGetTypeTResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetTypeTResponseData"
+        }
+      }
+    },
+    "market_data_feedGetTypeTResponseData": {
+      "type": "object",
+      "properties": {
+        "typeT": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedTypeT"
+          }
+        }
+      }
+    },
+    "market_data_feedGetTypeUResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedGetTypeUResponseData"
+        }
+      }
+    },
+    "market_data_feedGetTypeUResponseData": {
+      "type": "object",
+      "properties": {
+        "typeU": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedTypeU"
+          }
+        }
+      }
+    },
+    "market_data_feedHealthResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "string"
+        }
+      }
+    },
+    "market_data_feedINSTRUMENT": {
+      "type": "string",
+      "enum": [
+        "INSTRUMENT_UNSPECIFIED",
+        "CORPDBT",
+        "CB",
+        "IN",
+        "EQ",
+        "MF",
+        "DB",
+        "TB",
+        "GOVDBT"
+      ],
+      "default": "INSTRUMENT_UNSPECIFIED"
+    },
+    "market_data_feedInsertListAndListCompaniesOnSignupResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "market_data_feedInsertListCompanyRequest": {
+      "type": "object",
+      "properties": {
+        "listCompanies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedListCompany"
+          }
+        },
+        "listId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "market_data_feedInsertListCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedInsertListCompanyResponseData"
+        }
+      }
+    },
+    "market_data_feedInsertListCompanyResponseData": {
+      "type": "object",
+      "properties": {
+        "listCompany": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedListCompany"
+          }
+        },
+        "listId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "market_data_feedInsertListRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "iconId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "market_data_feedInsertListResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedInsertListResponseData"
+        }
+      }
+    },
+    "market_data_feedInsertListResponseData": {
+      "type": "object",
+      "properties": {
+        "listId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "serial": {
+          "type": "string",
+          "format": "int64"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "reserved": {
+          "type": "boolean"
+        },
+        "iconId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "market_data_feedList": {
+      "type": "object",
+      "properties": {
+        "listId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "serial": {
+          "type": "string",
+          "format": "int64"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "reserved": {
+          "type": "boolean"
+        },
+        "iconId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "iconName": {
+          "type": "string"
+        },
+        "iconUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "market_data_feedListAllTickersResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedListAllTickersResponseData"
+        }
+      }
+    },
+    "market_data_feedListAllTickersResponseData": {
+      "type": "object",
+      "properties": {
+        "allTickers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ListAllTickersResponseTicker"
+          }
+        }
+      }
+    },
+    "market_data_feedListCompany": {
+      "type": "object",
+      "properties": {
+        "orderBook": {
+          "type": "string",
+          "format": "int64"
+        },
+        "serial": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "market_data_feedListIcons": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "market_data_feedMarketDepth": {
+      "type": "object",
+      "properties": {
+        "buy": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedVolumePrice"
+          }
+        },
+        "totalBuyQuantity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "sell": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedVolumePrice"
+          }
+        },
+        "totalSellQuantity": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "market_data_feedMarketDepthType": {
+      "type": "string",
+      "enum": [
+        "MDT_UNKNOWN",
+        "MDT_BY_PRICE",
+        "MDT_BY_ORDER"
+      ],
+      "default": "MDT_UNKNOWN"
+    },
+    "market_data_feedPaginationInfoReq": {
+      "type": "object",
+      "properties": {
+        "pageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "market_data_feedPaginationInfoRes": {
+      "type": "object",
+      "properties": {
+        "pageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalPages": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "market_data_feedSECTOR": {
+      "type": "string",
+      "enum": [
+        "SECTOR_UNSPECIFIED",
+        "SERV_REAL_EST",
+        "PAPER_PRINT",
+        "TELECOM",
+        "CEMENT",
+        "FOOD_ALLIED",
+        "MUT_FUND",
+        "JUTE",
+        "CERAMIC",
+        "ENGINEERING",
+        "IT",
+        "TEXTILE",
+        "BANK",
+        "PHARMA_CHEM",
+        "FINANCIAL_IN",
+        "MISC",
+        "FUEL_POWER",
+        "CORP_BOND",
+        "TRAVEL_LEISURE",
+        "TANNERY",
+        "INSURANCE",
+        "DEBENTURE",
+        "T_BOND"
+      ],
+      "default": "SECTOR_UNSPECIFIED"
+    },
+    "market_data_feedTickerPrice": {
+      "type": "object",
+      "properties": {
+        "orderBook": {
+          "type": "string",
+          "format": "int64"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "cPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "ycp": {
+          "type": "number",
+          "format": "double"
+        },
+        "changePercent": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "market_data_feedTimeNSales": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string",
+          "format": "int64"
+        },
+        "type": {
+          "$ref": "#/definitions/market_data_feedTradeType"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "volume": {
+          "type": "string",
+          "format": "int64"
+        },
+        "trade": {
+          "type": "string",
+          "format": "int64"
+        },
+        "value": {
+          "type": "number",
+          "format": "double"
+        },
+        "indicator": {
+          "$ref": "#/definitions/market_data_feedTradeIndicator"
+        }
+      }
+    },
+    "market_data_feedTradeIndicator": {
+      "type": "string",
+      "enum": [
+        "TI_UNKNOWN",
+        "TI_INCREASE",
+        "TI_DECREASE",
+        "TI_NEUTRAL"
+      ],
+      "default": "TI_UNKNOWN"
+    },
+    "market_data_feedTradeType": {
+      "type": "string",
+      "enum": [
+        "TT_UNKNOWN",
+        "TT_BUY",
+        "TT_SELL"
+      ],
+      "default": "TT_UNKNOWN"
+    },
+    "market_data_feedTypeA": {
+      "type": "object",
+      "properties": {
+        "unix": {
+          "type": "string",
+          "format": "int64"
+        },
+        "unixNano": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderVerb": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderBook": {
+          "type": "string",
+          "format": "int64"
+        },
+        "price": {
+          "type": "string",
+          "format": "int64"
+        },
+        "yield": {
+          "type": "string",
+          "format": "int64"
+        },
+        "text": {
+          "type": "string"
+        },
+        "seqNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "receivedUnixMilli": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "TypeA represents the 'TypeA' table in the database"
+    },
+    "market_data_feedTypeB": {
+      "type": "object",
+      "properties": {
+        "matchNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "unix": {
+          "type": "string",
+          "format": "int64"
+        },
+        "unixNano": {
+          "type": "string",
+          "format": "int64"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "seqNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "receivedUnixMilli": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "TypeB represents the 'TypeB' table in the database"
+    },
+    "market_data_feedTypeC": {
+      "type": "object",
+      "properties": {
+        "orderNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "unix": {
+          "type": "string",
+          "format": "int64"
+        },
+        "unixNano": {
+          "type": "string",
+          "format": "int64"
+        },
+        "executedQuantity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "matchNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "printable": {
+          "type": "string"
+        },
+        "executionPrice": {
+          "type": "string",
+          "format": "int64"
+        },
+        "executedOrderBook": {
+          "type": "string",
+          "format": "int64"
+        },
+        "text": {
+          "type": "string"
+        },
+        "seqNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "receivedUnixMilli": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "TypeC represents the 'TypeC' table in the database"
+    },
+    "market_data_feedTypeD": {
+      "type": "object",
+      "properties": {
+        "unix": {
+          "type": "string",
+          "format": "int64"
+        },
+        "unixNano": {
+          "type": "string",
+          "format": "int64"
+        },
+        "timeStamp": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "text": {
+          "type": "string"
+        },
+        "seqNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "receivedUnixMilli": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "TypeD represents the 'TypeD' table in the database"
+    },
+    "market_data_feedTypeE": {
+      "type": "object",
+      "properties": {
+        "unix": {
+          "type": "string",
+          "format": "int64"
+        },
+        "unixNano": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "executedQuantity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "matchNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "text": {
+          "type": "string"
+        },
+        "seqNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "receivedUnixMilli": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "TypeE represents the 'TypeE' table in the database"
+    },
+    "market_data_feedTypeH": {
+      "type": "object",
+      "properties": {
+        "unix": {
+          "type": "string",
+          "format": "int64"
+        },
+        "unixNano": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderBook": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tradingState": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "seqNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "receivedUnixMilli": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "description": "TypeH represents the 'TypeH' table in the database..."
+    },
+    "market_data_feedTypeI": {
+      "type": "object",
+      "properties": {
+        "unix": {
+          "type": "string",
+          "format": "int64"
+        },
+        "unixNano": {
+          "type": "string",
+          "format": "int64"
+        },
+        "theoreticalOpeningQuantity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderBook": {
+          "type": "string",
+          "format": "int64"
+        },
+        "bestBid": {
+          "type": "string",
+          "format": "int64"
+        },
+        "bestAsk": {
+          "type": "string",
+          "format": "int64"
+        },
+        "theoreticalOpeningPrice": {
+          "type": "string",
+          "format": "int64"
+        },
+        "crossType": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "seqNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "receivedUnixMilli": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "TypeI represents the 'TypeI' table in the database"
+    },
+    "market_data_feedTypeL": {
+      "type": "object",
+      "properties": {
+        "unix": {
+          "type": "string",
+          "format": "int64"
+        },
+        "unixNano": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tickSizeTableId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tickSize": {
+          "type": "string",
+          "format": "int64"
+        },
+        "priceStart": {
+          "type": "string",
+          "format": "int64"
+        },
+        "text": {
+          "type": "string"
+        },
+        "seqNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "receivedUnixMilli": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "TypeL represents the 'TypeL' table in the database"
+    },
+    "market_data_feedTypeM": {
+      "type": "object",
+      "properties": {
+        "unix": {
+          "type": "string",
+          "format": "int64"
+        },
+        "unixNano": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tickSizeTableId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tickSize": {
+          "type": "string",
+          "format": "int64"
+        },
+        "quantityStart": {
+          "type": "string",
+          "format": "int64"
+        },
+        "text": {
+          "type": "string"
+        },
+        "seqNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "receivedUnixMilli": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "TypeM represents the 'TypeM' table in the database"
+    },
+    "market_data_feedTypeN": {
+      "type": "object",
+      "properties": {
+        "unix": {
+          "type": "string",
+          "format": "int64"
+        },
+        "unixNano": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderBook": {
+          "type": "string",
+          "format": "int64"
+        },
+        "newsId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "firmId": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "reference": {
+          "type": "string"
+        },
+        "newsText": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "seqNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "receivedUnixMilli": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "TypeN represents the 'TypeN' table in the database"
+    },
+    "market_data_feedTypeP": {
+      "type": "object",
+      "properties": {
+        "unix": {
+          "type": "string",
+          "format": "int64"
+        },
+        "unixNano": {
+          "type": "string",
+          "format": "int64"
+        },
+        "company": {
+          "type": "string",
+          "format": "int64"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "companyId": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "seqNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "receivedUnixMilli": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "TypeP represents the 'TypeP' table in the database"
+    },
+    "market_data_feedTypeQ": {
+      "type": "object",
+      "properties": {
+        "unix": {
+          "type": "string",
+          "format": "int64"
+        },
+        "unixNano": {
+          "type": "string",
+          "format": "int64"
+        },
+        "executedQuantity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderBook": {
+          "type": "string",
+          "format": "int64"
+        },
+        "printable": {
+          "type": "string"
+        },
+        "executionPrice": {
+          "type": "string",
+          "format": "int64"
+        },
+        "executionQuantity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "executionYield": {
+          "type": "string",
+          "format": "int64"
+        },
+        "matchNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "text": {
+          "type": "string"
+        },
+        "seqNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "receivedUnixMilli": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "TypeQ represents the 'TypeQ' table in the database"
+    },
+    "market_data_feedTypeR": {
+      "type": "object",
+      "properties": {
+        "unix": {
+          "type": "string",
+          "format": "int64"
+        },
+        "unixNano": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderBook": {
+          "type": "string",
+          "format": "int64"
+        },
+        "priceType": {
+          "type": "string"
+        },
+        "isin": {
+          "type": "string"
+        },
+        "secCode": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "group": {
+          "type": "string"
+        },
+        "minimumQuantity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "quantityTickSizeTableId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "priceTickSizeTableId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "priceDecimals": {
+          "type": "string",
+          "format": "int64"
+        },
+        "delistingDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "delistingTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "marketType": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string",
+          "format": "int64"
+        },
+        "listingType": {
+          "type": "string"
+        },
+        "sector": {
+          "type": "string"
+        },
+        "instr": {
+          "type": "string"
+        },
+        "securityName": {
+          "type": "string"
+        },
+        "maturityDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "yieldDecimals": {
+          "type": "string",
+          "format": "int64"
+        },
+        "text": {
+          "type": "string"
+        },
+        "seqNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "receivedUnixMilli": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "TypeR represents the 'TypeR' table in the database"
+    },
+    "market_data_feedTypeS": {
+      "type": "object",
+      "properties": {
+        "unix": {
+          "type": "string",
+          "format": "int64"
+        },
+        "unixNano": {
+          "type": "string",
+          "format": "int64"
+        },
+        "group": {
+          "type": "string"
+        },
+        "eventCode": {
+          "type": "string"
+        },
+        "orderBook": {
+          "type": "string",
+          "format": "int64"
+        },
+        "text": {
+          "type": "string"
+        },
+        "seqNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "receivedUnixMilli": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "TypeS represents the 'TypeS' table in the database"
+    },
+    "market_data_feedTypeT": {
+      "type": "object",
+      "properties": {
+        "unix": {
+          "type": "string",
+          "format": "int64"
+        },
+        "unixNano": {
+          "type": "string",
+          "format": "int64"
+        },
+        "second": {
+          "type": "string",
+          "format": "int64"
+        },
+        "text": {
+          "type": "string"
+        },
+        "seqNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "receivedUnixMilli": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "TypeT represents the 'TypeT' table in the database"
+    },
+    "market_data_feedTypeU": {
+      "type": "object",
+      "properties": {
+        "unix": {
+          "type": "string",
+          "format": "int64"
+        },
+        "unixNano": {
+          "type": "string",
+          "format": "int64"
+        },
+        "text": {
+          "type": "string"
+        },
+        "originalOrderNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "newOrderNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "quantity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "price": {
+          "type": "string",
+          "format": "int64"
+        },
+        "yield": {
+          "type": "string",
+          "format": "int64"
+        },
+        "seqNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "receivedUnixMilli": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "TypeU represents the 'TypeU' table in the database"
+    },
+    "market_data_feedUpdateListCompanyRequest": {
+      "type": "object",
+      "properties": {
+        "listCompany": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/market_data_feedListCompany"
+          }
+        },
+        "listId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "market_data_feedUpdateListCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "market_data_feedUpdateListRequest": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UpdateListRequestListUpdate"
+          }
+        }
+      }
+    },
+    "market_data_feedUpdateListResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "market_data_feedUpsertListCompanyRequest": {
+      "type": "object",
+      "properties": {
+        "listIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "orderBook": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "market_data_feedUpsertListCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/market_data_feedUpsertListCompanyResponseData"
+        }
+      }
+    },
+    "market_data_feedUpsertListCompanyResponseData": {
+      "type": "object",
+      "properties": {
+        "listCompanies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UpsertListCompanyResponseListCompanyUpsert"
+          }
+        }
+      }
+    },
+    "market_data_feedVolumePrice": {
+      "type": "object",
+      "properties": {
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "volume": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderCount": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

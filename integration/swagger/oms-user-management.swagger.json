@@ -1,0 +1,5270 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "oms-user-management.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/grpctest/role": {
+      "get": {
+        "operationId": "OmsUserManagement_GetRoleById",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetRoleByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/Permission": {
+      "post": {
+        "operationId": "OmsUserManagement_CreatePermission",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreatePermissionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreatePermissionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/audit-log": {
+      "post": {
+        "summary": "Audit logs API's",
+        "operationId": "OmsUserManagement_CreateAuditLog",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateAuditLogResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateAuditLogRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/branch": {
+      "get": {
+        "operationId": "OmsUserManagement_GetBranchById",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetBranchByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/branch/{id}": {
+      "get": {
+        "operationId": "OmsUserManagement_GetBranchById2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetBranchByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/branches": {
+      "get": {
+        "operationId": "OmsUserManagement_GetBranches",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetBranchesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationRequest.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationRequest.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/broker-admin": {
+      "get": {
+        "operationId": "OmsUserManagement_GetBrokerAdminById",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetBrokerAdminByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/broker-admin/{userId}": {
+      "get": {
+        "operationId": "OmsUserManagement_GetBrokerAdminById2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetBrokerAdminByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/broker-house": {
+      "get": {
+        "operationId": "OmsUserManagement_GetBrokerHouseById",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetBrokerHouseByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/broker-house/{id}": {
+      "get": {
+        "operationId": "OmsUserManagement_GetBrokerHouseById2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetBrokerHouseByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/broker-houses": {
+      "get": {
+        "operationId": "OmsUserManagement_GetBrokerHouses",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetBrokerHousesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationRequest.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationRequest.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/create-branch": {
+      "post": {
+        "summary": "Branch API's",
+        "operationId": "OmsUserManagement_CreateBranch",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateBranchResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateBranchRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/create-broker-admin": {
+      "post": {
+        "summary": "Broker Admins API",
+        "operationId": "OmsUserManagement_CreateBrokerAdmin",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateBrokerAdminResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateBrokerAdminRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/create-broker-house": {
+      "post": {
+        "summary": "Broker Houses API's",
+        "operationId": "OmsUserManagement_CreateBrokerHouse",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateBrokerHouseResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateBrokerHouseRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/create-employee": {
+      "post": {
+        "summary": "Employee API's",
+        "operationId": "OmsUserManagement_CreateEmployee",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateEmployeeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateEmployeeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/create-investor": {
+      "post": {
+        "summary": "INVESTORS API",
+        "operationId": "OmsUserManagement_CreateInvestor",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateInvestorResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateInvestorRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/create-trader": {
+      "post": {
+        "summary": "Traders API",
+        "operationId": "OmsUserManagement_CreateTrader",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateTraderResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateTraderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/delete-branch": {
+      "delete": {
+        "operationId": "OmsUserManagement_DeleteBranch",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementDeleteBranchResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/delete-broker-house": {
+      "delete": {
+        "operationId": "OmsUserManagement_DeleteBrokerHouse",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementDeleteBrokerHouseResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/delete-map-role-permission": {
+      "delete": {
+        "operationId": "OmsUserManagement_DeleteMapRolePermission",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementDeleteMapRolePermissionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/delete-map-trader-team": {
+      "delete": {
+        "operationId": "OmsUserManagement_DeleteMappedTeam",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementDeleteTraderMapResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/delete-map-user-permission": {
+      "delete": {
+        "operationId": "OmsUserManagement_DeleteMapUserPermission",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementDeleteMapUserPermissionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "permissionId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/delete-map-user-role": {
+      "delete": {
+        "operationId": "OmsUserManagement_DeleteMapUserRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementDeleteMapUserRoleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/delete-permission": {
+      "delete": {
+        "operationId": "OmsUserManagement_DeletePermission",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementDeletePermissionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/delete-role": {
+      "delete": {
+        "operationId": "OmsUserManagement_DeleteRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementDeleteRoleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/delete-team": {
+      "delete": {
+        "operationId": "OmsUserManagement_DeleteTeam",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementDeleteTraderTeamResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/delete-trader": {
+      "delete": {
+        "operationId": "OmsUserManagement_DeleteTraderByUserId",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementDeleteTraderResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/delete-trader-tws": {
+      "delete": {
+        "operationId": "OmsUserManagement_DeleteTraderTws",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementDeleteTraderTwsMapResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/delete-tws": {
+      "delete": {
+        "operationId": "OmsUserManagement_DeleteTws",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementDeleteTwsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/employee": {
+      "get": {
+        "operationId": "OmsUserManagement_GetEmployeeById",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetEmployeeByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/employee/{userId}": {
+      "get": {
+        "operationId": "OmsUserManagement_GetEmployeeById2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetEmployeeByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/get-audit-log": {
+      "get": {
+        "operationId": "OmsUserManagement_GetAuditLogById",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetAuditLogByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/get-audit-logs": {
+      "get": {
+        "operationId": "OmsUserManagement_GetAuditLogs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetAuditLogsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationRequest.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationRequest.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/get-map-role-permission": {
+      "get": {
+        "operationId": "OmsUserManagement_GetMapRolePermissions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetMapRolePermissionsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationRequest.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationRequest.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/get-map-trader-team": {
+      "get": {
+        "operationId": "OmsUserManagement_GetMappedTeams",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetTraderMapResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationRequest.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationRequest.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/get-map-user-role": {
+      "get": {
+        "operationId": "OmsUserManagement_GetMapUserRoles",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetMapUserRolesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationRequest.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationRequest.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/get-permission": {
+      "get": {
+        "operationId": "OmsUserManagement_GetPermissions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetPermissionsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationRequest.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationRequest.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/get-role": {
+      "get": {
+        "operationId": "OmsUserManagement_GetRoles",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetRolesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationRequest.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationRequest.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/get-teams": {
+      "get": {
+        "operationId": "OmsUserManagement_GetTeams",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetTraderTeamResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationRequest.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationRequest.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/get-trader-tws": {
+      "get": {
+        "operationId": "OmsUserManagement_GetTradersTws",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetTradersTwsMapResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationRequest.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationRequest.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/get-tws": {
+      "get": {
+        "operationId": "OmsUserManagement_GetTws",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetTwsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "paginationRequest.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationRequest.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/health-check": {
+      "post": {
+        "summary": "Health check method",
+        "operationId": "OmsUserManagement_HealthCheck",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementHealthCheckResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {}
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/investor": {
+      "get": {
+        "operationId": "OmsUserManagement_GetInvestorById",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetInvestorByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/investor/{userId}": {
+      "get": {
+        "operationId": "OmsUserManagement_GetInvestorById2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetInvestorByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/investors": {
+      "get": {
+        "operationId": "OmsUserManagement_GetAllInvestorsByTraderId",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetAllInvestorByTraderIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/investors/{id}": {
+      "get": {
+        "operationId": "OmsUserManagement_GetAllInvestorsByTraderId2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetAllInvestorByTraderIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/map-role-permission": {
+      "get": {
+        "operationId": "OmsUserManagement_GetMapRolePermissionById",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetMapRolePermissionByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "roleId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      },
+      "post": {
+        "operationId": "OmsUserManagement_CreateMapRolePermission",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateMapRolePermissionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateMapRolePermissionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/map-role-permission/{roleId}": {
+      "get": {
+        "operationId": "OmsUserManagement_GetMapRolePermissionById2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetMapRolePermissionByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "roleId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/map-trader-team": {
+      "post": {
+        "summary": "Mapping trader with team Creation",
+        "operationId": "OmsUserManagement_CreateMapTeam",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateTraderMapResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateTraderMapRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/map-user-permission": {
+      "post": {
+        "operationId": "OmsUserManagement_CreateMapUserPermission",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateMapUserPermissionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateMapUserPermissionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/map-user-permissions": {
+      "get": {
+        "operationId": "OmsUserManagement_GetUserPermissionsByUserId",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetUserPermissionsByUserIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/map-user-permissions/{userId}": {
+      "get": {
+        "operationId": "OmsUserManagement_GetUserPermissionsByUserId2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetUserPermissionsByUserIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/map-user-role": {
+      "get": {
+        "operationId": "OmsUserManagement_GetMapUserRoleById",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetMapUserRoleByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      },
+      "post": {
+        "operationId": "OmsUserManagement_CreateMapUserRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateMapUserRoleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateMapUserRoleRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/map-user-role/{id}": {
+      "get": {
+        "operationId": "OmsUserManagement_GetMapUserRoleById2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetMapUserRoleByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/permission": {
+      "get": {
+        "operationId": "OmsUserManagement_GetPermissionById",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetPermissionByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/permission/{id}": {
+      "get": {
+        "operationId": "OmsUserManagement_GetPermissionById2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetPermissionByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/role": {
+      "post": {
+        "operationId": "OmsUserManagement_CreateRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateRoleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateRoleRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/role/{id}": {
+      "get": {
+        "operationId": "OmsUserManagement_GetRoleById2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetRoleByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/team": {
+      "post": {
+        "summary": "Team API",
+        "operationId": "OmsUserManagement_CreateTeam",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateTraderTeamResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateTraderTeamRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/trader": {
+      "get": {
+        "operationId": "OmsUserManagement_GetTraderById",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetTraderByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/trader-tws": {
+      "post": {
+        "summary": "Mapping TWS with Trader",
+        "operationId": "OmsUserManagement_CreateTraderTws",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateTraderTwsMapResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateTraderTwsMapRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/trader/{userId}": {
+      "get": {
+        "operationId": "OmsUserManagement_GetTraderById2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementGetTraderByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/tws": {
+      "post": {
+        "operationId": "OmsUserManagement_CreateTws",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateTwsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementCreateTwsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/update-Permission": {
+      "put": {
+        "operationId": "OmsUserManagement_UpdatePermission",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdatePermissionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdatePermissionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/update-branch": {
+      "put": {
+        "operationId": "OmsUserManagement_UpdateBranch",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateBranchResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateBranchRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/update-broker-admin": {
+      "put": {
+        "operationId": "OmsUserManagement_UpdateBrokerAdmin",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateBrokerAdminResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateBrokerAdminRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/update-broker-house": {
+      "put": {
+        "operationId": "OmsUserManagement_UpdateBrokerHouse",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateBrokerHouseResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateBrokerHouseRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/update-employee": {
+      "put": {
+        "operationId": "OmsUserManagement_UpdateEmployee",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateEmployeeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateEmployeeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/update-investor": {
+      "put": {
+        "operationId": "OmsUserManagement_UpdateInvestor",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateInvestorResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateInvestorRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/update-map-role-permission": {
+      "put": {
+        "operationId": "OmsUserManagement_UpdateMapRolePermission",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateMapRolePermissionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateMapRolePermissionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/update-map-trader-team": {
+      "put": {
+        "operationId": "OmsUserManagement_UpdateMapTeam",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateTraderMapResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateTraderMapRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/update-map-user-permission": {
+      "put": {
+        "operationId": "OmsUserManagement_UpdateMapUserPermission",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateMapUserPermissionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateMapUserPermissionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/update-map-user-role": {
+      "put": {
+        "operationId": "OmsUserManagement_UpdateMapUserRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateMapUserRoleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateMapUserRoleRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/update-role": {
+      "put": {
+        "operationId": "OmsUserManagement_UpdateRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateRoleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateRoleRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/update-team": {
+      "put": {
+        "operationId": "OmsUserManagement_UpdateTeam",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateTraderTeamResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateTraderTeamRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/update-trader": {
+      "put": {
+        "operationId": "OmsUserManagement_UpdateTrader",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateTraderResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateTraderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/update-trader-tws": {
+      "put": {
+        "operationId": "OmsUserManagement_UpdateTraderTws",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateTraderTwsMapResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateTraderTwsMapRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    },
+    "/api/v1/oms-user-management/update-tws": {
+      "put": {
+        "operationId": "OmsUserManagement_UpdateTws",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateTwsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/oms_user_managementUpdateTwsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "OmsUserManagement"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "GetAuditLogsResponseauditLogList": {
+      "type": "object",
+      "properties": {
+        "actionType": {
+          "$ref": "#/definitions/oms_user_managementactionType"
+        },
+        "attemptById": {
+          "type": "string",
+          "format": "int64"
+        },
+        "attemptByType": {
+          "$ref": "#/definitions/oms_user_managementuserType"
+        },
+        "ipAddress": {
+          "type": "string"
+        },
+        "httpMethod": {
+          "$ref": "#/definitions/oms_user_managementHTTPMethods"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "isSuccess": {
+          "type": "boolean"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "deviceName": {
+          "type": "string"
+        },
+        "deviceType": {
+          "type": "string"
+        },
+        "description": {
+          "type": "object"
+        },
+        "requestBody": {
+          "type": "object"
+        },
+        "responseBody": {
+          "type": "object"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "GetBranchesResponsebranchList": {
+      "type": "object",
+      "properties": {
+        "branchName": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "telephoneNumber": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "validCurrency": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "brokerHouseId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "branchType": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "GetBrokerHousesResponsebrokerHouseList": {
+      "type": "object",
+      "properties": {
+        "brokerHouseName": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "telephoneNumber": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "validCurrency": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "GetMapRolePermissionsResponsemappedRoleList": {
+      "type": "object",
+      "properties": {
+        "roleId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "permissionId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "GetMapUserRolesResponsemappedUserRoleList": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "roleId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "GetPermissionsResponsePermissionList": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "GetRolesResponseRoleList": {
+      "type": "object",
+      "properties": {
+        "roleName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "GetTraderMapResponseTraderMap": {
+      "type": "object",
+      "properties": {
+        "teamId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "traderId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "status": {
+          "$ref": "#/definitions/oms_user_managementStatus"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "GetTraderTeamResponseTraderTeam": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "status": {
+          "$ref": "#/definitions/oms_user_managementStatus"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "GetTradersTwsMapResponseTraderTws": {
+      "type": "object",
+      "properties": {
+        "twsId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "traderId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/oms_user_managementTwsStatus"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "GetTwsResponsetwsList": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "twsCode": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "status": {
+          "$ref": "#/definitions/oms_user_managementTwsStatus"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "GetUserPermissionsByUserIdResponseUserPermissions": {
+      "type": "object",
+      "properties": {
+        "permissionId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_user_managementAllInvestorData": {
+      "type": "object",
+      "properties": {
+        "allInvestors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/oms_user_managementAllInvestors"
+          }
+        },
+        "totalCount": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementAllInvestors": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_user_managementCreateAuditLogRequest": {
+      "type": "object",
+      "properties": {
+        "actionType": {
+          "$ref": "#/definitions/oms_user_managementactionType"
+        },
+        "attemptById": {
+          "type": "string",
+          "format": "int64"
+        },
+        "attemptByType": {
+          "$ref": "#/definitions/oms_user_managementuserType"
+        },
+        "ipAddress": {
+          "type": "string"
+        },
+        "httpMethod": {
+          "$ref": "#/definitions/oms_user_managementHTTPMethods"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "isSuccess": {
+          "type": "boolean"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "deviceName": {
+          "type": "string"
+        },
+        "deviceType": {
+          "type": "string"
+        },
+        "description": {
+          "type": "object"
+        },
+        "requestBody": {
+          "type": "object"
+        },
+        "responseBody": {
+          "type": "object"
+        }
+      }
+    },
+    "oms_user_managementCreateAuditLogResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementCreateBranchRequest": {
+      "type": "object",
+      "properties": {
+        "branchName": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "telephoneNumber": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "validCurrency": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "brokerHouseId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "branchType": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_user_managementCreateBranchResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementCreateBrokerAdminRequest": {
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string",
+          "title": "User fields"
+        },
+        "authId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userType": {
+          "$ref": "#/definitions/oms_user_managementuserType"
+        },
+        "canLogin": {
+          "type": "boolean"
+        },
+        "nid": {
+          "type": "string"
+        },
+        "isVerified": {
+          "type": "boolean"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64",
+          "title": "Investor fields"
+        },
+        "status": {
+          "$ref": "#/definitions/oms_user_managementStatus"
+        },
+        "branchId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "readOnly": {
+          "type": "boolean"
+        },
+        "isIsolatedUser": {
+          "type": "boolean"
+        },
+        "canTrade": {
+          "type": "boolean"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "oms_user_managementCreateBrokerAdminResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementCreateBrokerHouseRequest": {
+      "type": "object",
+      "properties": {
+        "brokerHouseName": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "telephoneNumber": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "validCurrency": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "oms_user_managementCreateBrokerHouseResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementCreateEmployeeRequest": {
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string",
+          "title": "User fields"
+        },
+        "authId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userType": {
+          "$ref": "#/definitions/oms_user_managementuserType"
+        },
+        "canLogin": {
+          "type": "boolean"
+        },
+        "nid": {
+          "type": "string"
+        },
+        "isVerified": {
+          "type": "boolean"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64",
+          "title": "Investor fields"
+        },
+        "status": {
+          "$ref": "#/definitions/oms_user_managementStatus"
+        },
+        "branchId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "designation": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_user_managementCreateEmployeeResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementCreateInvestorRequest": {
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string",
+          "title": "OMS User fields"
+        },
+        "userType": {
+          "$ref": "#/definitions/oms_user_managementuserType"
+        },
+        "canLogin": {
+          "type": "boolean"
+        },
+        "nid": {
+          "type": "string"
+        },
+        "isVerified": {
+          "type": "boolean"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "primaryTwsId": {
+          "type": "string",
+          "format": "int64",
+          "title": "Investor fields"
+        },
+        "secondaryTwsId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "boAccountNumber": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/oms_user_managementStatus"
+        },
+        "readOnly": {
+          "type": "boolean"
+        },
+        "canTrade": {
+          "type": "boolean"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_user_managementCreateInvestorResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "Response after successful creation"
+    },
+    "oms_user_managementCreateMapRolePermissionRequest": {
+      "type": "object",
+      "properties": {
+        "roleId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "permissionId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "oms_user_managementCreateMapRolePermissionResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementCreateMapUserPermissionRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "permissionId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "isRevoked": {
+          "type": "boolean"
+        }
+      }
+    },
+    "oms_user_managementCreateMapUserPermissionResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementCreateMapUserRoleRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "roleId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        }
+      },
+      "title": "MapUserRole"
+    },
+    "oms_user_managementCreateMapUserRoleResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementCreatePermissionRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        }
+      },
+      "title": "Permission API"
+    },
+    "oms_user_managementCreatePermissionResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementCreateRoleRequest": {
+      "type": "object",
+      "properties": {
+        "roleName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        }
+      },
+      "title": "Roles API"
+    },
+    "oms_user_managementCreateRoleResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementCreateTraderMapRequest": {
+      "type": "object",
+      "properties": {
+        "teamId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "traderId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "status": {
+          "$ref": "#/definitions/oms_user_managementStatus"
+        }
+      },
+      "title": "Mapping Trader with Team"
+    },
+    "oms_user_managementCreateTraderMapResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementCreateTraderRequest": {
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string",
+          "title": "User fields"
+        },
+        "authId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userType": {
+          "$ref": "#/definitions/oms_user_managementuserType"
+        },
+        "canLogin": {
+          "type": "boolean"
+        },
+        "nid": {
+          "type": "string"
+        },
+        "isVerified": {
+          "type": "boolean"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64",
+          "title": "Investor fields"
+        },
+        "status": {
+          "$ref": "#/definitions/oms_user_managementStatus"
+        },
+        "branchId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "readOnly": {
+          "type": "boolean"
+        },
+        "licenceNumber": {
+          "type": "string"
+        },
+        "canTrade": {
+          "type": "boolean"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "oms_user_managementCreateTraderResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "Response after successful creation"
+    },
+    "oms_user_managementCreateTraderTeamRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "status": {
+          "$ref": "#/definitions/oms_user_managementStatus"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        }
+      },
+      "title": "Create team of trader"
+    },
+    "oms_user_managementCreateTraderTeamResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementCreateTraderTwsMapRequest": {
+      "type": "object",
+      "properties": {
+        "twsId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "traderId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/oms_user_managementTwsStatus"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "oms_user_managementCreateTraderTwsMapResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementCreateTwsRequest": {
+      "type": "object",
+      "properties": {
+        "twsCode": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "status": {
+          "$ref": "#/definitions/oms_user_managementTwsStatus"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        }
+      },
+      "title": "TWS Creation"
+    },
+    "oms_user_managementCreateTwsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementDeleteBranchResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementDeleteBrokerHouseResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementDeleteMapRolePermissionResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementDeleteMapUserPermissionResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementDeleteMapUserRoleResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementDeletePermissionResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementDeleteRoleResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementDeleteTraderMapResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementDeleteTraderResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementDeleteTraderTeamResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementDeleteTraderTwsMapResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementDeleteTwsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementGetAllInvestorByTraderIdResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "data": {
+          "$ref": "#/definitions/oms_user_managementAllInvestorData"
+        }
+      }
+    },
+    "oms_user_managementGetAuditLogByIdResponse": {
+      "type": "object",
+      "properties": {
+        "actionType": {
+          "$ref": "#/definitions/oms_user_managementactionType"
+        },
+        "attemptById": {
+          "type": "string",
+          "format": "int64"
+        },
+        "attemptByType": {
+          "$ref": "#/definitions/oms_user_managementuserType"
+        },
+        "ipAddress": {
+          "type": "string"
+        },
+        "httpMethod": {
+          "$ref": "#/definitions/oms_user_managementHTTPMethods"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "isSuccess": {
+          "type": "boolean"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "deviceName": {
+          "type": "string"
+        },
+        "deviceType": {
+          "type": "string"
+        },
+        "description": {
+          "type": "object"
+        },
+        "requestBody": {
+          "type": "object"
+        },
+        "responseBody": {
+          "type": "object"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementGetAuditLogsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "auditLogs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetAuditLogsResponseauditLogList"
+          }
+        },
+        "paginationResponse": {
+          "$ref": "#/definitions/oms_user_managementPaginationInfoResponse"
+        }
+      }
+    },
+    "oms_user_managementGetBranchByIdResponse": {
+      "type": "object",
+      "properties": {
+        "branchName": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "telephoneNumber": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "validCurrency": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "brokerHouseId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "branchType": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementGetBranchesResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "branches": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetBranchesResponsebranchList"
+          }
+        },
+        "paginationResponse": {
+          "$ref": "#/definitions/oms_user_managementPaginationInfoResponse"
+        }
+      }
+    },
+    "oms_user_managementGetBrokerAdminByIdResponse": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "branchId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "readOnly": {
+          "type": "boolean"
+        },
+        "canTrade": {
+          "type": "boolean"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "isIsolatedUser": {
+          "type": "boolean"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "oms_user_managementGetBrokerHouseByIdResponse": {
+      "type": "object",
+      "properties": {
+        "brokerHouseName": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "telephoneNumber": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "validCurrency": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementGetBrokerHousesResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "brokerHouses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetBrokerHousesResponsebrokerHouseList"
+          }
+        },
+        "paginationResponse": {
+          "$ref": "#/definitions/oms_user_managementPaginationInfoResponse"
+        }
+      }
+    },
+    "oms_user_managementGetEmployeeByIdResponse": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "userType": {
+          "$ref": "#/definitions/oms_user_managementuserType"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "branchId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "designation": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_user_managementGetInvestorByIdResponse": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "primaryTwsId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "boAccountNumber": {
+          "type": "string"
+        }
+      },
+      "title": "Response message"
+    },
+    "oms_user_managementGetInvestorsResponse": {
+      "type": "object",
+      "properties": {
+        "investors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/oms_user_managementUserWithInvestorType"
+          }
+        },
+        "totalCount": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementGetMapRolePermissionByIdResponse": {
+      "type": "object",
+      "properties": {
+        "rolesAndPermissions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/oms_user_managementRolesAndPermissions"
+          }
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "oms_user_managementGetMapRolePermissionsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "mappedPermissionRoles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetMapRolePermissionsResponsemappedRoleList"
+          }
+        },
+        "paginationResponse": {
+          "$ref": "#/definitions/oms_user_managementPaginationInfoResponse"
+        }
+      }
+    },
+    "oms_user_managementGetMapUserRoleByIdResponse": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "roleId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementGetMapUserRolesResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "mappedUserRoleLists": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetMapUserRolesResponsemappedUserRoleList"
+          }
+        },
+        "paginationResponse": {
+          "$ref": "#/definitions/oms_user_managementPaginationInfoResponse"
+        }
+      }
+    },
+    "oms_user_managementGetPermissionByIdResponse": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementGetPermissionsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Permissions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetPermissionsResponsePermissionList"
+          }
+        },
+        "paginationResponse": {
+          "$ref": "#/definitions/oms_user_managementPaginationInfoResponse"
+        }
+      }
+    },
+    "oms_user_managementGetRoleByIdResponse": {
+      "type": "object",
+      "properties": {
+        "roleName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementGetRolesResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Roles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetRolesResponseRoleList"
+          }
+        },
+        "paginationResponse": {
+          "$ref": "#/definitions/oms_user_managementPaginationInfoResponse"
+        }
+      }
+    },
+    "oms_user_managementGetTraderByIdResponse": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "branchId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "readOnly": {
+          "type": "boolean"
+        },
+        "licenceNumber": {
+          "type": "string"
+        },
+        "canTrade": {
+          "type": "boolean"
+        },
+        "isActive": {
+          "type": "boolean"
+        }
+      },
+      "title": "Response message"
+    },
+    "oms_user_managementGetTraderMapResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "MappedTrader": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetTraderMapResponseTraderMap"
+          }
+        },
+        "paginationResponse": {
+          "$ref": "#/definitions/oms_user_managementPaginationInfoResponse"
+        }
+      }
+    },
+    "oms_user_managementGetTraderTeamResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "TradersTeam": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetTraderTeamResponseTraderTeam"
+          }
+        },
+        "paginationResponse": {
+          "$ref": "#/definitions/oms_user_managementPaginationInfoResponse"
+        }
+      }
+    },
+    "oms_user_managementGetTradersTwsMapResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tradersTws": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetTradersTwsMapResponseTraderTws"
+          }
+        },
+        "paginationResponse": {
+          "$ref": "#/definitions/oms_user_managementPaginationInfoResponse"
+        }
+      }
+    },
+    "oms_user_managementGetTwsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tws": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetTwsResponsetwsList"
+          }
+        },
+        "paginationResponse": {
+          "$ref": "#/definitions/oms_user_managementPaginationInfoResponse"
+        }
+      }
+    },
+    "oms_user_managementGetUserPermissionsByUserIdResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userPermissions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetUserPermissionsByUserIdResponseUserPermissions"
+          }
+        }
+      }
+    },
+    "oms_user_managementHTTPMethods": {
+      "type": "string",
+      "enum": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE",
+        "OPTIONS",
+        "CONNECT",
+        "HEAD",
+        "TRACE"
+      ],
+      "default": "GET"
+    },
+    "oms_user_managementHealthCheckResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "Response for health check"
+    },
+    "oms_user_managementPaginationInfoRequest": {
+      "type": "object",
+      "properties": {
+        "pageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "oms_user_managementPaginationInfoResponse": {
+      "type": "object",
+      "properties": {
+        "selfPageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "firstPageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nextPageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "previousPageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalPageCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalRecordCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "oms_user_managementRolesAndPermissions": {
+      "type": "object",
+      "properties": {
+        "roleId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "permissionId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "oms_user_managementStatus": {
+      "type": "string",
+      "enum": [
+        "PENDING",
+        "ACTIVE"
+      ],
+      "default": "PENDING"
+    },
+    "oms_user_managementTwsStatus": {
+      "type": "string",
+      "enum": [
+        "ASSIGNED",
+        "UNASSIGNED"
+      ],
+      "default": "ASSIGNED"
+    },
+    "oms_user_managementUpdateBranchRequest": {
+      "type": "object",
+      "properties": {
+        "branchName": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "telephoneNumber": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "validCurrency": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "brokerHouseId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "branchType": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUpdateBranchResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUpdateBrokerAdminRequest": {
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string",
+          "title": "User fields"
+        },
+        "authId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userType": {
+          "$ref": "#/definitions/oms_user_managementuserType"
+        },
+        "canLogin": {
+          "type": "boolean"
+        },
+        "nid": {
+          "type": "string"
+        },
+        "isVerified": {
+          "type": "boolean"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64",
+          "title": "broker fields"
+        },
+        "status": {
+          "$ref": "#/definitions/oms_user_managementStatus"
+        },
+        "branchId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "readOnly": {
+          "type": "boolean"
+        },
+        "isIsolatedUser": {
+          "type": "boolean"
+        },
+        "canTrade": {
+          "type": "boolean"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "oms_user_managementUpdateBrokerAdminResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUpdateBrokerHouseRequest": {
+      "type": "object",
+      "properties": {
+        "brokerHouseName": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "telephoneNumber": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "validCurrency": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUpdateBrokerHouseResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUpdateEmployeeRequest": {
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string",
+          "title": "User fields"
+        },
+        "authId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userType": {
+          "$ref": "#/definitions/oms_user_managementuserType"
+        },
+        "canLogin": {
+          "type": "boolean"
+        },
+        "nid": {
+          "type": "string"
+        },
+        "isVerified": {
+          "type": "boolean"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64",
+          "title": "Investor fields"
+        },
+        "status": {
+          "$ref": "#/definitions/oms_user_managementStatus"
+        },
+        "branchId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "designation": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_user_managementUpdateEmployeeResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUpdateInvestorRequest": {
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string",
+          "title": "User fields"
+        },
+        "userType": {
+          "$ref": "#/definitions/oms_user_managementuserType"
+        },
+        "canLogin": {
+          "type": "boolean"
+        },
+        "nid": {
+          "type": "string"
+        },
+        "isVerified": {
+          "type": "boolean"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "primaryTwsId": {
+          "type": "string",
+          "format": "int64",
+          "title": "Investor fields"
+        },
+        "secondaryTwsId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "boAccountNumber": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/oms_user_managementStatus"
+        },
+        "readOnly": {
+          "type": "boolean"
+        },
+        "canTrade": {
+          "type": "boolean"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_user_managementUpdateInvestorResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_user_managementUpdateMapRolePermissionRequest": {
+      "type": "object",
+      "properties": {
+        "roleId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "permissionId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUpdateMapRolePermissionResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUpdateMapUserPermissionRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "permissionId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "isRevoked": {
+          "type": "boolean"
+        }
+      }
+    },
+    "oms_user_managementUpdateMapUserPermissionResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUpdateMapUserRoleRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "roleId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUpdateMapUserRoleResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUpdatePermissionRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUpdatePermissionResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUpdateRoleRequest": {
+      "type": "object",
+      "properties": {
+        "roleName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUpdateRoleResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUpdateTraderMapRequest": {
+      "type": "object",
+      "properties": {
+        "teamId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "traderId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "status": {
+          "$ref": "#/definitions/oms_user_managementStatus"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUpdateTraderMapResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUpdateTraderRequest": {
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string",
+          "title": "User fields"
+        },
+        "authId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userType": {
+          "$ref": "#/definitions/oms_user_managementuserType"
+        },
+        "canLogin": {
+          "type": "boolean"
+        },
+        "nid": {
+          "type": "string"
+        },
+        "isVerified": {
+          "type": "boolean"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64",
+          "title": "Investor fields"
+        },
+        "status": {
+          "$ref": "#/definitions/oms_user_managementStatus"
+        },
+        "branchId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "readOnly": {
+          "type": "boolean"
+        },
+        "licenceNumber": {
+          "type": "string"
+        },
+        "canTrade": {
+          "type": "boolean"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "oms_user_managementUpdateTraderResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "Response after successful creation"
+    },
+    "oms_user_managementUpdateTraderTeamRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "status": {
+          "$ref": "#/definitions/oms_user_managementStatus"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUpdateTraderTeamResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUpdateTraderTwsMapRequest": {
+      "type": "object",
+      "properties": {
+        "twsId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "traderId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/oms_user_managementTwsStatus"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUpdateTraderTwsMapResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUpdateTwsRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "twsCode": {
+          "type": "string"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "status": {
+          "$ref": "#/definitions/oms_user_managementTwsStatus"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "oms_user_managementUpdateTwsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "oms_user_managementUserWithInvestorType": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "primaryTwsId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "boAccountNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "oms_user_managementactionType": {
+      "type": "string",
+      "enum": [
+        "UNSPECIFIED",
+        "LOGIN",
+        "LOGOUT",
+        "CHANGE_PASSWORD",
+        "ORDER",
+        "DEPOSIT",
+        "WITHDRAW"
+      ],
+      "default": "UNSPECIFIED"
+    },
+    "oms_user_managementuserType": {
+      "type": "string",
+      "enum": [
+        "USER_TYPE_UNSPECIFIED",
+        "INVESTOR",
+        "TRADER",
+        "BROKER_ADMIN",
+        "EMPLOYEE"
+      ],
+      "default": "USER_TYPE_UNSPECIFIED",
+      "title": "OMS Users"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "protobufNullValue": {
+      "type": "string",
+      "enum": [
+        "NULL_VALUE"
+      ],
+      "default": "NULL_VALUE",
+      "description": "`NullValue` is a singleton enumeration to represent the null value for the\n`Value` type union.\n\nThe JSON representation for `NullValue` is JSON `null`.\n\n - NULL_VALUE: Null value."
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

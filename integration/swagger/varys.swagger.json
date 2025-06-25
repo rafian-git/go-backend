@@ -1,0 +1,819 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "varys.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/varys/global-notification": {
+      "post": {
+        "operationId": "Varys_SendGlobalNotification",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/varysSendGlobalNotificationResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/varysSendGlobalNotificationRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Varys"
+        ]
+      }
+    },
+    "/api/v1/varys/health": {
+      "get": {
+        "operationId": "Varys_Health",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "Varys"
+        ]
+      }
+    },
+    "/api/v1/varys/in-app-notification": {
+      "post": {
+        "operationId": "Varys_SendInAppNotification",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/varysSendInAppNotificationResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/varysSendInAppNotificationRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Varys"
+        ]
+      }
+    },
+    "/api/v1/varys/in-app-notifications": {
+      "post": {
+        "operationId": "Varys_GetInAppNotification",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/varysGetInAppNotificationResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/varysGetInAppNotificationRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Varys"
+        ]
+      }
+    },
+    "/api/v1/varys/push-notification-setting": {
+      "get": {
+        "operationId": "Varys_GetPushNotificationSetting",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/varysGetNotificationSettingResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "Varys"
+        ]
+      },
+      "post": {
+        "operationId": "Varys_AddPushNotificationSetting",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/varysResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/varysNotificationSettingRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Varys"
+        ]
+      },
+      "put": {
+        "operationId": "Varys_UpdatePushNotificationSetting",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/varysResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/varysNotificationSettingRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Varys"
+        ]
+      }
+    },
+    "/api/v1/varys/read-in-app-notifications": {
+      "post": {
+        "operationId": "Varys_ReadInAppNotifications",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/varysResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/varysNotificationReadRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Varys"
+        ]
+      }
+    },
+    "/api/v1/varys/summary": {
+      "get": {
+        "operationId": "Varys_GetSummary",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/varysGetSummaryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "Varys"
+        ]
+      }
+    },
+    "/api/v1/varys/template": {
+      "post": {
+        "operationId": "Varys_AddOrUpdateTemplate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/varysResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/varysTemplate"
+            }
+          }
+        ],
+        "tags": [
+          "Varys"
+        ]
+      }
+    },
+    "/api/v1/varys/templates": {
+      "get": {
+        "operationId": "Varys_ListTemplate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/varysListTemplateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "Varys"
+        ]
+      }
+    },
+    "/api/v1/varys/user-info-type": {
+      "get": {
+        "operationId": "Varys_GetUserInfoType",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/varysGetUserInfoTypeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "Varys"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "NotificationReadRequestnotification": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isGlobal": {
+          "type": "boolean"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string",
+          "description": "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+        },
+        "value": {
+          "type": "string",
+          "format": "byte",
+          "description": "Must be a valid serialized protocol buffer of the above specified type."
+        }
+      },
+      "description": "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(\u0026foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n\nExample 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\nExample 4: Pack and unpack a message in Go\n\n     foo := \u0026pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := \u0026pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\n\nJSON\n\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": \u003cstring\u003e,\n      \"lastName\": \u003cstring\u003e\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "varysAction_Type": {
+      "type": "string",
+      "enum": [
+        "AT_UNKNOWN",
+        "AT_DEPOSIT",
+        "AT_HOME",
+        "AT_TICKER",
+        "AT_LEARN_MORE"
+      ],
+      "default": "AT_UNKNOWN"
+    },
+    "varysGetInAppNotificationRequest": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/varysNotification_Type"
+        },
+        "company": {
+          "type": "string"
+        },
+        "paginationInfo": {
+          "$ref": "#/definitions/varysPaginationInfoRequest"
+        }
+      }
+    },
+    "varysGetInAppNotificationResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/varysGetInAppNotificationResponseData"
+        }
+      }
+    },
+    "varysGetInAppNotificationResponseData": {
+      "type": "object",
+      "properties": {
+        "notifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/varysInAppNotification"
+          }
+        },
+        "paginationInfo": {
+          "$ref": "#/definitions/varysPaginationInfoResponse"
+        }
+      }
+    },
+    "varysGetNotificationSettingResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/varysGetNotificationSettingResponseData"
+        }
+      }
+    },
+    "varysGetNotificationSettingResponseData": {
+      "type": "object",
+      "properties": {
+        "setting": {
+          "$ref": "#/definitions/varysNotificationSetting"
+        }
+      }
+    },
+    "varysGetSummaryResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/varysGetSummaryResponseData"
+        }
+      }
+    },
+    "varysGetSummaryResponseData": {
+      "type": "object",
+      "properties": {
+        "notifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/varysInAppNotificationSummary"
+          }
+        }
+      }
+    },
+    "varysGetUserInfoTypeResponse": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/varysUser_Info_Type"
+        }
+      }
+    },
+    "varysInAppNotification": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "type": {
+          "$ref": "#/definitions/varysNotification_Type"
+        },
+        "company": {
+          "type": "string"
+        },
+        "isRead": {
+          "type": "boolean"
+        },
+        "isGlobal": {
+          "type": "boolean"
+        },
+        "actionType": {
+          "$ref": "#/definitions/varysAction_Type"
+        }
+      }
+    },
+    "varysInAppNotificationSummary": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/varysNotification_Type"
+        },
+        "company": {
+          "type": "string"
+        },
+        "unread": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "notification": {
+          "$ref": "#/definitions/varysInAppNotification"
+        }
+      }
+    },
+    "varysListTemplateResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/varysTemplate"
+          }
+        }
+      }
+    },
+    "varysNotificationReadRequest": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NotificationReadRequestnotification"
+          }
+        }
+      }
+    },
+    "varysNotificationSetting": {
+      "type": "object",
+      "properties": {
+        "enabledBankActivity": {
+          "type": "boolean"
+        },
+        "enabledStockPriceMovementHolding": {
+          "type": "boolean"
+        },
+        "enabledStockPriceMovementWatchlist": {
+          "type": "boolean"
+        },
+        "enableOrderStatus": {
+          "type": "boolean"
+        },
+        "enabledIpoAlert": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "varysNotificationSettingRequest": {
+      "type": "object",
+      "properties": {
+        "enabledBankActivity": {
+          "type": "boolean"
+        },
+        "enabledStockPriceMovementHolding": {
+          "type": "boolean"
+        },
+        "enabledStockPriceMovementWatchlist": {
+          "type": "boolean"
+        },
+        "enableOrderStatus": {
+          "type": "boolean"
+        },
+        "enabledIpoAlert": {
+          "type": "boolean"
+        }
+      }
+    },
+    "varysNotification_Type": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_NOTIFICATION_TYPE",
+        "APP",
+        "APP_SUPPORT",
+        "STOCK_X",
+        "ANNOUNCEMENT"
+      ],
+      "default": "UNKNOWN_NOTIFICATION_TYPE"
+    },
+    "varysPaginationInfoRequest": {
+      "type": "object",
+      "properties": {
+        "inAppId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "globalId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "varysPaginationInfoResponse": {
+      "type": "object",
+      "properties": {
+        "inAppId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "globalId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "varysResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "varysSendGlobalNotificationRequest": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "type": {
+          "$ref": "#/definitions/varysNotification_Type"
+        },
+        "company": {
+          "type": "string"
+        },
+        "actionType": {
+          "$ref": "#/definitions/varysAction_Type"
+        },
+        "createdBy": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "templateType": {
+          "$ref": "#/definitions/varysTemplate_Type"
+        }
+      }
+    },
+    "varysSendGlobalNotificationResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "varysSendInAppNotificationRequest": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createdBy": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "type": {
+          "$ref": "#/definitions/varysNotification_Type"
+        },
+        "actionType": {
+          "$ref": "#/definitions/varysAction_Type"
+        },
+        "company": {
+          "type": "string"
+        },
+        "templateType": {
+          "$ref": "#/definitions/varysTemplate_Type"
+        }
+      }
+    },
+    "varysSendInAppNotificationResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "varysTemplate": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/varysTemplate_Type"
+        },
+        "content": {
+          "type": "string"
+        },
+        "action": {
+          "$ref": "#/definitions/varysAction_Type"
+        },
+        "Properties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "varysTemplate_Type": {
+      "type": "string",
+      "enum": [
+        "TT_UNKNOWN",
+        "TT_BO_REGISTERED",
+        "TT_NEW_DEVICE_LOGIN",
+        "TT_TICKER_ALERT",
+        "TT_DEPOSIT_INSTANT_APPROVED",
+        "TT_DEPOSIT_MANUAL_APPROVED",
+        "TT_DEPOSIT_MANUAL_REJECTED",
+        "TT_WITHDRAW_REQUESTED",
+        "TT_WITHDRAW_APPROVED",
+        "TT_WITHDRAW_REJECTED",
+        "TT_DEPOSIT_BO_PAYMENT",
+        "TT_ORDER_PLACED",
+        "TT_ORDER_FILLED",
+        "TT_DEPOSIT_MANUAL_REQUESTED",
+        "TT_BO_REJECTED",
+        "TT_ORDER_REJECTED",
+        "TT_ORDER_EXPIRED",
+        "TT_ORDER_CANCELLED",
+        "TT_ORDER_PARTIALLY_CANCELLED",
+        "TT_ORDER_PARTIALLY_EXPIRED",
+        "TT_ORDER_PARTIALLY_FILLED",
+        "TT_EXISTING_NBL_SL_BO_REGISTER"
+      ],
+      "default": "TT_UNKNOWN"
+    },
+    "varysUser_Info_Type": {
+      "type": "string",
+      "enum": [
+        "UIT_UNKNOWN_TYPE",
+        "UIT_BO_STATUS",
+        "UIT_DEPOSIT",
+        "UIT_WITHDRAW",
+        "UIT_PORTFOLIO_CHART",
+        "UIT_ORDER_STATUS",
+        "UIT_AFTER_HOUR_ORDER_STATUS",
+        "UIT_POSITION_VALUATION"
+      ],
+      "default": "UIT_UNKNOWN_TYPE"
+    }
+  }
+}

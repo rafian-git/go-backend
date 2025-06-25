@@ -1,0 +1,2955 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "portfolio.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/portfolio/backoffice-balance": {
+      "get": {
+        "operationId": "Portfolio_GetBackofficeBalance",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/portfolioGetBackofficeBalanceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "clientCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "timestamp",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Portfolio"
+        ]
+      }
+    },
+    "/api/v1/portfolio/backoffice-holdings": {
+      "get": {
+        "operationId": "Portfolio_GetBackofficeHoldings",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/portfolioGetBackofficeHoldingsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "clientCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "timestamp",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Portfolio"
+        ]
+      }
+    },
+    "/api/v1/portfolio/balances-portfolio": {
+      "get": {
+        "operationId": "Portfolio_BalancesAndPortfolio",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/balance_positionBalancesAndPortfolioResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "clientCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Portfolio"
+        ]
+      }
+    },
+    "/api/v1/portfolio/calculate-commission": {
+      "get": {
+        "summary": "Calculate Commission",
+        "operationId": "Portfolio_CalculateCommission",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/portfolioCalculateCommissionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "clientCode",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "orderType",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN_ORDER_TYPE",
+              "BUY",
+              "SELL"
+            ],
+            "default": "UNKNOWN_ORDER_TYPE"
+          },
+          {
+            "name": "tickerId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "quantity",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "price",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "orderValue",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "instructionType",
+            "description": "int32 custodian_id = 8; // TODO: ask nizam bhai about this.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN_INSTRUCTION",
+              "NONE",
+              "ALL_OR_NONE",
+              "STOP_LIMIT",
+              "STOP_TO_MARKET",
+              "CANCEL_ON_LOGOUT",
+              "MARKET_TO_LIMIT",
+              "MANUAL_ORDER"
+            ],
+            "default": "UNKNOWN_INSTRUCTION"
+          },
+          {
+            "name": "marketValue",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          }
+        ],
+        "tags": [
+          "Portfolio"
+        ]
+      }
+    },
+    "/api/v1/portfolio/chart": {
+      "get": {
+        "summary": "Portfolio chart",
+        "operationId": "Portfolio_GetPortfolioChartData",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/portfolioPortfolioChartResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "clientCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "resolution",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN_CHARTING_RESOLUTION",
+              "DAILY",
+              "WEEKLY",
+              "MONTHLY",
+              "QUARTERLY",
+              "YEARLY",
+              "FIVE_YEARLY",
+              "ALL"
+            ],
+            "default": "UNKNOWN_CHARTING_RESOLUTION"
+          }
+        ],
+        "tags": [
+          "Portfolio"
+        ]
+      }
+    },
+    "/api/v1/portfolio/health": {
+      "get": {
+        "summary": "health check endpoint",
+        "operationId": "Portfolio_Health",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/portfolioHealthResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "Portfolio"
+        ]
+      }
+    },
+    "/api/v1/portfolio/modify-order": {
+      "post": {
+        "summary": "Modify order",
+        "operationId": "Portfolio_ModifyOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/portfolioModifyOrderResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/portfolioModifyOrderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Portfolio"
+        ]
+      }
+    },
+    "/api/v1/portfolio/order-list": {
+      "get": {
+        "summary": "OrderList",
+        "operationId": "Portfolio_OrderList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/portfolioOrderListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "clientCode",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "orderId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "startDay",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "startMonth",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "startYear",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "endDay",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "endMonth",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "endYear",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "timeStamp",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "rejected",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "cancelled",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "expired",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "completed",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "allPending",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "allSuspended",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "underlyingTickerId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Portfolio"
+        ]
+      }
+    },
+    "/api/v1/portfolio/order-list-filtered": {
+      "get": {
+        "operationId": "Portfolio_OrderListFiltered",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderlist_filteredOrderListFilteredResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "timeUnixMilli",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "clientCode",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "startDay",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "startMonth",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "startYear",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "endDay",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "endMonth",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "endYear",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "orderId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "parentOrderId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "orderType",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "orderBy",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "symbol",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pending",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "rejected",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "cancelled",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "expired",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "completed",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "suspended",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "showDualStatus",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Portfolio"
+        ]
+      }
+    },
+    "/api/v1/portfolio/orders/cancel": {
+      "post": {
+        "operationId": "Portfolio_CancelOrders",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/portfolioCancelOrdersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/portfolioCancelOrdersRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Portfolio"
+        ]
+      }
+    },
+    "/api/v1/portfolio/place-order": {
+      "post": {
+        "summary": "Place order",
+        "operationId": "Portfolio_PlaceOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/portfolioPlaceOrderResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/portfolioPlaceOrderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Portfolio"
+        ]
+      }
+    },
+    "/api/v1/portfolio/schedule-order": {
+      "get": {
+        "summary": "Schedule Orders / After Hour Trading",
+        "operationId": "Portfolio_ListScheduledOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/portfolioListScheduledOrderResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "clientCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Portfolio"
+        ]
+      },
+      "delete": {
+        "operationId": "Portfolio_CancelScheduledOrders",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/portfolioCancelScheduleOrdersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "clientCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "Portfolio"
+        ]
+      }
+    },
+    "/api/v1/portfolio/trigger-action": {
+      "post": {
+        "summary": "Trigger Action",
+        "operationId": "Portfolio_TriggerAction",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/portfolioTriggerActionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/portfolioTriggerActionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Portfolio"
+        ]
+      }
+    },
+    "/api/v1/portfolio/trigger-list": {
+      "get": {
+        "summary": "Trigger List",
+        "operationId": "Portfolio_TriggerList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/portfolioTriggerListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "outputType",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tstamp",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "orderId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "serial",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "clientCode",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "groupId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Portfolio"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "FirstTradeInfoResponseTradeInfo": {
+      "type": "object",
+      "properties": {
+        "clientCode": {
+          "type": "string"
+        },
+        "didTrade": {
+          "type": "boolean"
+        }
+      }
+    },
+    "OrderListResponseOrderDetails": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ordersList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/portfolioOrder"
+          }
+        }
+      }
+    },
+    "TradeSummaryResponseTrade": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/portfolioOrderType"
+        },
+        "totalPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "count": {
+          "type": "string",
+          "format": "int64"
+        },
+        "unixTime": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "balance_positionBalance": {
+      "type": "object",
+      "properties": {
+        "currencySymbol": {
+          "type": "string"
+        },
+        "precision": {
+          "type": "string"
+        },
+        "cashBalance": {
+          "type": "string"
+        },
+        "cashBalanceInLocalCurrency": {
+          "type": "string"
+        },
+        "availableForTrading": {
+          "type": "string"
+        },
+        "availableForTradingLocalCurrency": {
+          "type": "string"
+        },
+        "availableForWithdrawal": {
+          "type": "string"
+        },
+        "availableForWithdrawalLocalCurrency": {
+          "type": "string"
+        },
+        "localCurrencySymbol": {
+          "type": "string"
+        },
+        "reserved": {
+          "type": "string"
+        },
+        "reservedLocalCurrency": {
+          "type": "string"
+        },
+        "currencyDesc": {
+          "type": "string"
+        },
+        "suspendedCurrency": {
+          "type": "string"
+        },
+        "currencyId": {
+          "type": "string"
+        },
+        "portfolioValue": {
+          "type": "string"
+        },
+        "allowMargin": {
+          "type": "string"
+        },
+        "isMinorCurrency": {
+          "type": "string"
+        },
+        "minorToNormalRatio": {
+          "type": "string"
+        },
+        "overdraft": {
+          "type": "string"
+        },
+        "marginExposure": {
+          "type": "string"
+        }
+      }
+    },
+    "balance_positionBalancesAndPortfolioResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/balance_positionBalancesAndPortfolioResponseData"
+        }
+      }
+    },
+    "balance_positionBalancesAndPortfolioResponseData": {
+      "type": "object",
+      "properties": {
+        "balance": {
+          "$ref": "#/definitions/balance_positionBalance"
+        },
+        "positions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/balance_positionPosition"
+          }
+        },
+        "equity": {
+          "$ref": "#/definitions/balance_positionEquity"
+        },
+        "totals": {
+          "$ref": "#/definitions/balance_positionTotal"
+        },
+        "totalBySecurityType": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/balance_positionTotalBySecurityType"
+          }
+        }
+      }
+    },
+    "balance_positionEquity": {
+      "type": "object",
+      "properties": {
+        "equityValue": {
+          "type": "string"
+        },
+        "marginRatio": {
+          "type": "string"
+        },
+        "currencySymbol": {
+          "type": "string"
+        },
+        "currencyDecimals": {
+          "type": "string"
+        }
+      }
+    },
+    "balance_positionPosition": {
+      "type": "object",
+      "properties": {
+        "symbol": {
+          "type": "string"
+        },
+        "marketSymbol": {
+          "type": "string"
+        },
+        "currencySymbol": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "string"
+        },
+        "lastPrice": {
+          "type": "string"
+        },
+        "lastDelta": {
+          "type": "string"
+        },
+        "deltaPercent": {
+          "type": "string"
+        },
+        "totalMarketValue": {
+          "type": "string"
+        },
+        "averageCost": {
+          "type": "string"
+        },
+        "securityType": {
+          "type": "string"
+        },
+        "custodianId": {
+          "type": "string"
+        },
+        "subUserId": {
+          "type": "string"
+        },
+        "priceDecimal": {
+          "type": "string"
+        },
+        "marketId": {
+          "type": "string"
+        },
+        "contractSize": {
+          "type": "string"
+        },
+        "tickerId": {
+          "type": "string"
+        },
+        "reserved": {
+          "type": "string"
+        },
+        "available": {
+          "type": "string"
+        },
+        "custodianName": {
+          "type": "string"
+        },
+        "bep": {
+          "type": "string"
+        },
+        "idcSymbol": {
+          "type": "string"
+        },
+        "feedMarketSymbol": {
+          "type": "string"
+        },
+        "feedSource": {
+          "type": "string"
+        },
+        "isin": {
+          "type": "string"
+        },
+        "symbolId": {
+          "type": "string"
+        },
+        "bloombergSymbol": {
+          "type": "string"
+        },
+        "descriptionEn": {
+          "type": "string"
+        },
+        "descriptionAr": {
+          "type": "string"
+        },
+        "lastBid": {
+          "type": "string"
+        },
+        "lastAsk": {
+          "type": "string"
+        },
+        "lastVolume": {
+          "type": "string"
+        },
+        "marginPaid": {
+          "type": "string"
+        },
+        "totalCost": {
+          "type": "string"
+        },
+        "unrealizedPl": {
+          "type": "string"
+        },
+        "unrealizedPlPercent": {
+          "type": "string"
+        },
+        "avgCostRealizedPlAdjusted": {
+          "type": "string"
+        },
+        "initialMargin": {
+          "type": "string"
+        },
+        "securityTypeId": {
+          "type": "string"
+        },
+        "bondMaturityDate": {
+          "type": "string"
+        },
+        "bondFaceValue": {
+          "type": "string"
+        },
+        "bondDistributionPercent": {
+          "type": "string"
+        },
+        "bondYieldPercent": {
+          "type": "string"
+        },
+        "bondDistributionsPerYear": {
+          "type": "string"
+        },
+        "quantityDecimal": {
+          "type": "string"
+        },
+        "currencyDecimals": {
+          "type": "string"
+        },
+        "pendingQuantity": {
+          "type": "string"
+        },
+        "futuresOptionsExpiryDate": {
+          "type": "string"
+        },
+        "underlyingTickerId": {
+          "type": "string"
+        },
+        "underlyingSymbol": {
+          "type": "string"
+        },
+        "optionType": {
+          "type": "string"
+        },
+        "optionStrikePrice": {
+          "type": "string"
+        },
+        "cryptoSymbolBought": {
+          "type": "string"
+        },
+        "cryptoSymbolSold": {
+          "type": "string"
+        },
+        "dayGainLocal": {
+          "type": "string"
+        },
+        "costLocal": {
+          "type": "string"
+        },
+        "marketValueLocal": {
+          "type": "string"
+        },
+        "realizedGainLocal": {
+          "type": "string"
+        },
+        "accruedInterest": {
+          "type": "string"
+        },
+        "bondRatingStandardAndPoors": {
+          "type": "string"
+        },
+        "accumulatedCoupon": {
+          "type": "string"
+        },
+        "averageCostComm": {
+          "type": "string"
+        },
+        "actualCost": {
+          "type": "string"
+        },
+        "plPercentage": {
+          "type": "string"
+        },
+        "bidYtm": {
+          "type": "string"
+        },
+        "unrealizedGlComm": {
+          "type": "string"
+        },
+        "realizedPl": {
+          "type": "string"
+        },
+        "pendingQuantityBuy": {
+          "type": "string"
+        },
+        "pendingQuantitySell": {
+          "type": "string"
+        },
+        "actualCostLocal": {
+          "type": "string"
+        },
+        "unrealizedPlLocal": {
+          "type": "string"
+        },
+        "symbolAlias": {
+          "type": "string"
+        },
+        "symbolAlias2": {
+          "type": "string"
+        },
+        "dayGain": {
+          "type": "string"
+        },
+        "subUserNameEn": {
+          "type": "string"
+        },
+        "lastPrevPrice": {
+          "type": "string"
+        },
+        "priceCurrencySymbol": {
+          "type": "string"
+        },
+        "unrealizedPlNoPlAdded": {
+          "type": "string"
+        },
+        "unrealizedPlUsd": {
+          "type": "string"
+        },
+        "marketValueUsd": {
+          "type": "string"
+        },
+        "takeProfitAmount": {
+          "type": "string"
+        },
+        "takeProfitStr": {
+          "type": "string"
+        },
+        "takeProfitQty": {
+          "type": "string"
+        },
+        "stopLossAmount": {
+          "type": "string"
+        },
+        "stopLossStr": {
+          "type": "string"
+        },
+        "stopLossQty": {
+          "type": "string"
+        },
+        "hasTrigger": {
+          "type": "string"
+        }
+      }
+    },
+    "balance_positionSyncUserBalanceData": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "qty": {
+          "type": "string"
+        },
+        "currencyId": {
+          "type": "string"
+        },
+        "baseCurrencySymbol": {
+          "type": "string"
+        },
+        "baseValue": {
+          "type": "string"
+        },
+        "valueUsd": {
+          "type": "string"
+        },
+        "systemCurrencyId": {
+          "type": "string"
+        },
+        "systemCurrencySymbol": {
+          "type": "string"
+        },
+        "systemCurrencyDecimal": {
+          "type": "string"
+        },
+        "valueSystemCurrency": {
+          "type": "string"
+        },
+        "tStamp": {
+          "type": "string"
+        },
+        "allReserved": {
+          "type": "string"
+        },
+        "softReserved": {
+          "type": "string"
+        },
+        "credit": {
+          "type": "string"
+        },
+        "overdraft": {
+          "type": "string"
+        },
+        "portfolioValue": {
+          "type": "string"
+        },
+        "availableForTrading": {
+          "type": "string"
+        },
+        "availableForTradingConsolidated": {
+          "type": "string"
+        },
+        "availableForWithdrawal": {
+          "type": "string"
+        }
+      },
+      "title": "Message for SyncUserBalanceData"
+    },
+    "balance_positionSyncUserBalancesResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/balance_positionSyncUserBalanceData"
+          }
+        }
+      },
+      "title": "Message for SyncUserBalanceResponse"
+    },
+    "balance_positionTotal": {
+      "type": "object",
+      "properties": {
+        "totalCost": {
+          "type": "string"
+        },
+        "totalMarketValue": {
+          "type": "string"
+        },
+        "totalGainLoss": {
+          "type": "string"
+        },
+        "currencySymbol": {
+          "type": "string"
+        },
+        "currencyDecimals": {
+          "type": "string"
+        }
+      }
+    },
+    "balance_positionTotalBySecurityType": {
+      "type": "object",
+      "properties": {
+        "securityType": {
+          "type": "string"
+        },
+        "totalMarketValueLocalCurrency": {
+          "type": "string"
+        },
+        "currencyDecimalLocal": {
+          "type": "string"
+        },
+        "totalMarketValueUsd": {
+          "type": "string"
+        },
+        "unrealizedPlLocal": {
+          "type": "string"
+        },
+        "unrealizedPlUsd": {
+          "type": "string"
+        },
+        "currencyDecimalUsd": {
+          "type": "string"
+        }
+      }
+    },
+    "order_trackerAddOrderTrackerResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "order_trackerOrderTrackerStatus": {
+      "type": "string",
+      "enum": [
+        "OTS_UNKNOWN",
+        "OTS_PENDING",
+        "OTS_COMPLETED",
+        "OTS_PROCESSING"
+      ],
+      "default": "OTS_UNKNOWN"
+    },
+    "orderlist_filteredOrderListFilteredResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderlist_filteredOrderListFilteredResponseOrder"
+          }
+        }
+      }
+    },
+    "orderlist_filteredOrderListFilteredResponseOrder": {
+      "type": "object",
+      "properties": {
+        "timeStampBd": {
+          "type": "string"
+        },
+        "batchNo": {
+          "type": "string"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "symbolAlias": {
+          "type": "string"
+        },
+        "marketSymbol": {
+          "type": "string"
+        },
+        "placedBy": {
+          "type": "string"
+        },
+        "fullUserName": {
+          "type": "string"
+        },
+        "subUserId": {
+          "type": "string"
+        },
+        "avgPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "price": {
+          "type": "string"
+        },
+        "orderType": {
+          "type": "string"
+        },
+        "stopPrice": {
+          "type": "string"
+        },
+        "instructionId": {
+          "type": "string"
+        },
+        "instrucationDesc": {
+          "type": "string"
+        },
+        "maxFloor": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "remainingQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "fullQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "filledQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "dayFills": {
+          "type": "string"
+        },
+        "mktOrderId": {
+          "type": "string"
+        },
+        "marketTicketId": {
+          "type": "string"
+        },
+        "orderStatus": {
+          "type": "string"
+        },
+        "pf": {
+          "type": "string"
+        },
+        "expiryId": {
+          "type": "string"
+        },
+        "expiryDays": {
+          "type": "string"
+        },
+        "expiry": {
+          "type": "string"
+        },
+        "orderSize": {
+          "type": "string"
+        },
+        "symbolDesc": {
+          "type": "string"
+        },
+        "isin": {
+          "type": "string"
+        },
+        "bloomberg": {
+          "type": "string"
+        },
+        "isClose": {
+          "type": "string"
+        },
+        "isBasket": {
+          "type": "string"
+        },
+        "IsModified": {
+          "type": "string"
+        },
+        "idma": {
+          "type": "string"
+        },
+        "submitDate": {
+          "type": "string"
+        },
+        "basketName": {
+          "type": "string"
+        },
+        "brokerName": {
+          "type": "string"
+        },
+        "brokerUserId": {
+          "type": "string"
+        },
+        "office": {
+          "type": "string"
+        },
+        "minQty": {
+          "type": "string"
+        },
+        "stopType": {
+          "type": "string"
+        },
+        "creationDate": {
+          "type": "string"
+        },
+        "contractSize": {
+          "type": "string"
+        },
+        "cancellable": {
+          "type": "string"
+        },
+        "resubmittable": {
+          "type": "string"
+        },
+        "tickerId": {
+          "type": "string"
+        },
+        "completed": {
+          "type": "string"
+        },
+        "suspended": {
+          "type": "string"
+        },
+        "cancelled": {
+          "type": "string"
+        },
+        "rejected": {
+          "type": "string"
+        },
+        "expired": {
+          "type": "string"
+        },
+        "currencySymbol": {
+          "type": "string"
+        },
+        "currencyId": {
+          "type": "string"
+        },
+        "initialMargin": {
+          "type": "string"
+        },
+        "algoId": {
+          "type": "string"
+        },
+        "relatedOrderId": {
+          "type": "string"
+        },
+        "IDMAClOrdId": {
+          "type": "string"
+        },
+        "mktTraderNum": {
+          "type": "string"
+        },
+        "idcSymbol": {
+          "type": "string"
+        },
+        "idcMarketSymbol": {
+          "type": "string"
+        },
+        "underlyingSymbol": {
+          "type": "string"
+        },
+        "underlyingTickerId": {
+          "type": "string"
+        },
+        "priceDecimals": {
+          "type": "string"
+        },
+        "qtyDecimals": {
+          "type": "string"
+        },
+        "buySell": {
+          "type": "string"
+        }
+      }
+    },
+    "portfolioBackofficeBalanceResponse": {
+      "type": "object",
+      "properties": {
+        "accountCode": {
+          "type": "string"
+        },
+        "accruedCharge": {
+          "type": "number",
+          "format": "double"
+        },
+        "assetValue": {
+          "type": "number",
+          "format": "double"
+        },
+        "buyingPower": {
+          "type": "number",
+          "format": "double"
+        },
+        "cashBalance": {
+          "type": "number",
+          "format": "double"
+        },
+        "costValue": {
+          "type": "number",
+          "format": "double"
+        },
+        "currentBalance": {
+          "type": "number",
+          "format": "double"
+        },
+        "deptEquityRatio": {
+          "type": "number",
+          "format": "double"
+        },
+        "equity": {
+          "type": "number",
+          "format": "double"
+        },
+        "equityDebtRatio": {
+          "type": "number",
+          "format": "double"
+        },
+        "immatureBalance": {
+          "type": "number",
+          "format": "double"
+        },
+        "loanRatio": {
+          "type": "number",
+          "format": "double"
+        },
+        "marginEquity": {
+          "type": "number",
+          "format": "double"
+        },
+        "marketValue": {
+          "type": "number",
+          "format": "double"
+        },
+        "totalDeposit": {
+          "type": "number",
+          "format": "double"
+        },
+        "totalWithdrawal": {
+          "type": "number",
+          "format": "double"
+        },
+        "unclearCheque": {
+          "type": "number",
+          "format": "double"
+        },
+        "deposit": {
+          "type": "number",
+          "format": "double",
+          "title": "Added missing fields"
+        },
+        "dividendIncome": {
+          "type": "number",
+          "format": "double"
+        },
+        "dividendReceivable": {
+          "type": "number",
+          "format": "double"
+        },
+        "fundTransIn": {
+          "type": "number",
+          "format": "double"
+        },
+        "fundTransOut": {
+          "type": "number",
+          "format": "double"
+        },
+        "fundWithdrawalRequest": {
+          "type": "number",
+          "format": "double"
+        },
+        "instrumentTransIn": {
+          "type": "number",
+          "format": "double"
+        },
+        "instrumentTransOut": {
+          "type": "number",
+          "format": "double"
+        },
+        "ipoApplication": {
+          "type": "number",
+          "format": "double"
+        },
+        "maxLoan": {
+          "type": "number",
+          "format": "double"
+        },
+        "netDepositWithdraw": {
+          "type": "number",
+          "format": "double"
+        },
+        "netGainLoss": {
+          "type": "number",
+          "format": "double"
+        },
+        "preIpoApplication": {
+          "type": "number",
+          "format": "double"
+        },
+        "preferenceApplication": {
+          "type": "number",
+          "format": "double"
+        },
+        "realiseGainLoss": {
+          "type": "number",
+          "format": "double"
+        },
+        "rightApplication": {
+          "type": "number",
+          "format": "double"
+        },
+        "rightOrder": {
+          "type": "number",
+          "format": "double"
+        },
+        "unrealiseGainLoss": {
+          "type": "number",
+          "format": "double"
+        },
+        "withdrawal": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "portfolioBackofficeHoldingsResponse": {
+      "type": "object",
+      "properties": {
+        "accountCode": {
+          "type": "string"
+        },
+        "instruments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/portfolioInstrument"
+          }
+        }
+      }
+    },
+    "portfolioCalculateCommissionResponse": {
+      "type": "object"
+    },
+    "portfolioCancelOrdersRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderIds": {
+          "type": "string"
+        }
+      },
+      "title": "Cancel Orders"
+    },
+    "portfolioCancelOrdersResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/portfolioCancelOrdersResponseData"
+          }
+        }
+      }
+    },
+    "portfolioCancelOrdersResponseData": {
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "portfolioCancelScheduleOrdersResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "portfolioChartData": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "format": "int64"
+        },
+        "equity": {
+          "type": "string"
+        },
+        "previousEquity": {
+          "type": "string"
+        },
+        "buyingPower": {
+          "type": "string"
+        }
+      }
+    },
+    "portfolioChartingResolution": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_CHARTING_RESOLUTION",
+        "DAILY",
+        "WEEKLY",
+        "MONTHLY",
+        "QUARTERLY",
+        "YEARLY",
+        "FIVE_YEARLY",
+        "ALL"
+      ],
+      "default": "UNKNOWN_CHARTING_RESOLUTION"
+    },
+    "portfolioExpiryType": {
+      "type": "string",
+      "enum": [
+        "DAY",
+        "GTC",
+        "OPEN",
+        "IOC",
+        "FOK",
+        "GOOD_TILL_CROSS",
+        "GTD",
+        "VALID_FOR_AUCTION",
+        "GTW",
+        "GTM"
+      ],
+      "default": "DAY",
+      "title": "Place Order"
+    },
+    "portfolioFirstTradeInfoResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FirstTradeInfoResponseTradeInfo"
+          }
+        }
+      }
+    },
+    "portfolioGetBackofficeBalanceResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/portfolioBackofficeBalanceResponse"
+        }
+      }
+    },
+    "portfolioGetBackofficeHoldingsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/portfolioBackofficeHoldingsResponse"
+        }
+      }
+    },
+    "portfolioHealthResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "string"
+        }
+      }
+    },
+    "portfolioInstructionType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_INSTRUCTION",
+        "NONE",
+        "ALL_OR_NONE",
+        "STOP_LIMIT",
+        "STOP_TO_MARKET",
+        "CANCEL_ON_LOGOUT",
+        "MARKET_TO_LIMIT",
+        "MANUAL_ORDER"
+      ],
+      "default": "UNKNOWN_INSTRUCTION",
+      "title": "TODO: Ask Nizam bhai for clear understanding"
+    },
+    "portfolioInstrument": {
+      "type": "object",
+      "properties": {
+        "costPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "costValue": {
+          "type": "number",
+          "format": "double"
+        },
+        "marginable": {
+          "type": "boolean"
+        },
+        "marketPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "marketValue": {
+          "type": "number",
+          "format": "double"
+        },
+        "matureQuantity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "unrealizedGain": {
+          "type": "number",
+          "format": "double"
+        },
+        "gr": {
+          "type": "string"
+        }
+      }
+    },
+    "portfolioListScheduledOrderResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/portfolioScheduledOrder"
+          }
+        }
+      }
+    },
+    "portfolioModifyOrderRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tickerId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "quantity": {
+          "type": "number",
+          "format": "double"
+        },
+        "marketValue": {
+          "type": "number",
+          "format": "double"
+        },
+        "limitPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "slTriggerPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "tpTriggerPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "slPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "slLimitPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "tpLimitPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "minQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "maxFloor": {
+          "type": "number",
+          "format": "double"
+        },
+        "newGtd": {
+          "type": "string",
+          "format": "int64"
+        },
+        "newExpiry": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "portfolioModifyOrderResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "portfolioOrder": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string"
+        },
+        "customerName": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "orderExtension": {
+          "type": "string"
+        },
+        "isMaker": {
+          "type": "string"
+        },
+        "buySell": {
+          "type": "string"
+        },
+        "tickerId": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "string"
+        },
+        "overallQuantity": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string"
+        },
+        "marketSymbol": {
+          "type": "string"
+        },
+        "brokerUserName": {
+          "type": "string"
+        },
+        "marketOrderId": {
+          "type": "string"
+        },
+        "marketTicketId": {
+          "type": "string"
+        },
+        "completed": {
+          "type": "string"
+        },
+        "expired": {
+          "type": "string"
+        },
+        "rejected": {
+          "type": "string"
+        },
+        "cancelled": {
+          "type": "string"
+        },
+        "editHistory": {
+          "type": "string"
+        },
+        "cancelable": {
+          "type": "string"
+        },
+        "resubmittable": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string",
+          "title": "string auto_manual = 23;"
+        },
+        "suspended": {
+          "type": "string",
+          "title": "string sub_user_id = 25;"
+        },
+        "expiryId": {
+          "type": "string",
+          "title": "string custodian_id = 27;"
+        },
+        "instructionId": {
+          "type": "string"
+        },
+        "expiryDays": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "maxFloor": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "minQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "stopPrice": {
+          "type": "string"
+        },
+        "symbolDesc": {
+          "type": "string",
+          "title": "string idma_session = 34;"
+        },
+        "symbolId": {
+          "type": "string",
+          "title": "string symbol_desc_ar = 36;\nstring idc_symbol = 37;\nstring idc_market_symbol = 38;\nstring feed_source = 39;\nstring isin = 40;\nstring bloomberg_symbol = 41;"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "isClose": {
+          "type": "string",
+          "title": "string contract_size = 44;\nstring custodian_code = 45;"
+        },
+        "isBasketOrder": {
+          "type": "string"
+        },
+        "isModified": {
+          "type": "string"
+        },
+        "basketName": {
+          "type": "string"
+        },
+        "orderDateCreated": {
+          "type": "string"
+        },
+        "initialMargin": {
+          "type": "string"
+        },
+        "settlDate": {
+          "type": "string",
+          "title": "string security_type_id = 52;"
+        },
+        "currencySymbol": {
+          "type": "string"
+        },
+        "priceDecimal": {
+          "type": "string",
+          "title": "string idma_clord_id = 55;\nint32 has_futures = 56;\nstring mkt_trader_num = 57;"
+        },
+        "brokerUserFullName": {
+          "type": "string"
+        },
+        "submitDate": {
+          "type": "string",
+          "title": "int32 related_order_id = 60;\nstring broker_user_id = 61;"
+        },
+        "quantityDecimal": {
+          "type": "string"
+        },
+        "brokerId": {
+          "type": "string"
+        },
+        "clientCode": {
+          "type": "string",
+          "title": "int32 rfq_id = 65;"
+        }
+      }
+    },
+    "portfolioOrderListResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/OrderListResponseOrderDetails"
+        }
+      }
+    },
+    "portfolioOrderStatus": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_ORDER_STATUS",
+        "QUEUED",
+        "PLACED",
+        "PARTIALLY_FILLED",
+        "FILLED",
+        "EXPIRED",
+        "REJECTED",
+        "CANCELLED",
+        "FAILED",
+        "SUSPENDED",
+        "SCHEDULED",
+        "STAGED",
+        "RELEASED",
+        "SCHED_EXPIRED",
+        "SCHED_CANCELLED",
+        "PARTIALLY_CANCELLED",
+        "PARTIALLY_EXPIRED"
+      ],
+      "default": "UNKNOWN_ORDER_STATUS"
+    },
+    "portfolioOrderType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_ORDER_TYPE",
+        "BUY",
+        "SELL"
+      ],
+      "default": "UNKNOWN_ORDER_TYPE"
+    },
+    "portfolioPlaceOrderRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderType": {
+          "$ref": "#/definitions/portfolioOrderType"
+        },
+        "tickerId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tickerSymbol": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "number",
+          "format": "double"
+        },
+        "isMarketOrder": {
+          "type": "boolean"
+        },
+        "limitPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "slTriggerPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "tpTriggerPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "slPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "slLimitPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "tpLimitPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "isBasketOrder": {
+          "type": "boolean"
+        },
+        "basketReleaseTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "expiryType": {
+          "$ref": "#/definitions/portfolioExpiryType"
+        },
+        "expiryDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "expiryDays": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "minQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "maxFloor": {
+          "type": "number",
+          "format": "double"
+        },
+        "instructionType": {
+          "$ref": "#/definitions/portfolioInstructionType"
+        },
+        "isScheduled": {
+          "type": "boolean"
+        },
+        "scheduledOrderId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "portfolioPlaceOrderResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/portfolioPlaceOrderResponseData"
+        }
+      }
+    },
+    "portfolioPlaceOrderResponseData": {
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "portfolioPopulateOrderResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "portfolioPortfolioChartResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/portfolioChartData"
+          }
+        }
+      }
+    },
+    "portfolioPublishTriggerOrderResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "serialIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        }
+      }
+    },
+    "portfolioScheduledOrder": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderType": {
+          "$ref": "#/definitions/portfolioOrderType"
+        },
+        "tickerId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tickerSymbol": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "number",
+          "format": "double"
+        },
+        "isMarketOrder": {
+          "type": "boolean"
+        },
+        "limitPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "slTriggerPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "tpTriggerPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "slPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "slLimitPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "tpLimitPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "isBasketOrder": {
+          "type": "boolean"
+        },
+        "basketReleaseTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "expiryType": {
+          "$ref": "#/definitions/portfolioExpiryType"
+        },
+        "expiryDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "expiryDays": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "minQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "maxFloor": {
+          "type": "number",
+          "format": "double"
+        },
+        "instructionType": {
+          "$ref": "#/definitions/portfolioInstructionType"
+        },
+        "scheduledOrderId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderPlacedAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/portfolioOrderStatus"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "omsOrderId": {
+          "type": "string"
+        }
+      }
+    },
+    "portfolioTradeSummaryChartType": {
+      "type": "string",
+      "enum": [
+        "OSCT_UNKNOWN",
+        "OSCT_HOUR",
+        "OSCT_DAY",
+        "OSCT_MONTH",
+        "OSCT_YEAR"
+      ],
+      "default": "OSCT_UNKNOWN"
+    },
+    "portfolioTradeSummaryResponse": {
+      "type": "object",
+      "properties": {
+        "totalTradeVolume": {
+          "type": "number",
+          "format": "double"
+        },
+        "totalBuy": {
+          "type": "number",
+          "format": "double"
+        },
+        "totalSell": {
+          "type": "number",
+          "format": "double"
+        },
+        "trades": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TradeSummaryResponseTrade"
+          }
+        }
+      }
+    },
+    "portfolioTriggerActionRequest": {
+      "type": "object",
+      "properties": {
+        "clientCode": {
+          "type": "string",
+          "format": "int64"
+        },
+        "triggerAction": {
+          "$ref": "#/definitions/portfolioTriggerActionType"
+        },
+        "triggerType": {
+          "$ref": "#/definitions/portfolioTriggerType"
+        },
+        "tradeMode": {
+          "$ref": "#/definitions/portfolioOrderType"
+        },
+        "tickerSymbol": {
+          "type": "string"
+        },
+        "tickerId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "operator": {
+          "$ref": "#/definitions/portfolioTriggerOperatorType"
+        },
+        "condition": {
+          "$ref": "#/definitions/portfolioTriggerCondition"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "limitAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "expiration": {
+          "$ref": "#/definitions/portfolioTriggerExpiration"
+        },
+        "opamount": {
+          "type": "number",
+          "format": "double"
+        },
+        "custodianId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "serial": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "expire": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "subAccountId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "outputType": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "marketId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "portfolioTriggerActionResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "portfolioTriggerActionType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_TRIGGER_ACTION",
+        "edit",
+        "delete",
+        "add"
+      ],
+      "default": "UNKNOWN_TRIGGER_ACTION"
+    },
+    "portfolioTriggerCondition": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_CONDITION",
+        "BID",
+        "ASK",
+        "VOL",
+        "LAST",
+        "PCLOSE",
+        "NETCHG",
+        "HIGH",
+        "LOW",
+        "CHGPRC"
+      ],
+      "default": "UNKNOWN_CONDITION"
+    },
+    "portfolioTriggerData": {
+      "type": "object",
+      "properties": {
+        "trigSerial": {
+          "type": "string"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "tickerId": {
+          "type": "string"
+        },
+        "condition": {
+          "type": "string"
+        },
+        "operator": {
+          "type": "string"
+        },
+        "limitAmount": {
+          "type": "string"
+        },
+        "triggerType": {
+          "type": "string"
+        },
+        "buySell": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "string"
+        },
+        "expiration": {
+          "type": "string"
+        },
+        "expiryDate": {
+          "type": "string"
+        },
+        "brokerUserId": {
+          "type": "string"
+        },
+        "creationDate": {
+          "type": "string"
+        },
+        "opAmount": {
+          "type": "string"
+        },
+        "done": {
+          "type": "string"
+        },
+        "custodianId": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "isStopInstruction": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "tStamp": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "symbolAlias": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "portfolioTriggerExpiration": {
+      "type": "string",
+      "enum": [
+        "DAY_EXP",
+        "GTC_EXP"
+      ],
+      "default": "DAY_EXP"
+    },
+    "portfolioTriggerListResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/portfolioTriggerData"
+          }
+        }
+      }
+    },
+    "portfolioTriggerOperatorType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_OPERATOR",
+        "GT",
+        "LT",
+        "GTE",
+        "LTE"
+      ],
+      "default": "UNKNOWN_OPERATOR"
+    },
+    "portfolioTriggerOrderState": {
+      "type": "string",
+      "enum": [
+        "TOS_UNKNOWN",
+        "TOS_PENDING",
+        "TOS_COMPLETED",
+        "TOS_PROCESSING"
+      ],
+      "default": "TOS_UNKNOWN"
+    },
+    "portfolioTriggerType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_TRIGGER",
+        "ALRT",
+        "ORDR"
+      ],
+      "default": "UNKNOWN_TRIGGER"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: bank
+  name: bank
+  namespace: bank
+
+spec:
+  ports:
+    - name: web
+      port: 80
+      targetPort: 8080
+    - name: tcp
+      port: 15072
+      targetPort: 15072
+    - name: envoy-metrics  #only in prod
+      port: 9901
+      protocol: TCP
+      targetPort: 9901
+    - name: prom   #only in prod
+      port: 9092
+      protocol: TCP
+      targetPort: 9092
+
+  selector:
+    app: bank
+  type: ClusterIP

@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: storage-scheduler
+  namespace: feed-parser
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: storage-scheduler
+  template:
+    metadata:
+      labels:
+        app: storage-scheduler
+    spec:
+      containers:
+        - name: feed-parser-storage-scheduler
+          image: gcr.io/stock-x-342909/feed-parser:$IMAGE_TAG
+          env:
+            - name: DEV_MODE
+              value: "false"
+            - name: "FEED_PARSER_CONSUL_URL"
+              value: "consul-server.consul:8500"
+            - name: "FEED_PARSER_CONSUL_PATH"
+              value: "feed-parser"
+
+          ports:
+            - containerPort: 15076
+          args: [ "schedule_sequence_data_storage" ]
+

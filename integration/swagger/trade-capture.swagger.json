@@ -1,0 +1,449 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "trade-capture.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/trade-capture/get-execution-report-details": {
+      "get": {
+        "operationId": "TradeCapture_GetExecutionReportDetails",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/trade_captureListExecutionReportsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "orderId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "TradeCapture"
+        ]
+      }
+    },
+    "/api/v1/trade-capture/health-check": {
+      "post": {
+        "summary": "Health check method",
+        "operationId": "TradeCapture_HealthCheck",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/trade_captureHealthCheckResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {}
+            }
+          }
+        ],
+        "tags": [
+          "TradeCapture"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "order_executorExecType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_EXEC_TYPE",
+        "EXEC_TYPE_NEW",
+        "EXEC_TYPE_Done_FOR_DAY",
+        "EXEC_TYPE_CANCELED",
+        "EXEC_TYPE_REPLACED",
+        "EXEC_TYPE_PENDING_CANCEL",
+        "EXEC_TYPE_STOPPED",
+        "EXEC_TYPE_REJECTED",
+        "EXEC_TYPE_EXPIRED",
+        "EXEC_TYPE_TRADE",
+        "EXEC_TYPE_Trade_Cancel",
+        "EXEC_TYPE_ORDER_STATUS"
+      ],
+      "default": "UNKNOWN_EXEC_TYPE"
+    },
+    "order_executorExecutionReportResponse": {
+      "type": "object"
+    },
+    "order_executorOrdStatus": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_ORD_STATUS",
+        "ORD_STATUS_NEW_ORDER",
+        "ORD_STATUS_PARTIALLY_FILLED",
+        "ORD_STATUS_FILLED",
+        "ORD_STATUS_CANCELED",
+        "ORD_STATUS_REPLACED",
+        "ORD_STATUS_REJECTED",
+        "ORD_STATUS_EXPIRED"
+      ],
+      "default": "UNKNOWN_ORD_STATUS"
+    },
+    "order_executorOrdType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_ORD_TYPE",
+        "MARKET",
+        "LIMIT",
+        "MARKET_AT_BEST"
+      ],
+      "default": "UNKNOWN_ORD_TYPE"
+    },
+    "order_executorSide": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_SIDE",
+        "BUY",
+        "SELL",
+        "SHORT_SELL"
+      ],
+      "default": "UNKNOWN_SIDE"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "trade_captureCxlRejReason": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_CXL_REJ_REASON",
+        "UNKNOWN_ORDER",
+        "DUPLICATE_ORDER",
+        "OTHER"
+      ],
+      "default": "UNKNOWN_CXL_REJ_REASON"
+    },
+    "trade_captureCxlRejResponseTo": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_CXL",
+        "ORDER_CANCEL_REQUEST",
+        "ORDER_CANCEL_REPLACE_REQUEST"
+      ],
+      "default": "UNKNOWN_CXL"
+    },
+    "trade_captureExecType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_EXEC_TYPE",
+        "EXEC_TYPE_NEW",
+        "EXEC_TYPE_Done_FOR_DAY",
+        "EXEC_TYPE_CANCELED",
+        "EXEC_TYPE_REPLACED",
+        "EXEC_TYPE_PENDING_CANCEL",
+        "EXEC_TYPE_STOPPED",
+        "EXEC_TYPE_REJECTED",
+        "EXEC_TYPE_EXPIRED",
+        "EXEC_TYPE_TRADE",
+        "EXEC_TYPE_Trade_Cancel",
+        "EXEC_TYPE_ORDER_STATUS"
+      ],
+      "default": "UNKNOWN_EXEC_TYPE"
+    },
+    "trade_captureExecutions": {
+      "type": "object",
+      "properties": {
+        "clOrdId": {
+          "type": "string"
+        },
+        "execId": {
+          "type": "string"
+        },
+        "execInst": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "origClOrdId": {
+          "type": "string"
+        },
+        "execType": {
+          "$ref": "#/definitions/trade_captureExecType"
+        },
+        "ordStatus": {
+          "$ref": "#/definitions/trade_captureOrdStatus"
+        },
+        "orderStatusReqId": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "securitySubType": {
+          "type": "string"
+        },
+        "account": {
+          "type": "string"
+        },
+        "orderRestrictions": {
+          "type": "string"
+        },
+        "avgPx": {
+          "type": "number",
+          "format": "double"
+        },
+        "cumQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "lastPx": {
+          "type": "number",
+          "format": "double"
+        },
+        "lastQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "orderQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "minQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "orderStatus": {
+          "type": "string"
+        },
+        "ordType": {
+          "$ref": "#/definitions/trade_captureOrdType"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "side": {
+          "$ref": "#/definitions/trade_captureSide"
+        },
+        "timeInForce": {
+          "type": "string"
+        },
+        "transactTime": {
+          "type": "string"
+        },
+        "tradeDate": {
+          "type": "string"
+        },
+        "expireDate": {
+          "type": "string"
+        },
+        "expireTime": {
+          "type": "string"
+        },
+        "settleDate": {
+          "type": "string"
+        },
+        "matchType": {
+          "type": "string"
+        },
+        "orderRejectedReason": {
+          "type": "string",
+          "format": "int64"
+        },
+        "leavesQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "yield": {
+          "type": "number",
+          "format": "double"
+        },
+        "grossTradeAmt": {
+          "type": "number",
+          "format": "double"
+        },
+        "tradeMatchId": {
+          "type": "string"
+        },
+        "aggressorIndicator": {
+          "type": "boolean"
+        },
+        "displayQty": {
+          "type": "number",
+          "format": "double"
+        },
+        "text": {
+          "type": "string"
+        },
+        "copyMsgIndicator": {
+          "type": "boolean"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "excOrdId": {
+          "type": "string"
+        },
+        "cxlRejResponseTo": {
+          "$ref": "#/definitions/trade_captureCxlRejResponseTo"
+        },
+        "cxlRejReason": {
+          "$ref": "#/definitions/trade_captureCxlRejReason"
+        }
+      }
+    },
+    "trade_captureHealthCheckResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "Response for health check"
+    },
+    "trade_captureListExecutionReportsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/trade_captureListExecutionReportsResponseData"
+        }
+      }
+    },
+    "trade_captureListExecutionReportsResponseData": {
+      "type": "object",
+      "properties": {
+        "executions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/trade_captureExecutions"
+          }
+        }
+      }
+    },
+    "trade_captureOrdStatus": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_ORD_STATUS",
+        "ORD_STATUS_NEW_ORDER",
+        "ORD_STATUS_PARTIALLY_FILLED",
+        "ORD_STATUS_FILLED",
+        "ORD_STATUS_CANCELED",
+        "ORD_STATUS_REPLACED",
+        "ORD_STATUS_REJECTED",
+        "ORD_STATUS_EXPIRED"
+      ],
+      "default": "UNKNOWN_ORD_STATUS"
+    },
+    "trade_captureOrdType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_ORD_TYPE",
+        "MARKET",
+        "LIMIT",
+        "MARKET_AT_BEST"
+      ],
+      "default": "UNKNOWN_ORD_TYPE"
+    },
+    "trade_capturePaginationInfo": {
+      "type": "object",
+      "properties": {
+        "pageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "trade_captureSide": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_SIDE",
+        "BUY",
+        "SELL",
+        "SHORT_SELL"
+      ],
+      "default": "UNKNOWN_SIDE"
+    }
+  }
+}

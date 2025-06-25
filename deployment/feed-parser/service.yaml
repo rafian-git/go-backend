@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: feed-parser
+  namespace: feed-parser
+
+  labels:
+    name: feed-parser
+spec:
+  type: ClusterIP
+  ports:
+    - name: web
+      port: 80
+      targetPort: 8080
+    - name: tcp
+      port: 15076
+      targetPort: 15076
+
+  selector:
+    app: feed-parser

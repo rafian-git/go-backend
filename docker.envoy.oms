@@ -1,0 +1,5 @@
+FROM envoyproxy/envoy-dev:3b45d6cf465b8ce3c268edaa5c70722811dbb39f
+COPY integration/etc/envoy/descriptors /etc/envoy/descriptors
+COPY integration/etc/envoy/envoy-oms.yaml /etc/envoy/envoy.yaml
+
+RUN chmod go+r /etc/envoy/envoy.yaml

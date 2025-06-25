@@ -1,0 +1,5248 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "me.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/me/approve-multiple-existing-nbl-sl-acc": {
+      "get": {
+        "operationId": "Me_ApproveMultipleExistingNBLSLAcc",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meApproveMultipleExistingNBLSLAccResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "metaIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/approve-multiple-link-bo": {
+      "get": {
+        "operationId": "Me_ApproveMultipleLinkBo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meApproveMultipleLinkBoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "metaIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/backoffice-details": {
+      "post": {
+        "operationId": "Me_GetBackOfficeAccDetails",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meGetBackOfficeAccDetailsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meGetBackOfficeAccDetailsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/bank-tax-info": {
+      "get": {
+        "operationId": "Me_GetBankAndTaxInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meGetBankAndTaxInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "metaId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "post": {
+        "operationId": "Me_SubmitBankAndTaxInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meSubmitBankAndTaxInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meSubmitBankAndTaxInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "put": {
+        "operationId": "Me_UpdateBankAndTaxInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meUpdateBankAndTaxInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meUpdateBankAndTaxInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/bo-account": {
+      "post": {
+        "operationId": "Me_CreateBoAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/backofficeCreateBoAccountResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/backofficeCreateBoAccountRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/bo-change": {
+      "get": {
+        "operationId": "Me_GetBoChange",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meGetBoChangeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "metaId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "clientCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "post": {
+        "summary": "Bo Info Update",
+        "operationId": "Me_CreateBoChange",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meChangeBoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meChangeBoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "put": {
+        "operationId": "Me_UpdateBoChange",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meChangeBoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meChangeBoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/bo-info": {
+      "post": {
+        "operationId": "Me_SubmitBOInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meSubmitBOInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meSubmitBOInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/company-info": {
+      "get": {
+        "operationId": "Me_GetCompanyInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meGetCompanyInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "metaId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "post": {
+        "summary": "Company BO",
+        "operationId": "Me_SubmitCompanyInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meSubmitCompanyInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meSubmitCompanyInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "put": {
+        "operationId": "Me_UpdateCompanyInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meUpdateCompanyInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meUpdateCompanyInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/existing-nbl-sl-bo-info": {
+      "post": {
+        "operationId": "Me_SubmitExistingNBLSLBOInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meSubmitExistingNBLSLBOInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meSubmitExistingNBLSLBOInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/file": {
+      "post": {
+        "operationId": "Me_SubmitFileInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meSubmitFileInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meSubmitFileInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/fill-existing-nbl-sl": {
+      "get": {
+        "operationId": "Me_FillExistingNblSlAccWithDummyData",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meFillExistingNblSlAccWithDummyDataRes"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "metaId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/health": {
+      "post": {
+        "summary": "health check endpoint",
+        "operationId": "Me_Health",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {}
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/link-bo-info": {
+      "get": {
+        "operationId": "Me_GetLinkBoInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meGetLinkBoInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "metaId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "post": {
+        "summary": "Link BO",
+        "operationId": "Me_SubmitLinkBoInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meSubmitLinkBoInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meSubmitLinkBoInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "put": {
+        "operationId": "Me_UpdateLinkBoInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meUpdateLinkBoInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meUpdateLinkBoInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/link-bo-list": {
+      "get": {
+        "operationId": "Me_LinkBoList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meLinkBoListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "metaId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "boAccNo",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/meta-info": {
+      "get": {
+        "operationId": "Me_GetMetaInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meGetMetaInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "boStatus",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN_BO_StatusType",
+              "Draft",
+              "Submitted",
+              "Approved",
+              "Rejected",
+              "Processing",
+              "Registered"
+            ],
+            "default": "UNKNOWN_BO_StatusType"
+          },
+          {
+            "name": "includePortfolioMeta",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "delete": {
+        "operationId": "Me_DeleteMetaInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meDeleteMetaInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "metaId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "post": {
+        "summary": "Meta",
+        "operationId": "Me_SubmitMetaInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meSubmitMetaInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meSubmitMetaInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "put": {
+        "operationId": "Me_UpdateMetaInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meUpdateMetaInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meUpdateMetaInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/nid-info": {
+      "get": {
+        "operationId": "Me_GetNidInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meGetNidInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "metaId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "holderType",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN_HOLDER",
+              "First",
+              "Second"
+            ],
+            "default": "UNKNOWN_HOLDER"
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "post": {
+        "operationId": "Me_SubmitNidInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meSubmitNidInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meSubmitNidInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "put": {
+        "operationId": "Me_UpdateNidInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meUpdateNidInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meUpdateNidInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/nominee-add-later": {
+      "post": {
+        "operationId": "Me_SubmitNomineeAddLater",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meSubmitNomineeAddLaterResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meSubmitNomineeAddLaterRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/nominee-info": {
+      "get": {
+        "operationId": "Me_GetNomineeInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meGetNomineeInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "metaId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "holderType",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN_HOLDER",
+              "First",
+              "Second"
+            ],
+            "default": "UNKNOWN_HOLDER"
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "post": {
+        "operationId": "Me_SubmitNomineeInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meSubmitNomineeInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meSubmitNomineeInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "put": {
+        "operationId": "Me_UpdateNomineeInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meUpdateNomineeInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meUpdateNomineeInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/non-trek-account": {
+      "get": {
+        "operationId": "Me_GetExistingNBLSLAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meGetExistingNBLSLAccountResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "phoneNumber",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "metaId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "clientCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "boAccNo",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "post": {
+        "operationId": "Me_OnboardExistingNBLSLAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meOnboardExistingNBLSLAccountResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meOnboardExistingNBLSLAccountRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "put": {
+        "operationId": "Me_UpdateExistingNBLSLAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meUpdateExistingNBLSLAccountResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meUpdateExistingNBLSLAccountRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/non-trek-account-meta-info": {
+      "put": {
+        "operationId": "Me_UpdateExistingNBLSLAccMetaInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meUpdateExistingNBLSLAccMetaInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meUpdateExistingNBLSLAccMetaInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/non-trek-bo-account": {
+      "post": {
+        "operationId": "Me_CreateExistingNBLSLBoAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/backofficeCreateExistingNBLSLBoAccountResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/backofficeCreateExistingNBLSLBoAccountRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/ocr-pdf-list": {
+      "get": {
+        "operationId": "Me_PdfInfoList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/mePdfInfoListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fileId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "paginationInfo.pageToken",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paginationInfo.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/others-info": {
+      "get": {
+        "operationId": "Me_GetOthersInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meGetOthersInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "metaId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "post": {
+        "operationId": "Me_SubmitOthersInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meSubmitOthersInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meSubmitOthersInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "put": {
+        "operationId": "Me_UpdateOthersInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meUpdateOthersInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meUpdateOthersInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/passport-info": {
+      "get": {
+        "operationId": "Me_GetPassportInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meGetPassportInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "metaId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "holderType",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN_HOLDER",
+              "First",
+              "Second"
+            ],
+            "default": "UNKNOWN_HOLDER"
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "post": {
+        "operationId": "Me_SubmitPassportInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meSubmitPassportInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meSubmitPassportInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "put": {
+        "operationId": "Me_UpdatePassportInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meUpdatePassportInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meUpdatePassportInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/personal-info": {
+      "get": {
+        "operationId": "Me_GetPersonalInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meGetPersonalInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "metaId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "holderType",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN_HOLDER",
+              "First",
+              "Second"
+            ],
+            "default": "UNKNOWN_HOLDER"
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "post": {
+        "operationId": "Me_SubmitPersonalInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meSubmitPersonalInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meSubmitPersonalInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      },
+      "put": {
+        "operationId": "Me_UpdatePersonalInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meUpdatePersonalInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meUpdatePersonalInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/send-otp": {
+      "post": {
+        "operationId": "Me_SendOtp",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meSendOtpResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meSendOtpRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/submit-pdf": {
+      "post": {
+        "operationId": "Me_SubmitPdf",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meSubmitPdfResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/meSubmitPdfRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/api/v1/me/user-previous-info": {
+      "get": {
+        "operationId": "Me_GetUserPreviousInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/meGetUserPreviousInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "metaId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Me"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "BOSummaryResponseBOAccount": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/meBO_StatusType"
+        },
+        "count": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "GetOnboardingInfoResponseOnboardingInfo": {
+      "type": "object",
+      "properties": {
+        "nidInfo": {
+          "$ref": "#/definitions/meGetNidInfoResponseNidInfo"
+        },
+        "passportInfo": {
+          "$ref": "#/definitions/meGetPassportInfoResponsePassportInfo"
+        },
+        "nomineeInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meGetNomineeInfoResponseNomineeInfo"
+          }
+        },
+        "bankTaxInfo": {
+          "$ref": "#/definitions/meGetBankAndTaxInfoResponseBankTaxInfo"
+        },
+        "personalInfo": {
+          "$ref": "#/definitions/meGetPersonalInfoResponsePersonalInfo"
+        },
+        "othersInfo": {
+          "$ref": "#/definitions/meOthersInfo"
+        },
+        "previousBoAcc": {
+          "type": "string"
+        }
+      }
+    },
+    "NomineeBaseInfoGuardiansInfo": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "relationWithNominee": {
+          "type": "string"
+        },
+        "hasNid": {
+          "type": "boolean"
+        },
+        "nid": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "address": {
+          "$ref": "#/definitions/meAddress"
+        }
+      }
+    },
+    "OthersInfoPhone": {
+      "type": "object",
+      "properties": {
+        "countryCode": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string"
+        }
+      }
+    },
+    "SendOtpRequestRequestType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "NonUserRequest"
+      ],
+      "default": "UNKNOWN"
+    },
+    "SubmitFileInfoResponseCheckOcrInfo": {
+      "type": "object",
+      "properties": {
+        "accName": {
+          "type": "string"
+        },
+        "accNo": {
+          "type": "string"
+        }
+      }
+    },
+    "SubmitFileInfoResponseNidFrontOcrInfo": {
+      "type": "object",
+      "properties": {
+        "nidNo": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "DOB": {
+          "type": "string",
+          "format": "int64"
+        },
+        "mothersName": {
+          "type": "string"
+        },
+        "fathersName": {
+          "type": "string"
+        },
+        "presentAddress": {
+          "type": "string"
+        },
+        "permanentAddress": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "photoUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "SubmitFileInfoResponseOcrInfo": {
+      "type": "object",
+      "properties": {
+        "nidFrontOcrInfo": {
+          "$ref": "#/definitions/SubmitFileInfoResponseNidFrontOcrInfo"
+        },
+        "passportOcrInfo": {
+          "$ref": "#/definitions/SubmitFileInfoResponsePassportOcrInfo"
+        },
+        "checkOcrInfo": {
+          "$ref": "#/definitions/SubmitFileInfoResponseCheckOcrInfo"
+        }
+      }
+    },
+    "SubmitFileInfoResponsePassportOcrInfo": {
+      "type": "object",
+      "properties": {
+        "passportNo": {
+          "type": "string"
+        },
+        "issueDate": {
+          "type": "string"
+        },
+        "expiryDate": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "DOB": {
+          "type": "string"
+        }
+      }
+    },
+    "backofficeCreateBoAccountRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "boAccNo": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "backofficeCreateBoAccountResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/backofficeCreateBoAccountResponseData"
+        }
+      }
+    },
+    "backofficeCreateBoAccountResponseData": {
+      "type": "object",
+      "properties": {
+        "clientCode": {
+          "type": "string"
+        }
+      }
+    },
+    "backofficeCreateExistingNBLSLBoAccountRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "boAccNo": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "backofficeCreateExistingNBLSLBoAccountResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/backofficeCreateExistingNBLSLBoAccountResponseData"
+        }
+      }
+    },
+    "backofficeCreateExistingNBLSLBoAccountResponseData": {
+      "type": "object",
+      "properties": {
+        "clientCode": {
+          "type": "string"
+        }
+      }
+    },
+    "meAddress": {
+      "type": "object",
+      "properties": {
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "stateOrDivision": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "post": {
+          "type": "string"
+        }
+      }
+    },
+    "meApproveMultipleBoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meApproveMultipleExistingNBLSLAccResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meApproveMultipleLinkBoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meAssignBoAccResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meAssignBoToOmsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meBOOption": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_BO_OPTION",
+        "LINK",
+        "NEW",
+        "BO_EXISTING_NBLSL"
+      ],
+      "default": "UNKNOWN_BO_OPTION"
+    },
+    "meBOSummaryResponse": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "string",
+          "format": "int64"
+        },
+        "boList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BOSummaryResponseBOAccount"
+          }
+        }
+      }
+    },
+    "meBOType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_BO",
+        "Individual",
+        "Company",
+        "Joint"
+      ],
+      "default": "UNKNOWN_BO",
+      "description": "- Company: TODO: change on FE",
+      "title": "Meta Info"
+    },
+    "meBO_StatusType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_BO_StatusType",
+        "Draft",
+        "Submitted",
+        "Approved",
+        "Rejected",
+        "Processing",
+        "Registered"
+      ],
+      "default": "UNKNOWN_BO_StatusType"
+    },
+    "meBankInfo": {
+      "type": "object",
+      "properties": {
+        "bankName": {
+          "type": "string"
+        },
+        "districtName": {
+          "type": "string"
+        },
+        "branchName": {
+          "type": "string"
+        },
+        "routingNo": {
+          "type": "string"
+        },
+        "accNo": {
+          "type": "string"
+        },
+        "chequeImageUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "meBankTaxBaseInfo": {
+      "type": "object",
+      "properties": {
+        "routingNo": {
+          "type": "string"
+        },
+        "bankName": {
+          "type": "string"
+        },
+        "bankCode": {
+          "type": "string"
+        },
+        "branchName": {
+          "type": "string"
+        },
+        "branchCode": {
+          "type": "string"
+        },
+        "districtName": {
+          "type": "string"
+        },
+        "districtCode": {
+          "type": "string"
+        },
+        "accNo": {
+          "type": "string"
+        },
+        "fcAccNo": {
+          "type": "string"
+        },
+        "intAccNo": {
+          "type": "string"
+        },
+        "bankIdentifierCode": {
+          "type": "string"
+        },
+        "swiftCode": {
+          "type": "string"
+        },
+        "tinHolder1": {
+          "type": "string"
+        },
+        "tinHolder2": {
+          "type": "string"
+        }
+      }
+    },
+    "meBoPdfOcrInfo": {
+      "type": "object",
+      "properties": {
+        "clientCode": {
+          "type": "string"
+        },
+        "boAccNo": {
+          "type": "string"
+        },
+        "metaId": {
+          "type": "string"
+        },
+        "nidInfo": {
+          "$ref": "#/definitions/meBoPdfOcrInfoNidInfo"
+        },
+        "passportInfo": {
+          "$ref": "#/definitions/meBoPdfOcrInfoPassportInfo"
+        }
+      }
+    },
+    "meBoPdfOcrInfoNidInfo": {
+      "type": "object",
+      "properties": {
+        "fullName": {
+          "type": "string"
+        },
+        "dob": {
+          "type": "string"
+        },
+        "nidNo": {
+          "type": "string"
+        }
+      }
+    },
+    "meBoPdfOcrInfoPassportInfo": {
+      "type": "object",
+      "properties": {
+        "passportNo": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "dob": {
+          "type": "string"
+        },
+        "issueDate": {
+          "type": "string"
+        },
+        "expiryDate": {
+          "type": "string"
+        },
+        "nidNo": {
+          "type": "string"
+        }
+      }
+    },
+    "meChangeBoAddress": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "$ref": "#/definitions/meAddress"
+        }
+      }
+    },
+    "meChangeBoBankInfo": {
+      "type": "object",
+      "properties": {
+        "bankInfo": {
+          "$ref": "#/definitions/meBankInfo"
+        },
+        "chequeImageId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meChangeBoEmail": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "meChangeBoNominee": {
+      "type": "object",
+      "properties": {
+        "holderType": {
+          "$ref": "#/definitions/meHolderType"
+        },
+        "nomineeInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meChangeBoNomineeNomineeInfo"
+          }
+        }
+      }
+    },
+    "meChangeBoNomineeNomineeImageInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeImageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nomineeGuardianImageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nomineeImageUrl": {
+          "type": "string"
+        },
+        "nomineeGuardianImageUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "meChangeBoNomineeNomineeInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeBaseInfo": {
+          "$ref": "#/definitions/meNomineeBaseInfo"
+        },
+        "nomineeImageInfo": {
+          "$ref": "#/definitions/meChangeBoNomineeNomineeImageInfo"
+        }
+      }
+    },
+    "meChangeBoPhone": {
+      "type": "object",
+      "properties": {
+        "phoneNo": {
+          "type": "string"
+        }
+      }
+    },
+    "meChangeBoRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "changeBoPhone": {
+          "$ref": "#/definitions/meChangeBoPhone"
+        },
+        "changeBoEmail": {
+          "$ref": "#/definitions/meChangeBoEmail"
+        },
+        "changeBoAddress": {
+          "$ref": "#/definitions/meChangeBoAddress"
+        },
+        "changeBoBankInfo": {
+          "$ref": "#/definitions/meChangeBoBankInfo"
+        },
+        "changeBoNominee": {
+          "$ref": "#/definitions/meChangeBoNominee"
+        },
+        "changeBoTin": {
+          "$ref": "#/definitions/meChangeBoTin"
+        }
+      }
+    },
+    "meChangeBoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meChangeBoTin": {
+      "type": "object",
+      "properties": {
+        "tinNo": {
+          "type": "string"
+        },
+        "tinImageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tinImageUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "meClientData": {
+      "type": "object",
+      "properties": {
+        "clientCode": {
+          "type": "string"
+        },
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "boAccNo": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meCompanyInfo": {
+      "type": "object",
+      "properties": {
+        "companyName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "personName": {
+          "type": "string"
+        },
+        "phoneNo": {
+          "type": "string"
+        }
+      }
+    },
+    "meCountMetaInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/meCountMetaInfoResponseData"
+        }
+      }
+    },
+    "meCountMetaInfoResponseData": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meCreateBoUpdateNomineeInfoRequestNomineeImageInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeImageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nomineeGuardianImageId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meCreateBoUpdateNomineeInfoRequestNomineeInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeBaseInfo": {
+          "$ref": "#/definitions/meNomineeBaseInfo"
+        },
+        "nomineeImageInfo": {
+          "$ref": "#/definitions/meCreateBoUpdateNomineeInfoRequestNomineeImageInfo"
+        }
+      }
+    },
+    "meCreateBoUpdateNomineeInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meCreateBoUpdateNomineeInfoResponseNomineeInfo"
+          }
+        }
+      }
+    },
+    "meCreateBoUpdateNomineeInfoResponseNomineeImageInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeImageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nomineeGuardianImageId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meCreateBoUpdateNomineeInfoResponseNomineeInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nomineeBaseInfo": {
+          "$ref": "#/definitions/meNomineeBaseInfo"
+        },
+        "nomineeImageInfo": {
+          "$ref": "#/definitions/meCreateBoUpdateNomineeInfoResponseNomineeImageInfo"
+        }
+      }
+    },
+    "meDeleteMetaInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meDocumentType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_DOCUMENT_TYPE",
+        "NID",
+        "BIRTH_CERTIFICATE",
+        "PASSPORT"
+      ],
+      "default": "UNKNOWN_DOCUMENT_TYPE"
+    },
+    "meDownloadCdblSchemaResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/meDownloadCdblSchemaResponseData"
+        }
+      }
+    },
+    "meDownloadCdblSchemaResponseData": {
+      "type": "object",
+      "properties": {
+        "signedUrls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "meExistingNBLSLAccount": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "boAccNo": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "boWithoutDp": {
+          "type": "string"
+        },
+        "futureBoAccNo": {
+          "type": "string"
+        },
+        "isVerified": {
+          "type": "boolean"
+        }
+      }
+    },
+    "meFileFormat": {
+      "type": "string",
+      "enum": [
+        "IMAGE",
+        "PDF"
+      ],
+      "default": "IMAGE"
+    },
+    "meFileInfo": {
+      "type": "object",
+      "properties": {
+        "fileId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ocrInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meBoPdfOcrInfo"
+          }
+        },
+        "isOcrRequired": {
+          "type": "boolean"
+        },
+        "filePath": {
+          "type": "string"
+        },
+        "fileType": {
+          "$ref": "#/definitions/meFileType"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "fileFormat": {
+          "type": "string"
+        },
+        "ocrPath": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      }
+    },
+    "meFileType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_FileType",
+        "BoPDF"
+      ],
+      "default": "UNKNOWN_FileType"
+    },
+    "meFillExistingNblSlAccWithDummyDataRes": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meGender": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_GENDER",
+        "MALE",
+        "FEMALE",
+        "OTHERS"
+      ],
+      "default": "UNKNOWN_GENDER",
+      "title": "Personal Info"
+    },
+    "meGenerateBoSetupFileSchemaResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/meGenerateBoSetupFileSchemaResponseFileInfo"
+        }
+      }
+    },
+    "meGenerateBoSetupFileSchemaResponseFileInfo": {
+      "type": "object",
+      "properties": {
+        "fileId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meGenerateNomineeSetupFileSchemaResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/meGenerateNomineeSetupFileSchemaResponseFileInfo"
+        }
+      }
+    },
+    "meGenerateNomineeSetupFileSchemaResponseFileInfo": {
+      "type": "object",
+      "properties": {
+        "fileId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meGetAllMetaInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meGetAllMetaInfoResponseMetaInfo"
+          }
+        },
+        "paginationInfo": {
+          "$ref": "#/definitions/mePaginationInfoResponse"
+        }
+      }
+    },
+    "meGetAllMetaInfoResponseMetaInfo": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "boOption": {
+          "$ref": "#/definitions/meBOOption"
+        },
+        "boType": {
+          "$ref": "#/definitions/meBOType"
+        },
+        "userIdHolder1": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userIdHolder2": {
+          "type": "string",
+          "format": "int64"
+        },
+        "boAccNo": {
+          "type": "string",
+          "format": "int64"
+        },
+        "broker": {
+          "type": "string"
+        },
+        "residencyType": {
+          "$ref": "#/definitions/meResidencyType"
+        },
+        "boStatus": {
+          "$ref": "#/definitions/meBO_StatusType"
+        },
+        "depositStatus": {
+          "type": "boolean"
+        },
+        "transactionStatus": {
+          "type": "boolean"
+        },
+        "fullNameHolder1": {
+          "type": "string"
+        },
+        "fullNameHolder2": {
+          "type": "string"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "isFlagged": {
+          "type": "boolean"
+        },
+        "boCreatedAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "boSubmittedAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isAccSyncedBoff": {
+          "type": "boolean"
+        },
+        "isAccSyncedOms": {
+          "type": "boolean"
+        },
+        "isBoAssigned": {
+          "type": "boolean"
+        },
+        "previousBoAccNo": {
+          "type": "string"
+        }
+      }
+    },
+    "meGetBackOfficeAccDetailsRequest": {
+      "type": "object",
+      "properties": {
+        "clientCode": {
+          "type": "string"
+        },
+        "boAccNo": {
+          "type": "string"
+        }
+      }
+    },
+    "meGetBackOfficeAccDetailsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "data": {
+          "$ref": "#/definitions/meGetBackOfficeAccDetailsResponseExistingNBLSLAcc"
+        }
+      }
+    },
+    "meGetBackOfficeAccDetailsResponseExistingNBLSLAcc": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "meGetBankAndTaxInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/meGetBankAndTaxInfoResponseBankTaxInfo"
+        }
+      }
+    },
+    "meGetBankAndTaxInfoResponseBankTaxImageInfo": {
+      "type": "object",
+      "properties": {
+        "chequeImageUrl": {
+          "type": "string"
+        },
+        "chequeImageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tinImageUrlHolder1": {
+          "type": "string"
+        },
+        "tinImageIdHolder1": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tinImageUrlHolder2": {
+          "type": "string"
+        },
+        "tinImageIdHolder2": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meGetBankAndTaxInfoResponseBankTaxInfo": {
+      "type": "object",
+      "properties": {
+        "bankTaxBaseInfo": {
+          "$ref": "#/definitions/meBankTaxBaseInfo"
+        },
+        "bankTaxImageInfo": {
+          "$ref": "#/definitions/meGetBankAndTaxInfoResponseBankTaxImageInfo"
+        }
+      }
+    },
+    "meGetBoChangeResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "data": {
+          "$ref": "#/definitions/meGetBoChangeResponseChangeBoResponse"
+        }
+      }
+    },
+    "meGetBoChangeResponseChangeBoResponse": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "changeBoPhone": {
+          "$ref": "#/definitions/meChangeBoPhone"
+        },
+        "changeBoEmail": {
+          "$ref": "#/definitions/meChangeBoEmail"
+        },
+        "changeBoAddress": {
+          "$ref": "#/definitions/meChangeBoAddress"
+        },
+        "changeBoBankInfo": {
+          "$ref": "#/definitions/meChangeBoBankInfo"
+        },
+        "changeBoNominee": {
+          "$ref": "#/definitions/meChangeBoNominee"
+        },
+        "changeBoTin": {
+          "$ref": "#/definitions/meChangeBoTin"
+        }
+      }
+    },
+    "meGetBoUpdateNomineeInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meGetBoUpdateNomineeInfoResponseNomineeInfo"
+          }
+        }
+      }
+    },
+    "meGetBoUpdateNomineeInfoResponseNomineeImageInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeImageUrl": {
+          "type": "string"
+        },
+        "nomineeGuardianImageUrl": {
+          "type": "string"
+        },
+        "nomineeImageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nomineeGuardianImageId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meGetBoUpdateNomineeInfoResponseNomineeInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nomineeBaseInfo": {
+          "$ref": "#/definitions/meNomineeBaseInfo"
+        },
+        "nomineeImageInfo": {
+          "$ref": "#/definitions/meGetBoUpdateNomineeInfoResponseNomineeImageInfo"
+        }
+      }
+    },
+    "meGetByNidNumbersResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meGetByNidNumbersResponseNidBaseInfo"
+          }
+        }
+      }
+    },
+    "meGetByNidNumbersResponseNidBaseInfo": {
+      "type": "object",
+      "properties": {
+        "nidNo": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "fatherOrHusbandName": {
+          "type": "string"
+        },
+        "motherName": {
+          "type": "string"
+        },
+        "DOB": {
+          "type": "string",
+          "format": "int64"
+        },
+        "boType": {
+          "$ref": "#/definitions/meBOType"
+        },
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meGetByPassportNumbersResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meGetByPassportNumbersResponsePassportBaseInfo"
+          }
+        }
+      }
+    },
+    "meGetByPassportNumbersResponsePassportBaseInfo": {
+      "type": "object",
+      "properties": {
+        "passportNo": {
+          "type": "string"
+        },
+        "issuePlace": {
+          "type": "string"
+        },
+        "issueDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "expiryDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "fatherOrHusbandName": {
+          "type": "string"
+        },
+        "motherName": {
+          "type": "string"
+        },
+        "DOB": {
+          "type": "string",
+          "format": "int64"
+        },
+        "visaWorkForeignId": {
+          "type": "string"
+        },
+        "visaWorkForeignExpiryDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "boType": {
+          "$ref": "#/definitions/meBOType"
+        },
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meGetClientsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meGetClientsResponseData"
+          }
+        }
+      }
+    },
+    "meGetClientsResponseData": {
+      "type": "object",
+      "properties": {
+        "clientCode": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meGetCompanyInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/meCompanyInfo"
+        }
+      }
+    },
+    "meGetExistingNBLSLAccountResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/meExistingNBLSLAccount"
+        },
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meGetLinkBoInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/meLinkBoInfo"
+        }
+      }
+    },
+    "meGetMetaInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meGetMetaInfoResponseMetaInfo"
+          }
+        }
+      },
+      "title": "TODO: Omuk change"
+    },
+    "meGetMetaInfoResponseMetaInfo": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "boOption": {
+          "$ref": "#/definitions/meBOOption"
+        },
+        "boType": {
+          "$ref": "#/definitions/meBOType"
+        },
+        "userIdHolder1": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userIdHolder2": {
+          "type": "string",
+          "format": "int64"
+        },
+        "boAccNo": {
+          "type": "string",
+          "format": "int64"
+        },
+        "broker": {
+          "type": "string"
+        },
+        "residencyType": {
+          "$ref": "#/definitions/meResidencyType"
+        },
+        "boStatus": {
+          "$ref": "#/definitions/meBO_StatusType"
+        },
+        "fullNameHolder1": {
+          "type": "string"
+        },
+        "fullNameHolder2": {
+          "type": "string"
+        },
+        "didTrade": {
+          "type": "boolean"
+        },
+        "didDeposit": {
+          "type": "boolean"
+        },
+        "addLaterNominee1": {
+          "type": "boolean"
+        },
+        "addLaterNominee2": {
+          "type": "boolean"
+        },
+        "rejectionDetails": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meRejectionDetails"
+          }
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "isFlagged": {
+          "type": "boolean"
+        },
+        "boCreatedAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "boSubmittedAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "isAccSyncedBoff": {
+          "type": "boolean"
+        },
+        "isAccSyncedOms": {
+          "type": "boolean"
+        },
+        "isBoAssigned": {
+          "type": "boolean"
+        },
+        "previousBoAccNo": {
+          "type": "string"
+        }
+      }
+    },
+    "meGetNidInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/meGetNidInfoResponseNidInfo"
+        }
+      }
+    },
+    "meGetNidInfoResponseNidImageInfo": {
+      "type": "object",
+      "properties": {
+        "frontImageUrl": {
+          "type": "string"
+        },
+        "backImageUrl": {
+          "type": "string"
+        },
+        "frontImageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "backImageId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meGetNidInfoResponseNidInfo": {
+      "type": "object",
+      "properties": {
+        "nidBaseInfo": {
+          "$ref": "#/definitions/meNidBaseInfo"
+        },
+        "nidImageInfo": {
+          "$ref": "#/definitions/meGetNidInfoResponseNidImageInfo"
+        }
+      }
+    },
+    "meGetNomineeInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meGetNomineeInfoResponseNomineeInfo"
+          }
+        }
+      }
+    },
+    "meGetNomineeInfoResponseNomineeImageInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeImageUrl": {
+          "type": "string"
+        },
+        "nomineeGuardianImageUrl": {
+          "type": "string"
+        },
+        "nomineeImageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nomineeGuardianImageId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meGetNomineeInfoResponseNomineeInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nomineeBaseInfo": {
+          "$ref": "#/definitions/meNomineeBaseInfo"
+        },
+        "nomineeImageInfo": {
+          "$ref": "#/definitions/meGetNomineeInfoResponseNomineeImageInfo"
+        }
+      }
+    },
+    "meGetOnboardingInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/GetOnboardingInfoResponseOnboardingInfo"
+        }
+      }
+    },
+    "meGetOthersInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/meOthersInfo"
+        }
+      }
+    },
+    "meGetPassportInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/meGetPassportInfoResponsePassportInfo"
+        }
+      }
+    },
+    "meGetPassportInfoResponsePassportImageInfo": {
+      "type": "object",
+      "properties": {
+        "imageUrl": {
+          "type": "string"
+        },
+        "imageId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meGetPassportInfoResponsePassportInfo": {
+      "type": "object",
+      "properties": {
+        "passportBaseInfo": {
+          "$ref": "#/definitions/mePassportBaseInfo"
+        },
+        "passportImageInfo": {
+          "$ref": "#/definitions/meGetPassportInfoResponsePassportImageInfo"
+        }
+      }
+    },
+    "meGetPersonalInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/meGetPersonalInfoResponsePersonalInfo"
+        }
+      }
+    },
+    "meGetPersonalInfoResponsePersonalImageInfo": {
+      "type": "object",
+      "properties": {
+        "imageUrl": {
+          "type": "string"
+        },
+        "signatureImageUrl": {
+          "type": "string"
+        },
+        "imageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "signatureImageId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meGetPersonalInfoResponsePersonalInfo": {
+      "type": "object",
+      "properties": {
+        "personalBaseInfo": {
+          "$ref": "#/definitions/mePersonalBaseInfo"
+        },
+        "personalImageInfo": {
+          "$ref": "#/definitions/meGetPersonalInfoResponsePersonalImageInfo"
+        }
+      }
+    },
+    "meGetUserPreviousInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "data": {
+          "$ref": "#/definitions/meUserInfo"
+        }
+      }
+    },
+    "meHackBoStatusResponse": {
+      "type": "object",
+      "properties": {
+        "clientFetched": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "clientHacked": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meHolderType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_HOLDER",
+        "First",
+        "Second"
+      ],
+      "default": "UNKNOWN_HOLDER"
+    },
+    "meIdentifierType": {
+      "type": "string",
+      "enum": [
+        "IT_UNKNOWN",
+        "IT_phone",
+        "IT_email"
+      ],
+      "default": "IT_UNKNOWN"
+    },
+    "meLinkBoInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "boAccNo": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meLinkBoListResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meLinkBoInfo"
+          }
+        },
+        "paginationInfo": {
+          "$ref": "#/definitions/mePaginationInfoResponse"
+        }
+      }
+    },
+    "meNidBaseInfo": {
+      "type": "object",
+      "properties": {
+        "nidNo": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "fatherOrHusbandName": {
+          "type": "string"
+        },
+        "motherName": {
+          "type": "string"
+        },
+        "DOB": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meNomineeBaseInfo": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "relationWithNominee": {
+          "type": "string"
+        },
+        "percentage": {
+          "type": "number",
+          "format": "float"
+        },
+        "documentType": {
+          "$ref": "#/definitions/meDocumentType"
+        },
+        "documentId": {
+          "type": "string"
+        },
+        "fatherName": {
+          "type": "string"
+        },
+        "motherName": {
+          "type": "string"
+        },
+        "DOB": {
+          "type": "string",
+          "format": "int64"
+        },
+        "address": {
+          "$ref": "#/definitions/meAddress"
+        },
+        "isMinor": {
+          "type": "boolean"
+        },
+        "residencyFlag": {
+          "$ref": "#/definitions/meResidencyType"
+        },
+        "guardiansInfo": {
+          "$ref": "#/definitions/NomineeBaseInfoGuardiansInfo"
+        }
+      }
+    },
+    "meOnboardExistingNBLSLAccountRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "boAccNo": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meOnboardExistingNBLSLAccountResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "data": {
+          "$ref": "#/definitions/meOnboardExistingNBLSLAccountResponseExistingNBLSLAcc"
+        }
+      }
+    },
+    "meOnboardExistingNBLSLAccountResponseExistingNBLSLAcc": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meOthersInfo": {
+      "type": "object",
+      "properties": {
+        "statementCycle": {
+          "$ref": "#/definitions/meStatementCycle"
+        },
+        "hasNblAcc": {
+          "type": "boolean"
+        },
+        "nblAccNo": {
+          "type": "string"
+        },
+        "nblPhone": {
+          "$ref": "#/definitions/OthersInfoPhone"
+        }
+      }
+    },
+    "mePaginationInfoRequest": {
+      "type": "object",
+      "properties": {
+        "pageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "Meta Infos"
+    },
+    "mePaginationInfoResponse": {
+      "type": "object",
+      "properties": {
+        "selfPageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "firstPageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nextPageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "previousPageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalPageCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalRecordCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meParamType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_Param",
+        "PhoneNumber",
+        "CreatedAt",
+        "UpdatedAt",
+        "RejectedAt",
+        "RejectReason",
+        "Email",
+        "BoID",
+        "ClientCode",
+        "Name",
+        "ApproveBy",
+        "RejectedBy",
+        "BoStatus",
+        "IsLinkBo"
+      ],
+      "default": "UNKNOWN_Param"
+    },
+    "mePassportBaseInfo": {
+      "type": "object",
+      "properties": {
+        "passportNo": {
+          "type": "string"
+        },
+        "issuePlace": {
+          "type": "string"
+        },
+        "issueDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "expiryDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "fatherOrHusbandName": {
+          "type": "string"
+        },
+        "motherName": {
+          "type": "string"
+        },
+        "DOB": {
+          "type": "string",
+          "format": "int64"
+        },
+        "visaWorkForeignId": {
+          "type": "string"
+        },
+        "visaWorkForeignExpiryDate": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "mePdfInfoListResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meFileInfo"
+          }
+        },
+        "paginationInfo": {
+          "$ref": "#/definitions/mePaginationInfoResponse"
+        }
+      }
+    },
+    "mePersonalBaseInfo": {
+      "type": "object",
+      "properties": {
+        "phone1": {
+          "type": "string"
+        },
+        "phone2": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "gender": {
+          "$ref": "#/definitions/meGender"
+        },
+        "occupation": {
+          "type": "string"
+        },
+        "citizenOf": {
+          "type": "string"
+        },
+        "address": {
+          "$ref": "#/definitions/meAddress"
+        },
+        "addressSameAsPrimary": {
+          "type": "boolean"
+        }
+      }
+    },
+    "mePublishMetaInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meClientData"
+          }
+        }
+      }
+    },
+    "meRejectionDetails": {
+      "type": "object",
+      "properties": {
+        "holderType": {
+          "$ref": "#/definitions/meHolderType"
+        },
+        "rejectionReason": {
+          "$ref": "#/definitions/meRejectionReason"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "meRejectionReason": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_REASON",
+        "REASON_NID",
+        "REASON_PASSPORT",
+        "REASON_PERSONAL",
+        "REASON_OTHERS",
+        "REASON_BANK_TAX",
+        "REASON_NOMINEE"
+      ],
+      "default": "UNKNOWN_REASON"
+    },
+    "meResidencyType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "Y",
+        "N"
+      ],
+      "default": "UNKNOWN"
+    },
+    "meSendOtpRequest": {
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "type": "string"
+        },
+        "identifierType": {
+          "$ref": "#/definitions/meIdentifierType"
+        },
+        "requestType": {
+          "$ref": "#/definitions/SendOtpRequestRequestType"
+        }
+      }
+    },
+    "meSendOtpResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/meSendOtpResponseData"
+        }
+      }
+    },
+    "meSendOtpResponseData": {
+      "type": "object",
+      "properties": {
+        "session": {
+          "type": "string"
+        }
+      }
+    },
+    "meSortingOrder": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_SortingOrder",
+        "ASC",
+        "DESC"
+      ],
+      "default": "UNKNOWN_SortingOrder"
+    },
+    "meStatementCycle": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN_STATEMENT_CYCLE",
+        "DA",
+        "EW",
+        "EM",
+        "EY",
+        "YY"
+      ],
+      "default": "UNKNOWN_STATEMENT_CYCLE",
+      "title": "others Info"
+    },
+    "meSubmitBOInfoRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "boAccNo": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "boOption": {
+          "$ref": "#/definitions/meBOOption"
+        }
+      },
+      "title": "BO Submit"
+    },
+    "meSubmitBOInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meSubmitBankAndTaxInfoRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "bankTaxInfo": {
+          "$ref": "#/definitions/meSubmitBankAndTaxInfoRequestBankTaxInfo"
+        }
+      }
+    },
+    "meSubmitBankAndTaxInfoRequestBankTaxImageInfo": {
+      "type": "object",
+      "properties": {
+        "chequeImageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tinImageIdHolder1": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tinImageIdHolder2": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meSubmitBankAndTaxInfoRequestBankTaxInfo": {
+      "type": "object",
+      "properties": {
+        "bankTaxBaseInfo": {
+          "$ref": "#/definitions/meBankTaxBaseInfo"
+        },
+        "bankTaxImageInfo": {
+          "$ref": "#/definitions/meSubmitBankAndTaxInfoRequestBankTaxImageInfo"
+        }
+      }
+    },
+    "meSubmitBankAndTaxInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meSubmitCompanyInfoRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "companyInfo": {
+          "$ref": "#/definitions/meCompanyInfo"
+        }
+      }
+    },
+    "meSubmitCompanyInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meSubmitExistingNBLSLBOInfoRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "boAccNo": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "boOption": {
+          "$ref": "#/definitions/meBOOption"
+        }
+      }
+    },
+    "meSubmitExistingNBLSLBOInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meSubmitFileInfoRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "holderType": {
+          "$ref": "#/definitions/meHolderType"
+        },
+        "fileType": {
+          "$ref": "#/definitions/meSubmitFileInfoRequestFileType"
+        },
+        "fileBase64": {
+          "type": "string"
+        },
+        "isOcrRequired": {
+          "type": "boolean"
+        },
+        "filePath": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "fileFormat": {
+          "$ref": "#/definitions/meFileFormat"
+        },
+        "fileName": {
+          "type": "string"
+        }
+      }
+    },
+    "meSubmitFileInfoRequestFileType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "NidFront",
+        "NidBack",
+        "Passport",
+        "Cheque",
+        "Signature",
+        "UserPhoto",
+        "NomineePhoto",
+        "NomineeGuardianPhoto",
+        "TIN",
+        "BoPDF"
+      ],
+      "default": "UNKNOWN"
+    },
+    "meSubmitFileInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/meSubmitFileInfoResponseFileInfo"
+        }
+      }
+    },
+    "meSubmitFileInfoResponseFileInfo": {
+      "type": "object",
+      "properties": {
+        "fileId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ocrInfo": {
+          "$ref": "#/definitions/SubmitFileInfoResponseOcrInfo"
+        }
+      }
+    },
+    "meSubmitLinkBoInfoRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "boAccNo": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meSubmitLinkBoInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meSubmitMetaInfoRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "boOption": {
+          "$ref": "#/definitions/meBOOption"
+        },
+        "boType": {
+          "$ref": "#/definitions/meBOType"
+        },
+        "residencyType": {
+          "$ref": "#/definitions/meResidencyType"
+        },
+        "broker": {
+          "type": "string"
+        }
+      }
+    },
+    "meSubmitMetaInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/meSubmitMetaInfoResponseMetaInfo"
+        }
+      }
+    },
+    "meSubmitMetaInfoResponseMetaInfo": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meSubmitNidInfoRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "holderType": {
+          "$ref": "#/definitions/meHolderType"
+        },
+        "nidInfo": {
+          "$ref": "#/definitions/meSubmitNidInfoRequestNidInfo"
+        }
+      }
+    },
+    "meSubmitNidInfoRequestNidImageInfo": {
+      "type": "object",
+      "properties": {
+        "frontImageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "backImageId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meSubmitNidInfoRequestNidInfo": {
+      "type": "object",
+      "properties": {
+        "nidBaseInfo": {
+          "$ref": "#/definitions/meNidBaseInfo"
+        },
+        "nidImageInfo": {
+          "$ref": "#/definitions/meSubmitNidInfoRequestNidImageInfo"
+        }
+      }
+    },
+    "meSubmitNidInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meSubmitNomineeAddLaterRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "holderType": {
+          "$ref": "#/definitions/meHolderType"
+        },
+        "addLater": {
+          "type": "boolean"
+        }
+      }
+    },
+    "meSubmitNomineeAddLaterResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meSubmitNomineeInfoRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "holderType": {
+          "$ref": "#/definitions/meHolderType"
+        },
+        "nomineeInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meSubmitNomineeInfoRequestNomineeInfo"
+          }
+        }
+      }
+    },
+    "meSubmitNomineeInfoRequestNomineeImageInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeImageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nomineeGuardianImageId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meSubmitNomineeInfoRequestNomineeInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeBaseInfo": {
+          "$ref": "#/definitions/meNomineeBaseInfo"
+        },
+        "nomineeImageInfo": {
+          "$ref": "#/definitions/meSubmitNomineeInfoRequestNomineeImageInfo"
+        }
+      }
+    },
+    "meSubmitNomineeInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meSubmitNomineeInfoResponseNomineeInfo"
+          }
+        }
+      }
+    },
+    "meSubmitNomineeInfoResponseNomineeImageInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeImageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nomineeGuardianImageId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meSubmitNomineeInfoResponseNomineeInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nomineeBaseInfo": {
+          "$ref": "#/definitions/meNomineeBaseInfo"
+        },
+        "nomineeImageInfo": {
+          "$ref": "#/definitions/meSubmitNomineeInfoResponseNomineeImageInfo"
+        }
+      }
+    },
+    "meSubmitOthersInfoRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "othersInfo": {
+          "$ref": "#/definitions/meOthersInfo"
+        }
+      }
+    },
+    "meSubmitOthersInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meSubmitPassportInfoRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "holderType": {
+          "$ref": "#/definitions/meHolderType"
+        },
+        "passportInfo": {
+          "$ref": "#/definitions/meSubmitPassportInfoRequestPassportInfo"
+        }
+      }
+    },
+    "meSubmitPassportInfoRequestPassportImageInfo": {
+      "type": "object",
+      "properties": {
+        "imageId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meSubmitPassportInfoRequestPassportInfo": {
+      "type": "object",
+      "properties": {
+        "passportBaseInfo": {
+          "$ref": "#/definitions/mePassportBaseInfo"
+        },
+        "passportImageInfo": {
+          "$ref": "#/definitions/meSubmitPassportInfoRequestPassportImageInfo"
+        }
+      }
+    },
+    "meSubmitPassportInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meSubmitPdfRequest": {
+      "type": "object",
+      "properties": {
+        "fileBase64": {
+          "type": "string"
+        },
+        "isOcrRequired": {
+          "type": "boolean"
+        },
+        "filePath": {
+          "type": "string"
+        },
+        "fileName": {
+          "type": "string"
+        },
+        "fileType": {
+          "$ref": "#/definitions/meFileType"
+        }
+      }
+    },
+    "meSubmitPdfResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/meFileInfo"
+        }
+      }
+    },
+    "meSubmitPersonalInfoRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "holderType": {
+          "$ref": "#/definitions/meHolderType"
+        },
+        "personalInfo": {
+          "$ref": "#/definitions/meSubmitPersonalInfoRequestPersonalInfo"
+        }
+      }
+    },
+    "meSubmitPersonalInfoRequestPersonalImageInfo": {
+      "type": "object",
+      "properties": {
+        "imageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "signatureImageId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meSubmitPersonalInfoRequestPersonalInfo": {
+      "type": "object",
+      "properties": {
+        "personalBaseInfo": {
+          "$ref": "#/definitions/mePersonalBaseInfo"
+        },
+        "personalImageInfo": {
+          "$ref": "#/definitions/meSubmitPersonalInfoRequestPersonalImageInfo"
+        }
+      }
+    },
+    "meSubmitPersonalInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meUpdateBankAndTaxInfoRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "bankTaxInfo": {
+          "$ref": "#/definitions/meUpdateBankAndTaxInfoRequestBankTaxInfo"
+        }
+      }
+    },
+    "meUpdateBankAndTaxInfoRequestBankTaxImageInfo": {
+      "type": "object",
+      "properties": {
+        "chequeImageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tinImageIdHolder1": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tinImageIdHolder2": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meUpdateBankAndTaxInfoRequestBankTaxInfo": {
+      "type": "object",
+      "properties": {
+        "bankTaxBaseInfo": {
+          "$ref": "#/definitions/meBankTaxBaseInfo"
+        },
+        "bankTaxImageInfo": {
+          "$ref": "#/definitions/meUpdateBankAndTaxInfoRequestBankTaxImageInfo"
+        }
+      }
+    },
+    "meUpdateBankAndTaxInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meUpdateBoStatusResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meUpdateBoUpdateNomineeInfoRequestNomineeImageInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeImageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nomineeGuardianImageId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meUpdateBoUpdateNomineeInfoRequestNomineeInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nomineeBaseInfo": {
+          "$ref": "#/definitions/meNomineeBaseInfo"
+        },
+        "nomineeImageInfo": {
+          "$ref": "#/definitions/meUpdateBoUpdateNomineeInfoRequestNomineeImageInfo"
+        }
+      }
+    },
+    "meUpdateBoUpdateNomineeInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meUpdateBoUpdateNomineeInfoResponseNomineeInfo"
+          }
+        }
+      }
+    },
+    "meUpdateBoUpdateNomineeInfoResponseNomineeImageInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeImageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nomineeGuardianImageId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meUpdateBoUpdateNomineeInfoResponseNomineeInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nomineeBaseInfo": {
+          "$ref": "#/definitions/meNomineeBaseInfo"
+        },
+        "nomineeImageInfo": {
+          "$ref": "#/definitions/meUpdateBoUpdateNomineeInfoResponseNomineeImageInfo"
+        }
+      }
+    },
+    "meUpdateCompanyInfoRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "companyInfo": {
+          "$ref": "#/definitions/meCompanyInfo"
+        }
+      }
+    },
+    "meUpdateCompanyInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meUpdateExistingNBLSLAccMetaInfoRequest": {
+      "type": "object",
+      "properties": {
+        "phoneNumber": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "isVerify": {
+          "type": "boolean"
+        }
+      }
+    },
+    "meUpdateExistingNBLSLAccMetaInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meUpdateExistingNBLSLAccountRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "boAccNo": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meUpdateExistingNBLSLAccountResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "data": {
+          "$ref": "#/definitions/meUpdateExistingNBLSLAccountResponseExistingNBLSLAcc"
+        }
+      }
+    },
+    "meUpdateExistingNBLSLAccountResponseExistingNBLSLAcc": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meUpdateLinkBoInfoRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "linkBoInfo": {
+          "$ref": "#/definitions/meLinkBoInfo"
+        }
+      }
+    },
+    "meUpdateLinkBoInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meUpdateMetaInfoRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "boOption": {
+          "$ref": "#/definitions/meBOOption"
+        },
+        "boType": {
+          "$ref": "#/definitions/meBOType"
+        },
+        "residencyType": {
+          "$ref": "#/definitions/meResidencyType"
+        },
+        "broker": {
+          "type": "string"
+        }
+      }
+    },
+    "meUpdateMetaInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/meUpdateMetaInfoResponseMetaInfo"
+        }
+      }
+    },
+    "meUpdateMetaInfoResponseMetaInfo": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meUpdateNidInfoRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "holderType": {
+          "$ref": "#/definitions/meHolderType"
+        },
+        "nidInfo": {
+          "$ref": "#/definitions/meUpdateNidInfoRequestNidInfo"
+        }
+      }
+    },
+    "meUpdateNidInfoRequestNidImageInfo": {
+      "type": "object",
+      "properties": {
+        "frontImageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "backImageId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meUpdateNidInfoRequestNidInfo": {
+      "type": "object",
+      "properties": {
+        "nidBaseInfo": {
+          "$ref": "#/definitions/meNidBaseInfo"
+        },
+        "nidImageInfo": {
+          "$ref": "#/definitions/meUpdateNidInfoRequestNidImageInfo"
+        }
+      }
+    },
+    "meUpdateNidInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meUpdateNomineeInfoRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "holderType": {
+          "$ref": "#/definitions/meHolderType"
+        },
+        "nomineeInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meUpdateNomineeInfoRequestNomineeInfo"
+          }
+        }
+      }
+    },
+    "meUpdateNomineeInfoRequestNomineeImageInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeImageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nomineeGuardianImageId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meUpdateNomineeInfoRequestNomineeInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nomineeBaseInfo": {
+          "$ref": "#/definitions/meNomineeBaseInfo"
+        },
+        "nomineeImageInfo": {
+          "$ref": "#/definitions/meUpdateNomineeInfoRequestNomineeImageInfo"
+        }
+      }
+    },
+    "meUpdateNomineeInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meUpdateNomineeInfoResponseNomineeInfo"
+          }
+        }
+      }
+    },
+    "meUpdateNomineeInfoResponseNomineeImageInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeImageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nomineeGuardianImageId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meUpdateNomineeInfoResponseNomineeInfo": {
+      "type": "object",
+      "properties": {
+        "nomineeId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nomineeBaseInfo": {
+          "$ref": "#/definitions/meNomineeBaseInfo"
+        },
+        "nomineeImageInfo": {
+          "$ref": "#/definitions/meUpdateNomineeInfoResponseNomineeImageInfo"
+        }
+      }
+    },
+    "meUpdateOthersInfoRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "othersInfo": {
+          "$ref": "#/definitions/meOthersInfo"
+        }
+      }
+    },
+    "meUpdateOthersInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meUpdatePassportInfoRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "holderType": {
+          "$ref": "#/definitions/meHolderType"
+        },
+        "passportInfo": {
+          "$ref": "#/definitions/meUpdatePassportInfoRequestPassportInfo"
+        }
+      }
+    },
+    "meUpdatePassportInfoRequestPassportImageInfo": {
+      "type": "object",
+      "properties": {
+        "imageId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meUpdatePassportInfoRequestPassportInfo": {
+      "type": "object",
+      "properties": {
+        "passportBaseInfo": {
+          "$ref": "#/definitions/mePassportBaseInfo"
+        },
+        "passportImageInfo": {
+          "$ref": "#/definitions/meUpdatePassportInfoRequestPassportImageInfo"
+        }
+      }
+    },
+    "meUpdatePassportInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meUpdatePersonalInfoRequest": {
+      "type": "object",
+      "properties": {
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "holderType": {
+          "$ref": "#/definitions/meHolderType"
+        },
+        "personalInfo": {
+          "$ref": "#/definitions/meUpdatePersonalInfoRequestPersonalInfo"
+        }
+      }
+    },
+    "meUpdatePersonalInfoRequestPersonalImageInfo": {
+      "type": "object",
+      "properties": {
+        "imageId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "signatureImageId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "meUpdatePersonalInfoRequestPersonalInfo": {
+      "type": "object",
+      "properties": {
+        "personalBaseInfo": {
+          "$ref": "#/definitions/mePersonalBaseInfo"
+        },
+        "personalImageInfo": {
+          "$ref": "#/definitions/meUpdatePersonalInfoRequestPersonalImageInfo"
+        }
+      }
+    },
+    "meUpdatePersonalInfoResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "meUserInfo": {
+      "type": "object",
+      "properties": {
+        "phone": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "address": {
+          "$ref": "#/definitions/meAddress"
+        },
+        "bankInfo": {
+          "$ref": "#/definitions/meBankInfo"
+        },
+        "chequeImageUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

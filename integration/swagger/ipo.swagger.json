@@ -1,0 +1,1152 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "ipo.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/bazar/add-ipo": {
+      "post": {
+        "operationId": "IPOSvc_AddIPO",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ipoAddIPOResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ipoAddIPORequest"
+            }
+          }
+        ],
+        "tags": [
+          "IPOSvc"
+        ]
+      }
+    },
+    "/api/v1/bazar/add-purchase-ipo": {
+      "post": {
+        "operationId": "IPOSvc_AddPurchaseIPO",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ipoAddPurchaseIPOResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ipoAddPurchaseIPORequest"
+            }
+          }
+        ],
+        "tags": [
+          "IPOSvc"
+        ]
+      }
+    },
+    "/api/v1/bazar/ipo-details": {
+      "get": {
+        "operationId": "IPOSvc_IPODetails",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ipoIPODetailsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "IPOSvc"
+        ]
+      }
+    },
+    "/api/v1/bazar/ipo-list": {
+      "get": {
+        "operationId": "IPOSvc_IPOList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ipoIPOListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "IPO_ST_UNKNOWN",
+              "IPO_ST_ACTIVE",
+              "IPO_ST_ARCHIVE"
+            ],
+            "default": "IPO_ST_UNKNOWN"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "clientCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "IPOSvc"
+        ]
+      }
+    },
+    "/api/v1/bazar/purchase-ipo-details": {
+      "get": {
+        "operationId": "IPOSvc_PurchaseIPODetails",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ipoPurchaseIPODetailsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "IPOSvc"
+        ]
+      }
+    },
+    "/api/v1/bazar/purchase-ipo-list": {
+      "get": {
+        "operationId": "IPOSvc_PurchaseIPOList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ipoPurchaseIPOListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "ipoId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "IPO_P_UNKNOWN",
+              "IPO_P_PENDING",
+              "IPO_P_PROCESSING",
+              "IPO_P_COMPLETED",
+              "IPO_P_REJECTED"
+            ],
+            "default": "IPO_P_UNKNOWN"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "clientCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "IPOSvc"
+        ]
+      }
+    },
+    "/api/v1/bazar/submit-file": {
+      "post": {
+        "operationId": "IPOSvc_SubmitFile",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ipoSubmitFileResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ipoSubmitFileRequest"
+            }
+          }
+        ],
+        "tags": [
+          "IPOSvc"
+        ]
+      }
+    },
+    "/api/v1/bazar/update-ipo": {
+      "put": {
+        "operationId": "IPOSvc_UpdateIPO",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ipoUpdateIPOResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ipoUpdateIPORequest"
+            }
+          }
+        ],
+        "tags": [
+          "IPOSvc"
+        ]
+      }
+    },
+    "/api/v1/bazar/update-purchase-ipo": {
+      "put": {
+        "operationId": "IPOSvc_UpdatePurchaseIPO",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ipoUpdatePurchaseIPOResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ipoUpdatePurchaseIPORequest"
+            }
+          }
+        ],
+        "tags": [
+          "IPOSvc"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "IPOPurchaseInfo": {
+      "type": "object",
+      "properties": {
+        "quantity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "purchaseStatus": {
+          "$ref": "#/definitions/ipoIPOPurchaseStatus"
+        },
+        "purchasedIpoId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "IPOStockDetails": {
+      "type": "object",
+      "properties": {
+        "declarationDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tradingDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "allotmentDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "authorizedCapital": {
+          "type": "number",
+          "format": "double"
+        },
+        "paidUpCapital": {
+          "$ref": "#/definitions/StockDetailsPaidUpCapital"
+        },
+        "offerPriceIpoSize": {
+          "type": "number",
+          "format": "double"
+        },
+        "ipoChargeAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "cutOffPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "offerPricePerShare": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "IPOSubscriptionAmount": {
+      "type": "object",
+      "properties": {
+        "minimum": {
+          "type": "number",
+          "format": "double"
+        },
+        "maximum": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "IPOSubscriptionDate": {
+      "type": "object",
+      "properties": {
+        "openingDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "closingDate": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "StockDetailsPaidUpCapital": {
+      "type": "object",
+      "properties": {
+        "preIpo": {
+          "type": "number",
+          "format": "double"
+        },
+        "postIpo": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "ipoAddIPORequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "ipoSize": {
+          "type": "number",
+          "format": "double"
+        },
+        "offerPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "minSubscriptionAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "maxSubscriptionAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "openingSubscriptionDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "closingSubscriptionDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "cutOffDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ipoEligibility": {
+          "type": "number",
+          "format": "double"
+        },
+        "declarationDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tradingDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "allotmentDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "authorizedCapital": {
+          "type": "number",
+          "format": "double"
+        },
+        "preIpoPaidUpCapital": {
+          "type": "number",
+          "format": "double"
+        },
+        "postIpoPaidUpCapital": {
+          "type": "number",
+          "format": "double"
+        },
+        "offerPriceIpoSize": {
+          "type": "number",
+          "format": "double"
+        },
+        "ipoChargeAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "cutOffPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "offerPricePerShare": {
+          "type": "number",
+          "format": "double"
+        },
+        "addedBy": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ipoType": {
+          "$ref": "#/definitions/ipoIPOType"
+        },
+        "logoId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "category": {
+          "type": "string"
+        },
+        "securityTradingCode": {
+          "type": "string"
+        }
+      }
+    },
+    "ipoAddIPOResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "ipoAddPurchaseIPORequest": {
+      "type": "object",
+      "properties": {
+        "ipoId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "quantity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/ipoIPOPurchaseStatus"
+        }
+      }
+    },
+    "ipoAddPurchaseIPOResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "data": {
+          "$ref": "#/definitions/ipoAddPurchaseIPOResponseData"
+        }
+      }
+    },
+    "ipoAddPurchaseIPOResponseData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "ipoFileType": {
+      "type": "string",
+      "enum": [
+        "FT_UNKNOWN",
+        "FT_LOGO"
+      ],
+      "default": "FT_UNKNOWN"
+    },
+    "ipoIPO": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "ipoSize": {
+          "type": "number",
+          "format": "double"
+        },
+        "offerPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "subscriptionAmount": {
+          "$ref": "#/definitions/IPOSubscriptionAmount"
+        },
+        "subscriptionDate": {
+          "$ref": "#/definitions/IPOSubscriptionDate"
+        },
+        "cutOffDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ipoEligibility": {
+          "type": "number",
+          "format": "double"
+        },
+        "stockDetails": {
+          "$ref": "#/definitions/IPOStockDetails"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/ipoIPOStatus"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "addedBy": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ipoType": {
+          "$ref": "#/definitions/ipoIPOType"
+        },
+        "logoPath": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string",
+          "format": "int64"
+        },
+        "category": {
+          "type": "string"
+        },
+        "securityTradingCode": {
+          "type": "string"
+        },
+        "purchaseInfo": {
+          "$ref": "#/definitions/IPOPurchaseInfo"
+        },
+        "logoId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "ipoIPODetailsResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ipoIPO"
+        },
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "ipoIPOListResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ipoIPO"
+          }
+        },
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "paginationInfoResponse": {
+          "$ref": "#/definitions/ipoPaginationInfoResponse"
+        }
+      }
+    },
+    "ipoIPOPurchaseStatus": {
+      "type": "string",
+      "enum": [
+        "IPO_P_UNKNOWN",
+        "IPO_P_PENDING",
+        "IPO_P_PROCESSING",
+        "IPO_P_COMPLETED",
+        "IPO_P_REJECTED"
+      ],
+      "default": "IPO_P_UNKNOWN"
+    },
+    "ipoIPOStatus": {
+      "type": "string",
+      "enum": [
+        "IPO_ST_UNKNOWN",
+        "IPO_ST_ACTIVE",
+        "IPO_ST_ARCHIVE"
+      ],
+      "default": "IPO_ST_UNKNOWN"
+    },
+    "ipoIPOType": {
+      "type": "string",
+      "enum": [
+        "IT_UNKNOWN",
+        "IT_BOOK_BUILDING",
+        "IT_FIXED_PRICE"
+      ],
+      "default": "IT_UNKNOWN"
+    },
+    "ipoPaginationInfoResponse": {
+      "type": "object",
+      "properties": {
+        "selfPageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "firstPageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nextPageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "previousPageToken": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalPageCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalRecordCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "ipoPurchaseIPO": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ipoId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "quantity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/ipoIPOPurchaseStatus"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "ipoPurchaseIPODetailsResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ipoPurchaseIPO"
+        },
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "ipoPurchaseIPOListResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ipoPurchaseIPO"
+          }
+        },
+        "code": {
+          "type": "string",
+          "format": "int64"
+        },
+        "paginationInfoResponse": {
+          "$ref": "#/definitions/ipoPaginationInfoResponse"
+        }
+      }
+    },
+    "ipoSubmitFileRequest": {
+      "type": "object",
+      "properties": {
+        "fileId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "fileType": {
+          "$ref": "#/definitions/ipoFileType"
+        },
+        "fileBase64": {
+          "type": "string"
+        },
+        "filePath": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "fileName": {
+          "type": "string"
+        }
+      }
+    },
+    "ipoSubmitFileResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fileId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "filePath": {
+          "type": "string"
+        }
+      }
+    },
+    "ipoUpdateIPORequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "ipoSize": {
+          "type": "number",
+          "format": "double"
+        },
+        "offerPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "minSubscriptionAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "maxSubscriptionAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "openingSubscriptionDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "closingSubscriptionDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "cutOffDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ipoEligibility": {
+          "type": "number",
+          "format": "double"
+        },
+        "declarationDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tradingDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "allotmentDate": {
+          "type": "string",
+          "format": "int64"
+        },
+        "authorizedCapital": {
+          "type": "number",
+          "format": "double"
+        },
+        "preIpoPaidUpCapital": {
+          "type": "number",
+          "format": "double"
+        },
+        "postIpoPaidUpCapital": {
+          "type": "number",
+          "format": "double"
+        },
+        "offerPriceIpoSize": {
+          "type": "number",
+          "format": "double"
+        },
+        "ipoChargeAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "cutOffPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "offerPricePerShare": {
+          "type": "number",
+          "format": "double"
+        },
+        "addedBy": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ipoType": {
+          "$ref": "#/definitions/ipoIPOType"
+        },
+        "logoId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/ipoIPOStatus"
+        },
+        "updatedBy": {
+          "type": "string",
+          "format": "int64"
+        },
+        "category": {
+          "type": "string"
+        },
+        "securityTradingCode": {
+          "type": "string"
+        }
+      }
+    },
+    "ipoUpdateIPOResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "ipoUpdatePurchaseIPORequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ipoId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "quantity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clientCode": {
+          "type": "string"
+        },
+        "metaId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/ipoIPOPurchaseStatus"
+        }
+      }
+    },
+    "ipoUpdatePurchaseIPOResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}
