@@ -794,7 +794,7 @@ GOGO_PKG=github.com/gogo/protobuf
 GOGO_PATH=\$(go list -m -f "{{.Dir}}" \${GOGO_PKG}@\${GOGO_VER})
 
 TECHETRON_ROOT=\$(go list -m -f "{{.Dir}}")
-BACKEND_ROOT=\$(dirname "\$TECHETRON_ROOT")"/backend"
+BACKEND_ROOT=\$(dirname "\$TECHETRON_ROOT")"/go-backend"
 
 APIERROR=\${BACKEND_ROOT}/pkg/apierror
 
@@ -1035,7 +1035,7 @@ Build:
     - cd \$SERVICE
     - export IMAGE_TAG=\$(git rev-parse --short HEAD)
     - echo "IMAGE_TAG - \$IMAGE_TAG"
-    - cd ../backend
+    - cd ../go-backend
     - source ~/.profile
     - go get github.com/gogo/googleapis@v1.4.1
     - go get github.com/grpc-ecosystem/grpc-gateway@latest
