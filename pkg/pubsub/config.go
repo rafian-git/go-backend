@@ -1,8 +1,8 @@
 package pubsub
 
 import (
+	"github.com/rafian-git/go-backend/pkg/log"
 	"github.com/segmentio/kafka-go"
-	"gitlab.techetronventures.com/core/backend/pkg/log"
 )
 
 type Topic struct {

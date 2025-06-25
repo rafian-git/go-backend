@@ -3,8 +3,8 @@ package pubsub
 import (
 	"context"
 	"fmt"
+	"github.com/rafian-git/go-backend/utility"
 	"github.com/segmentio/kafka-go"
-	"gitlab.techetronventures.com/core/backend/utility"
 	"testing"
 )
 

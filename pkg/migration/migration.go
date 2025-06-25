@@ -10,7 +10,7 @@ import (
 	"github.com/golang-migrate/migrate/v4/database/postgres"
 	"github.com/golang-migrate/migrate/v4/source"
 	"github.com/golang-migrate/migrate/v4/source/httpfs"
-	"gitlab.techetronventures.com/core/backend/pkg/sqlxdb"
+	"github.com/rafian-git/go-backend/pkg/sqlxdb"
 )
 
 type Direction string

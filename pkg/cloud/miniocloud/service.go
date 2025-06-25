@@ -8,7 +8,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/minio/minio-go/v7"
-	"gitlab.techetronventures.com/core/backend/pkg/apierror"
+	"github.com/rafian-git/go-backend/pkg/apierror"
 	"io"
 	"strings"
 	"time"

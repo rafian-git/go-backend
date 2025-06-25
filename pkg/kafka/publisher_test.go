@@ -2,8 +2,8 @@ package kafka
 
 import (
 	"fmt"
+	"github.com/rafian-git/go-backend/pkg/log"
 	km "github.com/segmentio/kafka-go"
-	"gitlab.techetronventures.com/core/backend/pkg/log"
 	"testing"
 )
 

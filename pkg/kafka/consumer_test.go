@@ -3,7 +3,7 @@ package kafka
 import (
 	"context"
 	"fmt"
-	"gitlab.techetronventures.com/core/backend/pkg/log"
+	"github.com/rafian-git/go-backend/pkg/log"
 	"testing"
 )
 

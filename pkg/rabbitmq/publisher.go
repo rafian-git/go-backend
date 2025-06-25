@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	amqp "github.com/rabbitmq/amqp091-go"
-	"gitlab.techetronventures.com/core/backend/utility"
+	"github.com/rafian-git/go-backend/utility"
 	"go.uber.org/zap"
 	"sync"
 	"time"

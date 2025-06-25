@@ -3,8 +3,8 @@ package kafka
 import (
 	"context"
 	"fmt"
+	"github.com/rafian-git/go-backend/pkg/log"
 	"github.com/segmentio/kafka-go"
-	"gitlab.techetronventures.com/core/backend/pkg/log"
 	"go.uber.org/zap"
 	"sync"
 )

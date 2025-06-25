@@ -1,4 +1,4 @@
-module gitlab.techetronventures.com/core/backend
+module github.com/rafian-git/go-backend
 
 go 1.22.7
 

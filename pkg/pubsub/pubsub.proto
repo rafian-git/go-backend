@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package pubsub;
 
-option go_package = "gitlab.techetronventures.com/core/backend/pkg/pubsub;pubsub";
+option go_package = "github.com/rafian-git/go-backend/pkg/pubsub;pubsub";
 
 message ExampleMessage {
   string topic = 1;

@@ -2,8 +2,8 @@ package rabbitmq
 
 import (
 	"context"
-	"gitlab.techetronventures.com/core/backend/pkg/log"
-	"gitlab.techetronventures.com/core/backend/utility"
+	"github.com/rafian-git/go-backend/pkg/log"
+	"github.com/rafian-git/go-backend/utility"
 	"testing"
 )
 

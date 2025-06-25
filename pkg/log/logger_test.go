@@ -2,7 +2,7 @@ package log
 
 import (
 	"context"
-	"gitlab.techetronventures.com/core/backend/pkg/appctx"
+	"github.com/rafian-git/go-backend/pkg/appctx"
 	"go.uber.org/zap"
 	"testing"
 )

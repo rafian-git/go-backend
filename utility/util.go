@@ -20,9 +20,9 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"gitlab.techetronventures.com/core/backend/pkg/apierror"
+	"github.com/rafian-git/go-backend/pkg/apierror"
 
-	"gitlab.techetronventures.com/core/backend/pkg/log"
+	"github.com/rafian-git/go-backend/pkg/log"
 
 	"golang.org/x/crypto/bcrypt"
 )

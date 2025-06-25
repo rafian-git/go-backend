@@ -2,7 +2,7 @@ package server
 
 import (
 	"context"
-	"gitlab.techetronventures.com/core/backend/pkg/trace_id"
+	"github.com/rafian-git/go-backend/pkg/trace_id"
 	"net"
 	"runtime/debug"
 	"sync"
@@ -13,9 +13,9 @@ import (
 	grpcmid "github.com/grpc-ecosystem/go-grpc-middleware"
 	grpczap "github.com/grpc-ecosystem/go-grpc-middleware/logging/zap"
 	grpcrec "github.com/grpc-ecosystem/go-grpc-middleware/recovery"
-	ae "gitlab.techetronventures.com/core/backend/pkg/apierror"
-	"gitlab.techetronventures.com/core/backend/pkg/log"
-	"gitlab.techetronventures.com/core/backend/pkg/user_id"
+	ae "github.com/rafian-git/go-backend/pkg/apierror"
+	"github.com/rafian-git/go-backend/pkg/log"
+	"github.com/rafian-git/go-backend/pkg/user_id"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 )

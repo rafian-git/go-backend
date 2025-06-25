@@ -2,7 +2,7 @@ package trace_id
 
 import (
 	"context"
-	"gitlab.techetronventures.com/core/backend/pkg/log"
+	"github.com/rafian-git/go-backend/pkg/log"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
 )

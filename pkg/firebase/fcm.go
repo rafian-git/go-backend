@@ -4,7 +4,7 @@ import (
 	"context"
 	firebase "firebase.google.com/go/v4"
 	"firebase.google.com/go/v4/messaging"
-	"gitlab.techetronventures.com/core/backend/pkg/log"
+	"github.com/rafian-git/go-backend/pkg/log"
 	"google.golang.org/api/option"
 )
 

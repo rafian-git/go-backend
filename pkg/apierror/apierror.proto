@@ -2,7 +2,7 @@ syntax="proto3";
 
 package apierror;
 
-option go_package = "gitlab.techetronventures.com/core/backend/pkg/apierror;apierror";
+option go_package = "github.com/rafian-git/go-backend/pkg/apierror;apierror";
 
 import "gogoproto/gogo.proto";
 

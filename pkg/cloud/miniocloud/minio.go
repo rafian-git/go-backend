@@ -4,7 +4,7 @@ import (
 	"context"
 	"github.com/minio/minio-go/v7"
 	"github.com/minio/minio-go/v7/pkg/credentials"
-	"gitlab.techetronventures.com/core/backend/pkg/log"
+	"github.com/rafian-git/go-backend/pkg/log"
 	"time"
 )
 

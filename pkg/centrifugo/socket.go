@@ -3,7 +3,7 @@ package centrifugo
 import (
 	"context"
 	"github.com/centrifugal/gocent/v3"
-	"gitlab.techetronventures.com/core/backend/pkg/log"
+	"github.com/rafian-git/go-backend/pkg/log"
 )
 
 type Socket interface {

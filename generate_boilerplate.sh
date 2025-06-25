@@ -1131,7 +1131,7 @@ append_go_mod(){
   # Check if go.mod exists
   if [ -f "go.mod" ]; then
     # Append the replace directive to the go.mod file
-    echo "replace $REPO_NAME/backend => ../backend" >> go.mod
+    echo "replace $REPO_NAME/go-backend => ../go-backend" >> go.mod
     echo "replace directive added to go.mod"
   else
     echo "go.mod file not found!"

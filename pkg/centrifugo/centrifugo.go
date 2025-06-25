@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"gitlab.techetronventures.com/core/backend/pkg/apierror"
+	"github.com/rafian-git/go-backend/pkg/apierror"
 	"go.uber.org/zap"
 )
 
